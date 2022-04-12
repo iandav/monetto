@@ -1,9 +1,14 @@
 const express = require("express")
+const {PrismaClient} = require("@prisma/client")
+
+const prisma = new PrismaClient();
 const app = express()
 const port = 3000
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+
+app.get("/", async (req, res) => {
+    const users = await prisma.user.findMany()
+    res.send(users);
 })
 
 app.listen(port, () => {
