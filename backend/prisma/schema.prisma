@@ -1,0 +1,20 @@
+datasource db {
+    provider = "mysql"
+    url = env("DATABASE_URL")
+}
+
+model User {
+    id BigInt @default(autoincrement()) @id
+    email String
+    password String
+    financialCapital Decimal
+
+    accounts Account[]
+}
+
+model Account {
+    account_id BigInt @default(autoincrement()) @id
+
+    owner User? @relation(fields: [userId], references: [id])
+    userId BigInt?
+}
