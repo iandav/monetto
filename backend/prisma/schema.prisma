@@ -9,9 +9,11 @@ generator client {
 
 model User {
     id Int @default(autoincrement()) @id
+    nick String
     email String
     password String
-    financialCapital Decimal
+    financialCapital Decimal?
+    role Role @default(USER)
 
     accounts Account[]
 }
@@ -21,4 +23,9 @@ model Account {
 
     owner User? @relation(fields: [userId], references: [id])
     userId Int?
+}
+
+enum Role {
+    USER
+    ADMIN
 }
