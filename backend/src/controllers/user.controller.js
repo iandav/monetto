@@ -5,7 +5,7 @@ exports.updateEmail = async (req, res) => {
     try {
         const emailExists = await db.user.findFirst({
             where: {
-                email: req.body.email
+                email: req.body.newEmail
             }
         })
 
@@ -26,7 +26,7 @@ exports.updateEmail = async (req, res) => {
                 id: user.id
             },
             data: {
-                email: req.body.email
+                email: req.body.newEmail
             },
         })
         res.status(202).send({message: "User updated successfully"})
