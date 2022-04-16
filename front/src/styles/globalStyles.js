@@ -1,10 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: "Poppins";
-        src: url(../fonts/Poppins-Regular.ttf);
-    }
 
     body {
         margin: 0;
@@ -15,5 +11,4 @@ const GlobalStyle = createGlobalStyle`
     }
 
 `
-
 export default GlobalStyle
