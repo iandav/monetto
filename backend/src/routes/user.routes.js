@@ -1,4 +1,3 @@
-// const {verifySignUp} = require("../middlewares")
 const controller = require("../controllers/user.controller")
 const authJwt = require("../middlewares")
 
