@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./styles/globalStyles"
+import Navbar from "./components/Navbar"
+import MonettoLogo from "./components/MonettoLogo"
+import LoginButton from "./components/LoginButton"
+import SignupButton from "./components/SignupButton"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <GlobalStyle />
+    <Navbar>
+      <MonettoLogo>Monetto</MonettoLogo>
+      <div>
+      <SignupButton>Sign up</SignupButton>
+      <LoginButton>Log in</LoginButton>
+      </div>
+    </Navbar>
+    </>
   );
 }
 
