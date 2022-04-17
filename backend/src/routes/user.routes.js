@@ -19,4 +19,10 @@ module.exports = function(app) {
         [authJwt.authJwt.verifyToken],
         controller.updatePassword
         )
+
+    app.post(
+        "/api/user/delete/account",
+        [authJwt.authJwt.verifyToken],
+        controller.deleteAccount
+        )
 }

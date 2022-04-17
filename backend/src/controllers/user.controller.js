@@ -99,3 +99,29 @@ exports.updatePassword = async (req, res) => {
         res.status(500).send({message: "Error while updating the user"})
     }
 }
+
+exports.deleteAccount = async (req, res) => {
+    try {
+        const user = await db.user.findFirst({
+            where: {
+                nick: req.body.nick
+            }
+        })
+
+        const samePassword = await bcrypt.compare(req.body.password, user.password)
+
+        if(samePassword) {
+            const deletedUser = await db.user.delete({
+                where: {
+                  id: user.id
+                }
+            })
+            req.session = null;
+            res.status(202).send({message: "User deleted successfully"})
+        } else {
+            res.status(500).send({message: "Wrong Password"})
+        }
+    } catch(error) {
+        res.status(500).send({message: "Error while deleting the user"})
+    }
+}
