@@ -6,7 +6,13 @@ const {db} = require("./utils/database")
 // Server configurations
 const app = express()
 const port = 3000
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["http://localhost:4000"], // Set enabled frontend origins here
+        credentials: true,
+        exposedHeaders: ["set-cookie"]
+    }
+));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieSession({

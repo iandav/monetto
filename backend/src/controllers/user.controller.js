@@ -1,6 +1,31 @@
 const {db} = require("../utils/database")
 const bcrypt = require("bcryptjs")
 
+exports.userProfile = async (req, res) => {
+    try {
+        const user = await db.user.findFirst({
+            where: {
+                nick: req.params.nick
+            },
+            select: {
+                nick: true,
+                email: true,
+                financialCapital: true,
+                role: true
+            }
+        })
+
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
+
+        return res.status(200).send({data: user});
+
+    } catch (error) {
+        return res.status(500).send({message: "Error while trying to get user profile"});
+    }
+}
+
 exports.updateEmail = async (req, res) => {
     try {
         const emailExists = await db.user.findFirst({

@@ -6,23 +6,29 @@ module.exports = function(app) {
         "/api/user/update/email", 
         [authJwt.verifyToken],
         controller.updateEmail
-        )
+    )
 
     app.post(
         "/api/user/update/username",
         [authJwt.verifyToken],
         controller.updateUsername
-        )
+    )
         
     app.post(
         "/api/user/update/password",
         [authJwt.verifyToken],
         controller.updatePassword
-        )
+    )
 
     app.post(
         "/api/user/delete/account",
         [authJwt.verifyToken],
         controller.deleteAccount
-        )
+    )
+
+    app.get(
+        "/api/user/profile/:nick",
+        [authJwt.verifyToken],
+        controller.userProfile
+    )
 }
