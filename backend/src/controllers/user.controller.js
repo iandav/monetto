@@ -20,6 +20,10 @@ exports.updateEmail = async (req, res) => {
                 nick: req.body.nick
             }
         })
+  
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
 
         const updatedUser = await db.user.update({
             where: {
@@ -54,6 +58,10 @@ exports.updateUsername = async (req, res) => {
                 nick: req.body.nick
             }
         })
+     
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
 
         const updatedUser = await db.user.update({
             where: {
@@ -77,6 +85,10 @@ exports.updatePassword = async (req, res) => {
                 nick: req.body.nick
             }
         })
+
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
 
         const samePassword = await bcrypt.compare(req.body.newPassword, user.password)
 
@@ -107,6 +119,10 @@ exports.deleteAccount = async (req, res) => {
                 nick: req.body.nick
             }
         })
+
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
 
         const samePassword = await bcrypt.compare(req.body.password, user.password)
 
