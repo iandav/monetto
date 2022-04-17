@@ -11,9 +11,10 @@ function App() {
     <Navbar>
       <MonettoLogo>Monetto</MonettoLogo>
       <div>
-      <SignupButton>Sign up</SignupButton>
-      <LoginButton>Log in</LoginButton>
+      <SignupButton href="#">Sign up</SignupButton>
+      <LoginButton href="#">Log in</LoginButton>
       </div>
+      
     </Navbar>
     </>
   );
