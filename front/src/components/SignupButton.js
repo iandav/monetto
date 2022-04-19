@@ -1,9 +1,22 @@
-import styled from "styled-components"
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const SignupButton = styled.a`
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-`
+const SignupButton = () => {
+  return (
+    <>
+        <Link to="/register" style={styles.button}>
+            Sign up
+        </Link>
+    </>
+  )
+}
+
+const styles = {
+    button: {
+        fontSize: '18px',
+        color: 'white',
+        textDecoration: 'none'
+    }
+}
 
 export default SignupButton
