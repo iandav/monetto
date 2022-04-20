@@ -1,11 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { LoginPage } from './routes/login';
-import { RegisterPage } from './routes/register';
-import { DashBoardPage } from './routes/dashboard';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { LoginPage, RegisterPage, DashBoardPage } from './routes'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
