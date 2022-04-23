@@ -7,15 +7,15 @@ const RegisterPage = () => {
       <h1>Register</h1>
       <form>
         <div className="user-box">
-          <input type="text" name="" required="" placeholder='Email'></input>
+          <input type="email" name="" required="" placeholder='Email'></input>
+        </div>
+        <div className="user-box">
+          <input type="text" name="" required="" placeholder='Username'></input>
         </div>
         <div className="user-box">
           <input type="password" name="" required="" placeholder='Password'></input>
         </div>
-        <div className="user-box">
-          <input type="password" name="" required="" placeholder='Password'></input>
-        </div>
-        <button id="btn">
+        <button>
             Sign up
         </button>
       </form>
