@@ -3,14 +3,20 @@ import LoginButton from './LoginButton.js'
 import MonettoLogo from './MonettoLogo.js'
 import SignupButton from './SignupButton.js'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav style={styles.nav}>
         <MonettoLogo />
-        <div style={styles.wrapper}>
-          <SignupButton />
-          <LoginButton />
-        </div>
+        {
+          props.showButtons ? 
+            <div style={styles.wrapper}>
+              <SignupButton />
+              <LoginButton />
+            </div>
+            :
+            null
+        }
+
     </nav>
   )
 }

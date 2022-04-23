@@ -5,7 +5,7 @@ import {Navbar} from './components'
 const App = () => {
   return (
       <>
-        <Navbar />
+        <Navbar showButtons={true}/>
       </>
   )
 }
