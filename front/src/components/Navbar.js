@@ -7,8 +7,10 @@ const Navbar = () => {
   return (
     <nav style={styles.nav}>
         <MonettoLogo />
-        <SignupButton />
-        <LoginButton />
+        <div style={styles.wrapper}>
+          <SignupButton />
+          <LoginButton />
+        </div>
     </nav>
   )
 }
@@ -23,6 +25,10 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    wrapper: {
+      display: 'flex',
+      alignItems: 'center'
     }
 }
 
