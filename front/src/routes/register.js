@@ -6,7 +6,7 @@ const RegisterPage = () => {
   return (
     <>
       <Navbar />
-      <div className="login-box">
+      <div className="register-box">
         <h1>Register</h1>
         <form>
           <div className="user-box">

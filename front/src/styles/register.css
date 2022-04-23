@@ -1,4 +1,4 @@
-.login-box {
+.register-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -11,14 +11,14 @@
     border-radius: 10px;
 }
 
-.login-box h1 {
+.register-box h1 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
 }
 
-.login-box .user-box input {
+.register-box .user-box input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
