@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { auth, AuthContext } from "../../api/auth"
+import { auth } from "../../api/auth"
+import { AuthContext } from "../context/authContext"
 
 
 function AuthProvider({children}) {

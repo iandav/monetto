@@ -1,8 +1,5 @@
-import { createContext } from "react"
 import { useLocation, Navigate } from "react-router-dom"
 import { useAuth } from "../utils/hooks/useAuth"
-
-const AuthContext = createContext(null)
 
 const auth = {
     isAuthenticated: false,
@@ -30,6 +27,5 @@ function RequireAuth({children}) {
 
 export {
     auth,
-    RequireAuth,
-    AuthContext
+    RequireAuth
 }
