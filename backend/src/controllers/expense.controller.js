@@ -72,3 +72,42 @@ exports.getAllExpenses = async (req, res) => {
         return res.status(500).send({message: "Error while trying to get all expenses"});
     }
 }
+
+exports.getAllExpensesForUser = async (req, res) => {
+    try {
+
+        const user = await db.user.findFirst({
+            where: {
+                nick: req.params.nick
+            },
+            include: {
+                accounts: true
+            }
+        })
+
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
+
+
+        let allExpenses = [];
+
+        for (let account in user.accounts) {
+
+            const expenses = await db.expense.findMany({
+                where: {
+                    accountId: account.account_id
+                }
+            })
+
+            allExpenses.push(...expenses);
+
+        }
+
+        return res.status(200).send(allExpenses);
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({message: "Error while trying to get all expenses"});
+    }
+}

@@ -73,3 +73,42 @@ exports.getAllEarnings = async (req, res) => {
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }
 }
+
+exports.getAllEarningsForUser = async (req, res) => {
+    try {
+
+        const user = await db.user.findFirst({
+            where: {
+                nick: req.params.nick
+            },
+            include: {
+                accounts: true
+            }
+        })
+
+        if (!user) {
+            return res.status(404).send({message: "User not found"});
+        }
+
+
+        let allEarnings = [];
+
+        for (let account in user.accounts) {
+
+            const earnings = await db.earning.findMany({
+                where: {
+                    accountId: account.account_id
+                }
+            })
+
+            allEarnings.push(...earnings);
+
+        }
+
+        return res.status(200).send(allEarnings);
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({message: "Error while trying to get all earnings"});
+    }
+}
