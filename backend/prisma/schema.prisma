@@ -23,6 +23,29 @@ model Account {
 
     owner User? @relation(fields: [userId], references: [id])
     userId Int?
+    
+    earnings Earning[]
+    expenses Expense[]
+}
+
+model Earning {
+    earning_id Int @default(autoincrement()) @id
+    description String?
+    date DateTime @default(now())
+    value Decimal
+
+    account Account @relation(fields: [accountId], references: [account_id])
+    accountId Int
+}
+
+model Expense {
+    expense_id Int @default(autoincrement()) @id
+    description String?
+    date DateTime @default(now())
+    value Decimal
+
+    account Account @relation(fields: [accountId], references: [account_id])
+    accountId Int
 }
 
 enum Role {

@@ -19,7 +19,7 @@ exports.userProfile = async (req, res) => {
             return res.status(404).send({message: "User not found"});
         }
 
-        return res.status(200).send({data: user});
+        return res.status(200).send(user);
 
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get user profile"});
