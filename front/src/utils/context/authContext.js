@@ -2,18 +2,17 @@ import { createContext } from "react"
 import { useAuth } from "../hooks/useAuth"
 import { useLocation, Navigate } from "react-router-dom"
 
-
 const AuthContext = createContext(null)
 
 const auth = {
     isAuthenticated: false,
     signin: (callback) => {
-        callback()
         auth.isAuthenticated = true
+        callback()
     },
     signout: (callback) => {
-        callback()
         auth.isAuthenticated = false
+        callback()
     }
 }
 

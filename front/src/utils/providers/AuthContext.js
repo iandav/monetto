@@ -5,9 +5,9 @@ import { auth } from "../context/authContext"
 function AuthProvider({children}) {
     const [user, setUser] = useState(null)
 
-    const signin = (newUser, callback) => {
+    const signin = (user, callback) => {
         return auth.signin(() => {
-            setUser(newUser)
+            setUser(user)
             callback()
         })
     }

@@ -1,1 +1,1 @@
-//Here we manage the api calls to the backend
+//Here we manage api calls to the backend

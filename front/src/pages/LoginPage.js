@@ -2,33 +2,46 @@ import React, { useState } from 'react'
 import { Navbar } from '../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../utils/hooks/useAuth'
+import { signIn } from '../api/auth'
 import '../styles/register.css'
 
 const LoginPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const auth = useAuth()
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('Something went wrong')
   const [nick, setNick] = useState('')
   const [password, setPassword] = useState('')
-
+  
   const navigateTo = location.state?.from?.pathname || '/dashboard'
-
-  function handleSubmit (e) {
+  
+  const handleLogin = async (e) => {
     e.preventDefault()
-
+  
     const data = {
       nick,
       password
     }
-    
-    auth.signin(data.nick, () => {
-      navigate(navigateTo, { replace: true })
-    })
+
+    try {
+      const result = await signIn(data)
+      if(result.success){
+        auth.signin(data.nick, () => {
+          navigate(navigateTo, { replace: true })
+        })
+      }
+      else {
+        setErrorMessage(result.message)
+        setError(true)
+      }
+    } catch(err) {
+      setError(true)
+    }
   }
 
-  function handleInputChange(e) {
+  const handleInputChange = (e) => {
     const { id, value } = e.target
-
     if(id === 'nick') {
       setNick(value)
     }
@@ -37,7 +50,7 @@ const LoginPage = () => {
     }
   }
 
-  function handleSignUpClick(e) {
+  const handleSignUpClick = (e) => {
     navigate('/register')
   }
 
@@ -46,7 +59,7 @@ const LoginPage = () => {
       <Navbar />
       <div className="register-box">
         <h1>Log in</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <div className="user-box">
             <input type="text" required placeholder='Username' id="nick" onChange={handleInputChange}></input>
           </div>
@@ -60,6 +73,7 @@ const LoginPage = () => {
         <button className="signup-btn" onClick={handleSignUpClick}>
           Sign up
         </button>
+        {error ? errorMessage : null }
       </div>
     </>
   )

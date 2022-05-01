@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Navbar } from '../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../utils/hooks/useAuth'
+import { signUp } from '../api/auth'
 import '../styles/register.css'
 
 const RegisterPage = () => {
@@ -11,24 +12,40 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('')
   const [nick, setNick] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('Something went wrong')
+
 
   const navigateTo = location.state?.from?.pathname || '/dashboard'
 
-  function handleSubmit (e) {
+  async function handleSubmit (e) {
     e.preventDefault()
 
     let data = {
-      email,
       nick,
+      email,
       password
     }
 
-    auth.signin(data.nick, () => {
-      navigate(navigateTo, { replace: true })
-    })
-  }
+    try {
+      const result = await signUp(data)
+      if(result.success){
 
-  function handleInputChange(e) {
+        auth.signin(data.nick, () => {
+          navigate(navigateTo, { replace: true })
+        })
+      }
+      else {
+        setErrorMessage(result.message)
+        setError(true)
+      }
+    } catch(err) {
+      setError(true)
+    }
+  }
+  
+
+  const handleInputChange = (e) => {
     const { id, value } = e.target
 
     if(id === 'email') {
@@ -40,6 +57,10 @@ const RegisterPage = () => {
     else {
       setPassword(value)
     }
+  }
+
+  const handleLoginClick = (e) => {
+    navigate('/login')
   }
 
   return (
@@ -61,6 +82,10 @@ const RegisterPage = () => {
               Sign up
           </button>
         </form>
+        <button className='signup-btn' onClick={handleLoginClick}>
+          Log in
+        </button>
+        {error ? errorMessage : null }
       </div>
     </>
   )
