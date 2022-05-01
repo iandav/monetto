@@ -2,11 +2,11 @@ import React from 'react'
 import { Navbar } from '../components'
 
 
-const LandingPage = () => (
+const Home = () => (
   <>
     <Navbar showButtons={true} />
   </>
 )
 
 
-export default LandingPage
+export default Home

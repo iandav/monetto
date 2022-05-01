@@ -16,11 +16,11 @@ const LoginPage = () => {
   function handleSubmit (e) {
     e.preventDefault()
 
-    let data = {
+    const data = {
       nick,
       password
     }
-
+    
     auth.signin(data.nick, () => {
       navigate(navigateTo, { replace: true })
     })

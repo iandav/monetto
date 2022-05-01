@@ -1,11 +1,11 @@
 import LoginPage from './login'
 import RegisterPage from './register'
 import DashBoardPage from './dashboard'
-import LandingPage from './main'
+import Home from './home'
 
 export {
     LoginPage,
     RegisterPage,
     DashBoardPage,
-    LandingPage
+    Home
 }
