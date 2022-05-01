@@ -26,7 +26,7 @@ exports.createAccount = async (req, res) => {
         return res.status(200).send(account);
 
     } catch (error) {
-        return res.status(500).send({message: "Error while trying to get create account"});
+        return res.status(500).send({message: "Error while trying to create account"});
     }
 }
 
@@ -76,14 +76,14 @@ exports.getAccount = async (req, res) => {
         return res.status(200).send(account);
 
     } catch (error) {
-        return res.status(500).send({message: "Error while trying to get user accounts"});
+        return res.status(500).send({message: "Error while trying to get account"});
     }
 }
 
 exports.deleteAccount = async (req, res) => {
     try {
 
-        const account = await db.account.delete({
+        const account = await db.account.findFirst({
             where: {
                 account_id: parseInt(req.params.id)
             }
@@ -93,9 +93,15 @@ exports.deleteAccount = async (req, res) => {
             return res.status(404).send({message: "Account not found"});
         }
 
+        await db.account.delete({
+            where: {
+                account_id: account.account_id
+            }
+        })
+
         return res.status(200).send();
 
     } catch (error) {
-        return res.status(500).send({message: "Error while trying to get user accounts"});
+        return res.status(500).send({message: "Error while trying to delete account"});
     }
 }
