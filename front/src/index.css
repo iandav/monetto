@@ -1,13 +1,13 @@
 html {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-y: hidden;
-  overflow-x: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
-
+  
 body {
-  background-color: #2B2B2B;
-  color: white;
-  font-family: Poppins;
+    background-color: #2B2B2B;
+    color: white;
+    font-family: Poppins;
 }

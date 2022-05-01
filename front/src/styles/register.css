@@ -43,3 +43,13 @@ button{
     cursor: pointer;
 }
 
+.register-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-btn {
+    align-self: flex-end;
+    position: relative;
+    top: -50px;
+}
