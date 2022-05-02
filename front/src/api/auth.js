@@ -3,7 +3,6 @@ const BASE_AUTH_URL = 'http://localhost:3000/api/auth/'
 const signIn = async (data) => {
     const response = await fetch(BASE_AUTH_URL + 'signin', {
         method: 'POST',
-        // mode: 'cors',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
