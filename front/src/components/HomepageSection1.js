@@ -1,6 +1,9 @@
 import React from "react";
-import "../styles/HomepageSection1.css"
 import snapshot from "../images/snapshot-example.png"
+// Styles
+import "../styles/HomepageSection1.css"
+// Components
+
 
 function HomepageSection1() {
     return (

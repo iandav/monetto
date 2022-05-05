@@ -1,21 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// Styles
+import "../styles/component-styles/MonettoLogo.css"
 
 const MonettoLogo = () => {
   return (
       <>
-      <Link to="/" style={styles.monettoLogo}>Monetto</Link>
+      <Link to="/" className='monetto-logo'>Monetto</Link>
       </>
-  )
+  );
 }
 
-const styles = {
-    monettoLogo: {
-        textDecoration: 'none',
-        color: 'white',
-        fontSize: '24px',
-        marginLeft: '55px'
-    }
-}
-
-export default MonettoLogo
+export default MonettoLogo;
