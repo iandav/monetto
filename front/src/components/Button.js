@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom"
 // Styles
-import "../styles/component-styles/Button.css"
+import styles from "../styles/component-styles/Button.module.css"
 
-function Button(props) {
+function Button({target, text, color, type}) {
     return (
-            <Link to="/login">
-                Log in
+            <Link to={target} className={`${styles[color]} ${styles[type]}`}>
+                {text}
             </Link>
     );
 }

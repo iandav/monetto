@@ -1,15 +1,14 @@
 import React from 'react'
+import Button from '../components/Button'
+import MonettoLogo from '../components/MonettoLogo'
 // Styles
 import "../styles/page-styles/Home.css"
 // Components
-import { Navbar } from '../components'
-import HomepageSection1 from '../components/HomepageSection1'
-
+import Navbar from '../components/Navbar'
 
 const Home = () => (
   <>
-    <Navbar/>
-    <HomepageSection1 />
+    <Navbar />
   </>
 )
 

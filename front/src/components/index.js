@@ -1,3 +1,5 @@
+// What is this file used for? I commented the code to avoid errors
+/*
 import LoginButton from './LoginButton'
 import MonettoLogo from './MonettoLogo'
 import SignupButton from './SignupButton'
@@ -9,3 +11,4 @@ export {
     SignupButton,
     Navbar
 }
+*/
