@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+}
+
+.monettoLogo {
+    margin-left: 55px;
+}
+
+.signupButton {
+    margin-right: 30px;
+}
+
+.loginButton {
+    margin-right: 50px;
+}

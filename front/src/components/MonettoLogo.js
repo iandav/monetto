@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // Styles
-import styles from "../styles/component-styles/MonettoLogo.module.css"
+import "../styles/component-styles/MonettoLogo.css"
 
 const MonettoLogo = () => {
   return (
-      <Link to="/" className={styles.monettoLogo}>Monetto</Link>
+      <Link to="/" className='monettoLogo'>Monetto</Link>
   );
 }
 

@@ -1,14 +1,16 @@
 import React from 'react'
-import Button from '../components/Button'
-import MonettoLogo from '../components/MonettoLogo'
 // Styles
 import "../styles/page-styles/Home.css"
 // Components
 import Navbar from '../components/Navbar'
+import HomepageHeader from '../components/HomepageHeader'
+import InfoCards from '../components/InfoCards'
 
 const Home = () => (
   <>
     <Navbar />
+    <HomepageHeader />
+    <InfoCards />
   </>
 )
 

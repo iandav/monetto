@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom"
 // Styles
-import styles from "../styles/component-styles/Button.module.css"
+import "../styles/component-styles/Button.css"
 
-function Button({target, text, color, type}) {
+function Button({target, text, color, name}) {
     return (
-            <Link to={target} className={`${styles[color]} ${styles[type]}`}>
+            <Link to={target} className={`button ${color} ${name}`}>
                 {text}
             </Link>
     );

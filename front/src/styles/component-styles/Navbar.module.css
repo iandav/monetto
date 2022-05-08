@@ -1,9 +1,0 @@
-nav {
-    width: 100vw;
-    height: 100px;
-    background-color: #2B2B2B;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
