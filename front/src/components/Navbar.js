@@ -1,30 +1,24 @@
-import styled from "styled-components"
+import React from 'react'
+// Styles
+import styles from "../styles/component-styles/Navbar.module.css"
+// Components
+import MonettoLogo from './MonettoLogo.js'
+import Button from "./Button.js"
 
-const Navbar = styled.nav`
-    width: 100vw;
-    height: 100px;
-    background-color: #2B2B2B;
-    color: white;
+const Navbar = () => {
+  return (
+    <nav className={styles.nav}>
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
+      <MonettoLogo/>
 
+      <div>
+        <Button target="/register" text="Sign Up" type="navbarSignupButton" />
+        <Button target="/login" text="Log in" color="primary" type="navbarLoginButton" />
+      </div>
 
-
-
-/*() => {
-    return (
-        <nav>
-            <a href="#">Monetto</a>
-
-            <button type="button">Sign up</button>
-            <button type="button">Login</button>
-        </nav>
-    )
+    </nav>
+  )
 }
 
-*/
+export default Navbar;
 
-export default Navbar
