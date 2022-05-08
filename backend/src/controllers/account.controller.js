@@ -51,9 +51,28 @@ exports.getAccountsForUser = async (req, res) => {
                 userId: user.id
             }
         })
+
+        let accountsWithInfo = []
+
+        for (let account of accounts) {
+            const earnings = await db.earning.findMany({
+                where: {
+                    accountId: account.account_id
+                }
+            })
+
+            const expenses = await db.expense.findMany({
+                where: {
+                    accountId: account.account_id
+                }
+            })
+
+            accountsWithInfo.push({accountId: account.account_id, earnings, expenses})
+
+        }
         
 
-        return res.status(200).send(accounts);
+        return res.status(200).send(accountsWithInfo);
 
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get user accounts"});
