@@ -8,6 +8,9 @@ import { FaCode } from "react-icons/fa"
 
 function InfoCards() {
     return (
+        <>
+        <hr className="divider" />
+        
         <section className="infoCardsContainer">
 
             <div className="infoCard">
@@ -47,6 +50,9 @@ function InfoCards() {
             </div>
 
         </section>
+
+        <hr className="divider" />
+        </>
     );
 }
 
