@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar } from '../components'
+import Navbar  from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../utils/hooks/useAuth'
 import { signIn } from '../api/auth'
@@ -64,7 +64,7 @@ const LoginPage = () => {
             <input type="text" required placeholder='Username' id="nick" onChange={handleInputChange}></input>
           </div>
           <div className="user-box">
-            <input type="password"  required placeholder='Password' id="password" onChange={handleInputChange}></input>
+            <input type="password" required placeholder='Password' id="password" onChange={handleInputChange}></input>
           </div>
           <button>
               Log in
@@ -73,7 +73,7 @@ const LoginPage = () => {
         <button className="signup-btn" onClick={handleSignUpClick}>
           Sign up
         </button>
-        {error ? errorMessage : null }
+        {error ? errorMessage : null}
       </div>
     </>
   )
