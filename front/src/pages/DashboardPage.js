@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from '../api/auth'
 import { useAuth } from '../utils/hooks/useAuth'
+import { Link } from 'react-router-dom'
 
 // Styles
 import "../styles/DashboardPage.css"
@@ -43,14 +44,30 @@ const DashBoardPage = () => {
       <nav className='dashboard-navbar'>
       <MonettoLogo className="logo"/>
         <ul>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Dashboard</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Accounts</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Earnings</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Expenses</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Investments</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Other</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Settings</a></li>
-          <li><a href="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Sign out</a></li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Dashboard</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Accounts</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Earnings</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Expenses</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Investments</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Other</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Settings</Link>
+          </li>
+          <li>
+            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Sign out</Link>
+          </li>
         </ul>
         <button onClick={handleSignOut}>
           Sign out
