@@ -92,7 +92,7 @@ exports.getAllExpensesForUser = async (req, res) => {
 
         let allExpenses = [];
 
-        for (let account in user.accounts) {
+        for (let account of user.accounts) {
 
             const expenses = await db.expense.findMany({
                 where: {

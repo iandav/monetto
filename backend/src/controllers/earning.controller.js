@@ -93,7 +93,7 @@ exports.getAllEarningsForUser = async (req, res) => {
 
         let allEarnings = [];
 
-        for (let account in user.accounts) {
+        for (let account of user.accounts) {
 
             const earnings = await db.earning.findMany({
                 where: {
