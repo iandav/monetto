@@ -120,7 +120,6 @@ exports.getAllExpensesForUser = async (req, res) => {
         return res.status(200).send(noEmptyExpenses);
 
     } catch (error) {
-        console.log(error)
         return res.status(500).send({message: "Error while trying to get all expenses"});
     }
 }

@@ -59,7 +59,6 @@ exports.signin = async (req, res) => {
             role: user.role
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).send({message: "Error while signing in"});
     }
 }

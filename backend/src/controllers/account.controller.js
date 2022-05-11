@@ -48,7 +48,6 @@ exports.getAccountsForUser = async (req, res) => {
         return res.status(200).send(accounts);
 
     } catch (error) {
-        console.error(error)
         return res.status(500).send({message: "Error while trying to get user accounts"});
     }
 }

@@ -80,7 +80,6 @@ exports.getAllEarningsForAccount = async (req, res) => {
         return res.status(200).send(earnings);
 
     } catch (error) {
-        console.error(error)
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }
 }
@@ -122,7 +121,6 @@ exports.getAllEarningsForUser = async (req, res) => {
         return res.status(200).send(noEmptyEarnings);
 
     } catch (error) {
-        console.log(error)
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }
 }
