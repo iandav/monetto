@@ -5,16 +5,16 @@ import { useAuth } from '../utils/hooks/useAuth'
 import { Link } from 'react-router-dom'
 
 // Styles
-import "../styles/page-styles/DashBoardPage.css"
+import "../styles/page-styles/DashboardPage.css"
 // Components
 import DashboardNavbar from '../components/DashboardNavbar'
 import Button from '../components/Button'
 
-const DashBoardPage = () => {
+const DashboardPage = () => {
   const auth = useAuth()
   const navigate = useNavigate()
 
-  const  handleSignOut = async() => {
+  const handleSignOut = async() => {
     try {
       const result = await signOut()
       if(result.success) {
@@ -40,4 +40,4 @@ const DashBoardPage = () => {
   );
 }
 
-export default DashBoardPage
+export default DashboardPage

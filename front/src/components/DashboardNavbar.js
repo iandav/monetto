@@ -10,7 +10,9 @@ function DashboardNavbar() {
     return (
         <div className="dashboardNavbarContainer">
             <MonettoLogo />
+            <p>Hello world, this is an example to check the dashboard page</p>
         </div>
+        
     );
 }
 

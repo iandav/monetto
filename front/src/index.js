@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
-import DashBoardPage from "./pages/DashboardPage"
+import DashboardPage from "./pages/DashboardPage"
 import { AuthProvider } from "./utils/providers/AuthContext"
 import { RequireAuth } from "./utils/context/authContext"
 import "./index.css"
@@ -23,7 +23,7 @@ root.render(
                     <Route path="/dashboard" 
                         element= {
                             <RequireAuth>
-                                <DashBoardPage />
+                                <DashboardPage />
                             </RequireAuth>
                         }
                     />
