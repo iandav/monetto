@@ -21,7 +21,7 @@ module.exports = function(app) {
     app.get(
         "/api/expenses/:accountId",
         [authJwt.verifyToken],
-        controller.getAllExpenses
+        controller.getAllExpensesForAccount
     )
 
     // Get all the expenses for an user across all their accounts

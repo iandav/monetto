@@ -1,5 +1,5 @@
 const {db} = require("../utils/database")
-
+const {dayjs} = require("../utils")
 
 exports.addExpense = async (req, res) => {
     try {
@@ -57,12 +57,21 @@ exports.deleteExpense = async (req, res) => {
     }
 }
 
-exports.getAllExpenses = async (req, res) => {
+exports.getAllExpensesForAccount = async (req, res) => {
     try {
+
+        const {dateFrom, dateTo, description} = req.query;
 
         const expenses = await db.expense.findMany({
             where: {
-                accountId: parseInt(req.params.accountId)
+                accountId: parseInt(req.params.accountId),
+                date: {
+                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate(): undefined
+                },
+                description: {
+                    contains: description
+                }
             }
         })
 
@@ -76,35 +85,39 @@ exports.getAllExpenses = async (req, res) => {
 exports.getAllExpensesForUser = async (req, res) => {
     try {
 
-        const user = await db.user.findFirst({
+        const {dateFrom, dateTo, description, includeEmpty} = req.query;
+
+        const accountsWithExpenses = await db.account.findMany({
             where: {
-                nick: req.params.nick
+                owner: {
+                    nick: req.params.nick,
+                },
+                expenses: {
+                    every: {
+                        date: {
+                            gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                            lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                        },
+                        description: {
+                            contains: description,
+                        },
+                    },
+                }
             },
-            include: {
-                accounts: true
+            select: {
+                account_id: true,
+                expenses: true,
             }
         })
 
-        if (!user) {
-            return res.status(404).send({message: "User not found"});
+        if (includeEmpty) {
+            return res.status(200).send(accountsWithExpenses);
         }
 
+        const noEmptyExpenses = accountsWithExpenses.filter(account => account.expenses.length > 0)
 
-        let allExpenses = [];
 
-        for (let account of user.accounts) {
-
-            const expenses = await db.expense.findMany({
-                where: {
-                    accountId: account.account_id
-                }
-            })
-
-            allExpenses.push(...expenses);
-
-        }
-
-        return res.status(200).send(allExpenses);
+        return res.status(200).send(noEmptyExpenses);
 
     } catch (error) {
         console.log(error)

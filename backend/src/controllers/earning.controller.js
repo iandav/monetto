@@ -1,4 +1,5 @@
 const {db} = require("../utils/database")
+const {dayjs} = require("../utils")
 
 
 exports.addEarning = async (req, res) => {
@@ -58,18 +59,28 @@ exports.deleteEarning = async (req, res) => {
     }
 }
 
-exports.getAllEarnings = async (req, res) => {
+exports.getAllEarningsForAccount = async (req, res) => {
     try {
+
+        const {dateFrom, dateTo, description} = req.query;
 
         const earnings = await db.earning.findMany({
             where: {
-                accountId: parseInt(req.params.accountId)
+                accountId: parseInt(req.params.accountId),
+                date: {
+                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate(): undefined
+                },
+                description: {
+                    contains: description
+                }
             }
         })
 
         return res.status(200).send(earnings);
 
     } catch (error) {
+        console.error(error)
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }
 }
@@ -77,35 +88,38 @@ exports.getAllEarnings = async (req, res) => {
 exports.getAllEarningsForUser = async (req, res) => {
     try {
 
-        const user = await db.user.findFirst({
+        const {dateFrom, dateTo, description, includeEmpty} = req.query;
+        
+        const accountsWithEarnings = await db.account.findMany({
             where: {
-                nick: req.params.nick
+                owner: {
+                    nick: req.params.nick,
+                },
+                earnings: {
+                    every: {
+                        date: {
+                            gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                            lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                        },
+                        description: {
+                            contains: description,
+                        },
+                    }
+                }
             },
-            include: {
-                accounts: true
+            select: {
+                account_id: true,
+                earnings: true,
             }
         })
 
-        if (!user) {
-            return res.status(404).send({message: "User not found"});
+        if (includeEmpty) {
+            return res.status(200).send(accountsWithEarnings);
         }
 
+        const noEmptyEarnings = accountsWithEarnings.filter(account => account.earnings.length > 0)
 
-        let allEarnings = [];
-
-        for (let account of user.accounts) {
-
-            const earnings = await db.earning.findMany({
-                where: {
-                    accountId: account.account_id
-                }
-            })
-
-            allEarnings.push(...earnings);
-
-        }
-
-        return res.status(200).send(allEarnings);
+        return res.status(200).send(noEmptyEarnings);
 
     } catch (error) {
         console.log(error)

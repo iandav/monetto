@@ -21,7 +21,7 @@ module.exports = function(app) {
     app.get(
         "/api/earnings/:accountId",
         [authJwt.verifyToken],
-        controller.getAllEarnings
+        controller.getAllEarningsForAccount
     )
 
     // Get all the earnings for an user across all their accounts
