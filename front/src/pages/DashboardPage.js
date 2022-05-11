@@ -5,16 +5,10 @@ import { useAuth } from '../utils/hooks/useAuth'
 import { Link } from 'react-router-dom'
 
 // Styles
-import "../styles/DashboardPage.css"
-
+import "../styles/page-styles/DashBoardPage.css"
 // Components
-import MonettoLogo from "../components/MonettoLogo.js"
-import UserFinancialInformation from "../components/UserFinancialInformation.js"
-
-// Icons
-import { AiFillAppstore } from "react-icons/ai"
-
-
+import DashboardNavbar from '../components/DashboardNavbar'
+import Button from '../components/Button'
 
 const DashBoardPage = () => {
   const auth = useAuth()
@@ -39,47 +33,11 @@ const DashBoardPage = () => {
   }
 
   return (
-    <div className='dashboard-container'>
-
-      <nav className='dashboard-navbar'>
-      <MonettoLogo className="logo"/>
-        <ul>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Dashboard</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Accounts</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Earnings</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Expenses</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Investments</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Other</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Settings</Link>
-          </li>
-          <li>
-            <Link to="#" className='navbar-element'><AiFillAppstore className='navbar-icon' />Sign out</Link>
-          </li>
-        </ul>
-        <button onClick={handleSignOut}>
-          Sign out
-        </button>  
-      </nav>
-
-      <div className='dashboard-information'>
-        <UserFinancialInformation />
-      </div>
-
-    </div>
-  )
+    <>
+        <DashboardNavbar />
+        <Button onClick={handleSignOut} text="Sign out" color="primary" />
+    </>
+  );
 }
 
 export default DashBoardPage

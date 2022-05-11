@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../utils/hooks/useAuth'
 import { signUp } from '../api/auth'
-import '../styles/register.css'
+import '../styles/page-styles/RegisterPage.css'
 
 const RegisterPage = () => {
   const navigate = useNavigate()
