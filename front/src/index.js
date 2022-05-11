@@ -1,7 +1,10 @@
 import React from "react"
 import reactDOM from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { LoginPage, RegisterPage, DashBoardPage, Home } from "./pages"
+import Home from "./pages/Home"
+import RegisterPage from "./pages/RegisterPage"
+import LoginPage from "./pages/LoginPage"
+import DashboardPage from "./pages/DashboardPage"
 import { AuthProvider } from "./utils/providers/AuthContext"
 import { RequireAuth } from "./utils/context/authContext"
 import "./index.css"
@@ -20,7 +23,7 @@ root.render(
                     <Route path="/dashboard" 
                         element= {
                             <RequireAuth>
-                                <DashBoardPage />
+                                <DashboardPage />
                             </RequireAuth>
                         }
                     />

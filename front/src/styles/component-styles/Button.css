@@ -1,28 +1,22 @@
-a {
+.button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 175px;
     height: 50px;
-    font-weight: 800;
     border-radius: 15px;
-    color: #333333;
+    font-size: 18px;
+    font-weight: 400;
     text-decoration: none;
-}
-
-.navbarLoginButton {
-    margin-right: 50px;
-}
-
-.navbarSignupButton {
-    margin-right: 30px;
     color: white;
 }
 
 .primary {
+    color: #333333;
     background-color: #E8BF59;
 }
 
 .secondary {
+    color: #333333;
     background-color: #A490E5;
 }

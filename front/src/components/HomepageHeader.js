@@ -1,24 +1,25 @@
 import React from "react";
 import snapshot from "../images/snapshot-example.png"
 // Styles
-import "../styles/HomepageSection1.css"
+import "../styles/component-styles/HomepageHeader.css"
 // Components
+import Button from "./Button";
 
-
-function HomepageSection1() {
+function HomepageHeader() {
     return (
-        <header className="section1">
+        <header>
             
-            <div className="section1-description">
+            <div className="headerDescription">
                 <h1>Monetto Personal Finance</h1>
-                <p>An open-source application to manage better your money. <br/> Learn more at monetto.com</p>
-                <button>Get Started</button>
+                <p>A modern open-source solution to better manage your finances.</p>
+                <p>Learn more at monetto.com</p>
+                <Button target="/login" text="Get Started" color="primary" name="headerButton"/>
             </div>
 
-            <img src={snapshot} alt="Snapshot of the Monetto application" />
+            <img src={snapshot} alt="Snapshot of the Monetto application" className="headerSnapshot"/>
 
         </header>
     );
 }
 
-export default HomepageSection1;
+export default HomepageHeader;

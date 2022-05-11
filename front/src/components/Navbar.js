@@ -1,19 +1,19 @@
 import React from 'react'
 // Styles
-import styles from "../styles/component-styles/Navbar.module.css"
+import "../styles/component-styles/Navbar.css"
 // Components
 import MonettoLogo from './MonettoLogo.js'
 import Button from "./Button.js"
 
 const Navbar = () => {
   return (
-    <nav className={styles.nav}>
+    <nav className='navbar'>
 
       <MonettoLogo/>
 
       <div>
-        <Button target="/register" text="Sign Up" type="navbarSignupButton" />
-        <Button target="/login" text="Log in" color="primary" type="navbarLoginButton" />
+        <Button target="/register" text="Sign Up" color="" name="signupButton" />
+        <Button target="/login" text="Log in" color="secondary" name="loginButton" />
       </div>
 
     </nav>

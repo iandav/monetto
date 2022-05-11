@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Navbar } from '../components'
+import Navbar from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../utils/hooks/useAuth'
 import { signUp } from '../api/auth'
-import '../styles/register.css'
+import '../styles/page-styles/RegisterPage.css'
 
 const RegisterPage = () => {
   const navigate = useNavigate()
@@ -30,7 +30,6 @@ const RegisterPage = () => {
     try {
       const result = await signUp(data)
       if(result.success){
-
         auth.signin(data.nick, () => {
           navigate(navigateTo, { replace: true })
         })
@@ -76,7 +75,7 @@ const RegisterPage = () => {
             <input type="text" required placeholder='Username' id="nick" onChange={handleInputChange}></input>
           </div>
           <div className="user-box">
-            <input type="password"  required placeholder='Password' id="password" onChange={handleInputChange}></input>
+            <input type="password" required placeholder='Password' id="password" onChange={handleInputChange}></input>
           </div>
           <button>
               Sign up
@@ -85,7 +84,7 @@ const RegisterPage = () => {
         <button className='signup-btn' onClick={handleLoginClick}>
           Log in
         </button>
-        {error ? errorMessage : null }
+        {error ? errorMessage : null}
       </div>
     </>
   )
