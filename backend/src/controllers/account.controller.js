@@ -1,6 +1,5 @@
 const {db} = require("../utils/database")
 
-
 exports.createAccount = async (req, res) => {
     try {
 
@@ -33,48 +32,23 @@ exports.createAccount = async (req, res) => {
 exports.getAccountsForUser = async (req, res) => {
     try {
 
-        const user = await db.user.findFirst({
-            where: {
-                nick: req.params.nick
-            },
-            select: {
-                id: true,
-            }
-        })
-
-        if (!user) {
-            return res.status(404).send({message: "User not found"});
-        }
-
         const accounts = await db.account.findMany({
             where: {
-                userId: user.id
+                owner: {
+                    nick: req.params.nick
+                },
+            },
+            select: {
+                earnings: true,
+                expenses: true,
+                account_id: true,
             }
         })
 
-        let accountsWithInfo = []
-
-        for (let account of accounts) {
-            const earnings = await db.earning.findMany({
-                where: {
-                    accountId: account.account_id
-                }
-            })
-
-            const expenses = await db.expense.findMany({
-                where: {
-                    accountId: account.account_id
-                }
-            })
-
-            accountsWithInfo.push({accountId: account.account_id, earnings, expenses})
-
-        }
-        
-
-        return res.status(200).send(accountsWithInfo);
+        return res.status(200).send(accounts);
 
     } catch (error) {
+        console.error(error)
         return res.status(500).send({message: "Error while trying to get user accounts"});
     }
 }
