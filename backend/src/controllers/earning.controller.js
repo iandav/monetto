@@ -87,39 +87,27 @@ exports.getAllEarningsForAccount = async (req, res) => {
 exports.getAllEarningsForUser = async (req, res) => {
     try {
 
-        const {dateFrom, dateTo, description, includeEmpty} = req.query;
-        
-        const accountsWithEarnings = await db.account.findMany({
+        const {dateFrom, dateTo, description} = req.query;
+
+        const earnings = await db.earning.findMany({
             where: {
-                owner: {
-                    nick: req.params.nick,
-                },
-                earnings: {
-                    every: {
-                        date: {
-                            gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                            lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
-                        },
-                        description: {
-                            contains: description,
-                        },
+                account: {
+                    owner: {
+                        nick: req.params.nick
                     }
+                },
+                date: {
+                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                },
+                description: {
+                    contains: description
                 }
-            },
-            select: {
-                account_id: true,
-                earnings: true,
             }
         })
 
-        if (includeEmpty) {
-            return res.status(200).send(accountsWithEarnings);
-        }
-
-        const noEmptyEarnings = accountsWithEarnings.filter(account => account.earnings.length > 0)
-
-        return res.status(200).send(noEmptyEarnings);
-
+        return res.status(200).send(earnings);
+        
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }

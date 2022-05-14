@@ -85,39 +85,26 @@ exports.getAllExpensesForAccount = async (req, res) => {
 exports.getAllExpensesForUser = async (req, res) => {
     try {
 
-        const {dateFrom, dateTo, description, includeEmpty} = req.query;
+        const {dateFrom, dateTo, description} = req.query;
 
-        const accountsWithExpenses = await db.account.findMany({
+        const expenses = await db.expense.findMany({
             where: {
-                owner: {
-                    nick: req.params.nick,
+                account: {
+                    owner: {
+                        nick: req.params.nick
+                    }
                 },
-                expenses: {
-                    every: {
-                        date: {
-                            gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                            lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
-                        },
-                        description: {
-                            contains: description,
-                        },
-                    },
+                date: {
+                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
+                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                },
+                description: {
+                    contains: description
                 }
-            },
-            select: {
-                account_id: true,
-                expenses: true,
             }
         })
 
-        if (includeEmpty) {
-            return res.status(200).send(accountsWithExpenses);
-        }
-
-        const noEmptyExpenses = accountsWithExpenses.filter(account => account.expenses.length > 0)
-
-
-        return res.status(200).send(noEmptyExpenses);
+        return res.status(200).send(expenses);
 
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get all expenses"});
