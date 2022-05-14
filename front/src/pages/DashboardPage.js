@@ -35,9 +35,7 @@ function DashboardPage() {
 
   return (
     <>
-      <h1>Hello world</h1>
-      <p>WHY THIS PAGE DOESN'T RENDER THE ELEMENTS!!</p>
-
+      <DashboardNavbar />
     </>
   );
 }

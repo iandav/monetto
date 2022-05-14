@@ -1,7 +1,61 @@
 .dashboardNavbarContainer {
-    display: flex;
-    flex-direction: column;
     width: 255px;
     height: 100vh;
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboardNavbarContainer ul {
+    width: 255px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+}
+
+.dashboardNavbarElement {
+    width: 245px;
+    height: 56px;
+    border-left: 6px solid none;
+}
+
+.dashboardNavbarElement a:hover {
+    opacity: 1;
+    background-color: #3b3b3b;
+}
+
+.dashboardNavbarElement:hover {
+    border-left: 6px solid #3b3b3b;
+}
+
+.dashboardNavbarElement.active {
+    width: 245px;
+    border-left: 6px solid #E8BF59;
+    background-color: #3b3b3b;
+}
+
+.dashboardNavbarElement.active a {
+    color: white;
+    opacity: 1;
+}
+
+.dashboardNavbarIcon {
+    width: 16px;
+    height: 16px;
+    color: white;
+    margin: 0 32px;
+}
+
+.dashboardNavbarElement a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    opacity: 0.4;
 }
