@@ -22,9 +22,9 @@ root.render(
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/dashboard" 
                         element= {
-                            <RequireAuth>
+                            //<RequireAuth>
                                 <DashboardPage />
-                            </RequireAuth>
+                            //</RequireAuth>
                         }
                     />
                 </Routes>

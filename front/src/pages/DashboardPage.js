@@ -3,17 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { signOut } from '../api/auth'
 import { useAuth } from '../utils/hooks/useAuth'
 import { Link } from 'react-router-dom'
-
 // Styles
 import "../styles/page-styles/DashboardPage.css"
 // Components
 import DashboardNavbar from '../components/DashboardNavbar'
 import Button from '../components/Button'
 
-const DashboardPage = () => {
+function DashboardPage() {
   const auth = useAuth()
   const navigate = useNavigate()
-
+  
   const handleSignOut = async() => {
     try {
       const result = await signOut()
@@ -32,12 +31,15 @@ const DashboardPage = () => {
     }
   }
 
+  // <Button onClick={handleSignOut} text="Sign out" color="primary" />
+
   return (
     <>
-        <DashboardNavbar />
-        <Button onClick={handleSignOut} text="Sign out" color="primary" />
+      <h1>Hello world</h1>
+      <p>WHY THIS PAGE DOESN'T RENDER THE ELEMENTS!!</p>
+
     </>
   );
 }
 
-export default DashboardPage
+export default DashboardPage;
