@@ -9,6 +9,7 @@ import "../styles/page-styles/DashboardPage.css"
 import DashboardNavbar from '../components/DashboardNavbar'
 import Button from '../components/Button'
 import DashboardHeader from '../components/DashboardHeader'
+import DashboardCard from '../components/DashboardCard'
 
 function DashboardPage() {
   const auth = useAuth()
@@ -36,8 +37,21 @@ function DashboardPage() {
 
   return (
     <div className="dashboardContainer">
+
       <DashboardNavbar />
-      <DashboardHeader title="Dashboard" />
+
+      <div className='dashboardContent'>
+
+        <DashboardHeader title="Dashboard" />
+
+      <div className='dashboardContentCards'>
+        <DashboardCard title="Balance" value="0.00" style="dashboardPageCard" />
+        <DashboardCard title="Income" value="0.00" style="dashboardPageCard" />
+        <DashboardCard title="Expenses" value="0.00" style="dashboardPageCard" />
+      </div>
+
+      </div>
+
     </div>
   );
 }

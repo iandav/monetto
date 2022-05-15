@@ -1,0 +1,34 @@
+.dashboardCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 257px;
+    height: 133px;
+    border-radius: 15px;
+    background-color: #2B2B2B;
+    border: 1px solid #2B2B2B;
+}
+
+.dashboardCardContainer:hover {
+    border: 1px solid #E8BF59;
+    color: #E8BF59;
+    transition-duration: 0.1s;
+    cursor:default;
+    opacity: 1;
+}
+
+.dashboardCardContainer.dashboardPageCard {
+    margin-right: 30px;
+}
+
+.dashboardCardTitle {
+    font-size: 19px;
+    margin: 24px 32px 12px 32px;
+    opacity: 0.4;
+}
+
+.dashboardCardValue {
+    font-size: 40px;
+    margin: 0 32px 12px 24px;
+}
