@@ -18,9 +18,11 @@ function DashboardNavbar() {
     return (
         <nav className="dashboardNavbarContainer">
 
-            <MonettoLogo style="dashboardNavbarLogo"/>
-
             <ul>
+
+            <div className="dashboardNavbarLogoContainer">
+                <MonettoLogo style="dashboardNavbarLogo"/>
+            </div>
 
                 <li className="dashboardNavbarElement active">
                     <a href="#"><FaChartPie className="dashboardNavbarIcon" />Dashboard</a>

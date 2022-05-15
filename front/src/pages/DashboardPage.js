@@ -8,6 +8,7 @@ import "../styles/page-styles/DashboardPage.css"
 // Components
 import DashboardNavbar from '../components/DashboardNavbar'
 import Button from '../components/Button'
+import DashboardHeader from '../components/DashboardHeader'
 
 function DashboardPage() {
   const auth = useAuth()
@@ -34,9 +35,10 @@ function DashboardPage() {
   // <Button onClick={handleSignOut} text="Sign out" color="primary" />
 
   return (
-    <>
+    <div className="dashboardContainer">
       <DashboardNavbar />
-    </>
+      <DashboardHeader title="Dashboard" />
+    </div>
   );
 }
 

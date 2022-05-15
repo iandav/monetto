@@ -1,10 +1,15 @@
 .dashboardNavbarContainer {
     width: 255px;
     height: 100vh;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.dashboardNavbarLogoContainer {
+    height: 56px;
+    margin: 30px 0;
 }
 
 .dashboardNavbarContainer ul {
