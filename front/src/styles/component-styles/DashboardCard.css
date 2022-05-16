@@ -10,12 +10,22 @@
     border: 1px solid #2B2B2B;
 }
 
-.dashboardCardContainer:hover {
-    border: 1px solid #E8BF59;
+.dashboardCardContainer:nth-child(1):hover {
+    border: 1px solid #2B2B2B;
     color: #E8BF59;
-    transition-duration: 0.1s;
-    cursor:default;
-    opacity: 1;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer:nth-child(2):hover {
+    border: 1px solid #2B2B2B;
+    color: #009379;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer:nth-child(3):hover {
+    border: 1px solid #2B2B2B;
+    color: #FF6250;
+    transition-duration: 0.2s;
 }
 
 .dashboardCardContainer.dashboardPageCard {
@@ -25,10 +35,10 @@
 .dashboardCardTitle {
     font-size: 19px;
     margin: 24px 32px 12px 32px;
-    opacity: 0.4;
 }
 
 .dashboardCardValue {
     font-size: 40px;
     margin: 0 32px 12px 24px;
+    opacity: 0.4;
 }

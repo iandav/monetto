@@ -10,6 +10,7 @@ import DashboardNavbar from '../components/DashboardNavbar'
 import Button from '../components/Button'
 import DashboardHeader from '../components/DashboardHeader'
 import DashboardCard from '../components/DashboardCard'
+import GeneralChart from '../components/GeneralChart'
 
 function DashboardPage() {
   const auth = useAuth()
@@ -44,11 +45,13 @@ function DashboardPage() {
 
         <DashboardHeader title="Dashboard" />
 
-      <div className='dashboardContentCards'>
-        <DashboardCard title="Balance" value="0.00" style="dashboardPageCard" />
-        <DashboardCard title="Income" value="0.00" style="dashboardPageCard" />
-        <DashboardCard title="Expenses" value="0.00" style="dashboardPageCard" />
-      </div>
+        <div className='dashboardContentCards'>
+          <DashboardCard title="Balance" value="$0.00" style="dashboardPageCard" icon="" />
+          <DashboardCard title="Income" value="$0.00" style="dashboardPageCard" icon="" />
+          <DashboardCard title="Expenses" value="$-0.00" style="dashboardPageCard" icon="" />
+        </div>
+
+        <GeneralChart />
 
       </div>
 

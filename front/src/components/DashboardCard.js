@@ -10,7 +10,7 @@ function DashboardCard({title, value, style}) {
             </h2>
 
             <p className="dashboardCardValue">
-                ${value}
+                {value}
             </p>
         </div>
     );
