@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from '../utils/hooks/useAuth'
 import { signUp } from '../api/auth'
 import '../styles/page-styles/RegisterPage.css'
+import { AuthContext } from '../lib/auth'
 
 const RegisterPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const auth = useAuth()
+  const auth = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [nick, setNick] = useState('')
   const [password, setPassword] = useState('')

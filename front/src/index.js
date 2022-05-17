@@ -5,8 +5,7 @@ import Home from "./pages/Home"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import DashboardPage from "./pages/DashboardPage"
-import { AuthProvider } from "./utils/providers/AuthContext"
-import { RequireAuth } from "./utils/context/authContext"
+import { AuthProvider, RequireAuth } from "./lib/auth"
 import "./index.css"
 
 const node = document.getElementById('root')
@@ -22,9 +21,9 @@ root.render(
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/dashboard" 
                         element= {
-                            //<RequireAuth>
+                            <RequireAuth>
                                 <DashboardPage />
-                            //</RequireAuth>
+                            </RequireAuth>
                         }
                     />
                 </Routes>
