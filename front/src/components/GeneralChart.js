@@ -1,50 +1,98 @@
 import React from "react";
 // Styles
 import "../styles/component-styles/GeneralChart.css"
-// ChartJS
-import { Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend } from "chart.js"
-import { Bar } from "react-chartjs-2"
-// Adapter
-import "chartjs-adapter-date-fns"
+// ChartJS components
+import { Chart } from "react-chartjs-2"
+// ChartJS dependencies
+import {
+    Chart as ChartJS,
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
+    CategoryScale,
+    LinearScale,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
+    Legend,
+    Title,
+    Tooltip,
+    SubTitle
+  } from 'chart.js';
+  
+  ChartJS.register(
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
+    CategoryScale,
+    LinearScale,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
+    Legend,
+    Title,
+    Tooltip,
+    SubTitle
+  );
 
-ChartJS.register(CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend);
+// Chart configuration (ignore the following variables)
+const labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
 
-// User data
 const data = {
+    labels: labels,
     datasets: [{
-        label: "Monthly income",
-        data: [
-            {x:"2022-06-16", y: 42220},
-            {x:"2022-06-18", y: 5990},
-            {x:"2022-06-20", y: 70090},
-            {x:"2022-06-25", y: 84090}
-        ],
-        backgroundColor: "orange"
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30],
     }]
-}
+  };
 
-// options of the chart
 const config = {
-    data,
-    options: {
-        scales: {
-            x: {
-                type: "time",
-                time: {
-                    unit: "day"
-                }
-            }
-        }
-    }
-}
+    data: data,
+    options: {}
+  };
 
 
 function GeneralChart() {
     return (
-        <div className="generalChartContainer">
-            <Bar data={{config}}
-            />
-        </div>
+        <>
+            <div className="generalChartContainer">
+              <Chart
+                type="line"
+                data={{
+                    labels: ['a', 'b'],
+                    datasets: [{
+                        data: [20, 10],
+                    }]
+                }}
+              />
+            </div>
+        </>
     );
 }
 
