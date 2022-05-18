@@ -8,7 +8,7 @@ const app = express()
 const port = 3000
 app.use(cors(
     {
-        origin: ["http://localhost:4000"], // Set enabled frontend origins here
+        origin: ["http://localhost:4000","http://localhost:3001"], // Set enabled frontend origins here
         credentials: true,
         exposedHeaders: ["set-cookie"]
     }
