@@ -85,9 +85,9 @@ function GeneralChart() {
               <Chart
                 type="line"
                 data={{
-                    labels: ['a', 'b'],
+                    labels: ['1', '2', "3", "4", "5", "6" ],
                     datasets: [{
-                        data: [20, 10],
+                        data: [9000, 13000, 18000, 24000, 32000, 59000],
                     }]
                 }}
               />
