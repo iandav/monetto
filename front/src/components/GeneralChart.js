@@ -85,10 +85,23 @@ function GeneralChart() {
               <Chart
                 type="line"
                 data={{
-                    labels: ['a', 'b'],
+                    labels: ["1", "2", "3", "4"],
                     datasets: [{
-                        data: [20, 10],
+                        type: "line",
+                        label: 'Monthly Earnings',
+                        data: [10, 20, 30, 40],
+                        borderColor: "#009379",
+                        backgroundColor: "#009379",
+                    },{
+                        type: "line",
+                        label: 'Monthly Expenses',
+                        data: [20, 13, 10, 5],
+                        borderColor: "#FF6250",
+                        backgroundColor: "#FF6250"
                     }]
+                }}
+                options={{
+                    
                 }}
               />
             </div>
