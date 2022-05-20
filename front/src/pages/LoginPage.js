@@ -2,23 +2,23 @@ import { useContext, useState } from 'react'
 import Navbar  from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { AuthContext } from '../lib/auth'
-import { signIn } from '../api/auth'
+import { signin } from '../api/auth'
 import '../styles/page-styles/RegisterPage.css'
 
 const LoginPage = () => {
+  const auth = useContext(AuthContext)
+
   const navigate = useNavigate()
   const location = useLocation()
   
-  const auth = useContext(AuthContext)
-
-  const [error, setError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('Something went wrong')
   const [nick, setNick] = useState('')
   const [password, setPassword] = useState('')
   
+  const [errorMessage, setErrorMessage] = useState('')
+
   const navigateTo = location.state?.from?.pathname || '/dashboard'
   
-  const handleLogin = async (e) => {
+  const onLogin = async (e) => {
     e.preventDefault()
   
     const data = {
@@ -26,23 +26,19 @@ const LoginPage = () => {
       password
     }
 
-    try {
-      const result = await signIn(data)
-      if(result.success){
-        auth.signin(data.nick, () => {
-          navigate(navigateTo, { replace: true })
-        })
-      }
-      else {
-        setErrorMessage(result.message)
-        setError(true)
-      }
-    } catch(err) {
-      setError(true)
+    const result = await signin(data)
+    if(result.success){
+      auth.signin(data.nick, () => {
+        navigate(navigateTo, { replace: true })
+      })
     }
+    else {
+      setErrorMessage(result.message)
+    }
+
   }
 
-  const handleInputChange = (e) => {
+  const onInputChange = (e) => {
     const { id, value } = e.target
     if(id === 'nick') {
       setNick(value)
@@ -52,7 +48,7 @@ const LoginPage = () => {
     }
   }
 
-  const handleSignUpClick = (e) => {
+  const onSignupClick = (e) => {
     navigate('/register')
   }
 
@@ -61,21 +57,21 @@ const LoginPage = () => {
       <Navbar />
       <div className="register-box">
         <h1>Log in</h1>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={onLogin}>
           <div className="user-box">
-            <input type="text" required placeholder='Username' id="nick" onChange={handleInputChange}></input>
+            <input type="text" required placeholder='Username' id="nick" onChange={onInputChange}></input>
           </div>
           <div className="user-box">
-            <input type="password" required placeholder='Password' id="password" onChange={handleInputChange}></input>
+            <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
           <button>
               Log in
           </button>
         </form>
-        <button className="signup-btn" onClick={handleSignUpClick}>
+        <button className="signup-btn" onClick={onSignupClick}>
           Sign up
         </button>
-        {error ? errorMessage : null}
+        {errorMessage.length > 0 ? errorMessage : null}
       </div>
     </>
   )

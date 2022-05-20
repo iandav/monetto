@@ -1,50 +1,45 @@
 import { useContext, useState } from 'react'
-import Navbar from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { signUp } from '../api/auth'
-import '../styles/page-styles/RegisterPage.css'
+import Navbar from '../components/Navbar'
+import { signup } from '../api/auth'
 import { AuthContext } from '../lib/auth'
+import '../styles/page-styles/RegisterPage.css'
 
 const RegisterPage = () => {
+  const auth = useContext(AuthContext)
+
   const navigate = useNavigate()
   const location = useLocation()
-  const auth = useContext(AuthContext)
+
   const [email, setEmail] = useState('')
   const [nick, setNick] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('Something went wrong')
 
+  const [errorMessage, setErrorMessage] = useState('')
 
   const navigateTo = location.state?.from?.pathname || '/dashboard'
 
-  async function handleSubmit (e) {
+  const onSubmit = async (e) => {
     e.preventDefault()
-
-    let data = {
+    const data = {
       nick,
       email,
       password
     }
-
-    try {
-      const result = await signUp(data)
-      if(result.success){
-        auth.signin(data.nick, () => {
-          navigate(navigateTo, { replace: true })
-        })
-      }
-      else {
-        setErrorMessage(result.message)
-        setError(true)
-      }
-    } catch(err) {
-      setError(true)
+    
+    const result = await signup(data)
+    if(result.success){
+      auth.signin(data.nick, () => {
+        navigate(navigateTo, { replace: true })
+      })
+    }
+    else {
+      setErrorMessage(result.message)
     }
   }
   
 
-  const handleInputChange = (e) => {
+  const onInputChange = (e) => {
     const { id, value } = e.target
 
     if(id === 'email') {
@@ -58,7 +53,7 @@ const RegisterPage = () => {
     }
   }
 
-  const handleLoginClick = (e) => {
+  const onLogin = () => {
     navigate('/login')
   }
 
@@ -67,24 +62,24 @@ const RegisterPage = () => {
       <Navbar />
       <div className="register-box">
         <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="user-box">
-            <input type="email" required placeholder='Email' id="email" onChange={handleInputChange}></input>
+            <input type="email" required placeholder='Email' id="email" onChange={onInputChange}></input>
           </div>
           <div className="user-box">
-            <input type="text" required placeholder='Username' id="nick" onChange={handleInputChange}></input>
+            <input type="text" required placeholder='Username' id="nick" onChange={onInputChange}></input>
           </div>
           <div className="user-box">
-            <input type="password" required placeholder='Password' id="password" onChange={handleInputChange}></input>
+            <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
           <button>
               Sign up
           </button>
         </form>
-        <button className='signup-btn' onClick={handleLoginClick}>
+        <button className='signup-btn' onClick={onLogin}>
           Log in
         </button>
-        {error ? errorMessage : null}
+        {errorMessage.length > 0 ? errorMessage : null}
       </div>
     </>
   )
