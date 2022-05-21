@@ -1,7 +1,8 @@
-const express = require("express")
-const cors = require("cors");
-const cookieSession = require("cookie-session");
-const {db} = require("./utils/database")
+/* eslint no-console: "off" */
+
+import express from "express";
+import cors from "cors";
+import cookieSession from "cookie-session";
 
 // Server configurations
 const app = express()

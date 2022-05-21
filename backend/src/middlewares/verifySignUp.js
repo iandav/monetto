@@ -1,6 +1,6 @@
 const {db} = require("../utils/database")
 
-checkDuplicateUsernameOrEmail = async (req, res, next) => {
+const checkDuplicateUsernameOrEmail = async (req, res, next) => {
     try {
         let user = await db.user.findFirst({
             where: {

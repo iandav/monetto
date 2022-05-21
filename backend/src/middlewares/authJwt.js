@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken")
+import jwt from "jsonwebtoken";
 const config = require("../config/auth.config")
 const {db} = require("../utils/database")
 
-verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
     let token = req.session.token;
     if (!token) {
         return res.status(403).send({
@@ -21,7 +21,7 @@ verifyToken = (req, res, next) => {
     })
 }
 
-isAdmin = async (req, res, next) => {
+const isAdmin = async (req, res, next) => {
     try {
         const user = await db.user.findFirst({
             where: {
