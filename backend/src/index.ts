@@ -24,11 +24,16 @@ app.use(cookieSession({
 
 
 // Routes
-require("./routes/auth.routes")(app);
-require("./routes/user.routes")(app);
-require("./routes/account.routes")(app);
-require("./routes/earning.routes")(app);
-require("./routes/expense.routes")(app);
+import AuthRoutes from "./routes/auth.routes"
+import UserRoutes from "./routes/auth.routes"
+import AccountRoutes from "./routes/auth.routes"
+import EarningRoutes from "./routes/auth.routes"
+import ExpenseRoutes from "./routes/auth.routes"
+AuthRoutes(app);
+UserRoutes(app);
+AccountRoutes(app);
+EarningRoutes(app);
+ExpenseRoutes(app);
 
 
 app.listen(port, () => {
