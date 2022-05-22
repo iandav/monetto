@@ -3,6 +3,7 @@
 import express from "express";
 import cors from "cors";
 import cookieSession from "cookie-session";
+import mainRouter from "./routes"
 
 // Server configurations
 const app = express()
@@ -22,19 +23,7 @@ app.use(cookieSession({
     httpOnly: true
 }))
 
-
-// Routes
-import AuthRoutes from "./routes/auth.routes"
-import UserRoutes from "./routes/auth.routes"
-import AccountRoutes from "./routes/auth.routes"
-import EarningRoutes from "./routes/auth.routes"
-import ExpenseRoutes from "./routes/auth.routes"
-AuthRoutes(app);
-UserRoutes(app);
-AccountRoutes(app);
-EarningRoutes(app);
-ExpenseRoutes(app);
-
+app.use("/api", mainRouter);
 
 app.listen(port, () => {
     console.log(`Monetto Backend listening on port ${port}`)
