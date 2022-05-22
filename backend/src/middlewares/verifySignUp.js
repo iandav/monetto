@@ -34,8 +34,6 @@ const checkDuplicateUsernameOrEmail = async (req, res, next) => {
     }
 }
 
-const verifySignUp = {
+export const verifySignUp = {
     checkDuplicateUsernameOrEmail
 }
-
-module.exports = verifySignUp;
