@@ -1,5 +1,5 @@
 import { verify, VerifyErrors, VerifyCallback, JwtPayload } from "jsonwebtoken";
-import config from "../config/auth.config";
+import {authConfig} from "../config";
 import {Request, Response, NextFunction} from "express";
 
 
@@ -23,7 +23,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
         next();
     }
 
-    verify(token, config.secret, tokenVerifyCallback)
+    verify(token, authConfig.secret, tokenVerifyCallback)
 }
 
 
