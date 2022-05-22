@@ -1,8 +1,9 @@
-const {db} = require("../utils/database")
-const {dayjs} = require("../utils")
+import {db} from "../utils/database";
+import {dayjs} from "../utils";
+import {Request, Response} from "express";
+import {EarningQuery} from "../types/earnings";
 
-
-exports.addEarning = async (req, res) => {
+const addEarning = async (req: Request, res: Response) => {
     try {
 
         const account = await db.account.findFirst({
@@ -32,7 +33,7 @@ exports.addEarning = async (req, res) => {
 }
 
 
-exports.deleteEarning = async (req, res) => {
+const deleteEarning = async (req: Request, res: Response) => {
     try {
 
         const earning = await db.earning.findFirst({
@@ -59,20 +60,24 @@ exports.deleteEarning = async (req, res) => {
     }
 }
 
-exports.getAllEarningsForAccount = async (req, res) => {
+const getAllEarningsForAccount = async (req: Request, res: Response) => {
     try {
 
-        const {dateFrom, dateTo, description} = req.query;
+        const queryArgs: EarningQuery = {
+            dateFrom: req.query.dateFrom as string | undefined,
+            dateTo: req.query.dateTo as string | undefined,
+            description: req.query.description as string | undefined,
+        }
 
         const earnings = await db.earning.findMany({
             where: {
                 accountId: parseInt(req.params.accountId),
                 date: {
-                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate(): undefined
+                    gte: queryArgs.dateFrom ? dayjs.utc(queryArgs.dateFrom).startOf('day').toDate() : undefined,
+                    lte: queryArgs.dateTo ? dayjs.utc(queryArgs.dateTo).endOf('day').toDate(): undefined
                 },
                 description: {
-                    contains: description
+                    contains: queryArgs.description
                 }
             }
         })
@@ -84,10 +89,14 @@ exports.getAllEarningsForAccount = async (req, res) => {
     }
 }
 
-exports.getAllEarningsForUser = async (req, res) => {
+const getAllEarningsForUser = async (req: Request, res: Response) => {
     try {
 
-        const {dateFrom, dateTo, description} = req.query;
+        const queryArgs: EarningQuery = {
+            dateFrom: req.query.dateFrom as string | undefined,
+            dateTo: req.query.dateTo as string | undefined,
+            description: req.query.description as string | undefined,
+        }
 
         const earnings = await db.earning.findMany({
             where: {
@@ -97,11 +106,11 @@ exports.getAllEarningsForUser = async (req, res) => {
                     }
                 },
                 date: {
-                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                    gte: queryArgs.dateFrom ? dayjs.utc(queryArgs.dateFrom).startOf('day').toDate() : undefined,
+                    lte: queryArgs.dateTo ? dayjs.utc(queryArgs.dateTo).endOf('day').toDate() : undefined,
                 },
                 description: {
-                    contains: description
+                    contains: queryArgs.description
                 }
             }
         })
@@ -111,4 +120,11 @@ exports.getAllEarningsForUser = async (req, res) => {
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get all earnings"});
     }
+}
+
+export default {
+    addEarning,
+    deleteEarning,
+    getAllEarningsForAccount,
+    getAllEarningsForUser
 }
