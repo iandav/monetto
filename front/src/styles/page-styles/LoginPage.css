@@ -30,7 +30,7 @@
 }
 
 .register-box h1 {
-    margin-bottom: 30px;
+    
     padding: 0;
     color: #fff;
 }
@@ -58,7 +58,7 @@ button{
     border-radius: 15px;
     box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     transition-duration: 0.4s;
 }
 
@@ -71,7 +71,6 @@ button:hover {
 
 .register-box p {
     color: rgba(255, 255, 255, 0.4);
-    
 }
 
 .register-box a {

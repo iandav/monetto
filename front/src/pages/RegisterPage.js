@@ -60,26 +60,39 @@ const RegisterPage = () => {
   return (
     <>
       <Navbar />
+
+      <div className='register-box-container'>
+
       <div className="register-box">
+
         <h1>Register</h1>
+
         <form onSubmit={onSubmit}>
+
           <div className="user-box">
             <input type="email" required placeholder='Email' id="email" onChange={onInputChange}></input>
           </div>
+
           <div className="user-box">
             <input type="text" required placeholder='Username' id="nick" onChange={onInputChange}></input>
           </div>
+
           <div className="user-box">
             <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
-          <button>
-              Sign up
-          </button>
+
         </form>
-        <button className='signup-btn' onClick={onLogin}>
-          Log in
+
+        <button className='signup-btn' onClick={signup}>
+          Sign up
         </button>
+
+        <p>Already have an account? <a href="#" onClick={onLogin}>Login</a></p>
+
         {errorMessage.length > 0 ? errorMessage : null}
+
+      </div>
+      
       </div>
     </>
   )

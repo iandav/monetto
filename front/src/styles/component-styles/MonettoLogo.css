@@ -3,6 +3,12 @@
     font-weight: 600;
     text-decoration: none;
     color: white;
+    transition-duration: 0.4s;
+}
+
+.monettoLogo:hover {
+    color: #E8BF59;
+    transition-duration: 0.4s;
 }
 
 .monettoLogo.dashboardNavbarLogo {

@@ -16,4 +16,10 @@
 
 .loginButton {
     margin-right: 50px;
+    transition-duration: 0.4s;
+}
+
+.loginButton:hover {
+    background-color: #E8BF59;
+    transition-duration: 0.4s;
 }

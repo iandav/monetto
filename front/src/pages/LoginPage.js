@@ -3,7 +3,7 @@ import Navbar  from '../components/Navbar'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { AuthContext } from '../lib/auth'
 import { signin } from '../api/auth'
-import '../styles/page-styles/RegisterPage.css'
+import '../styles/page-styles/LoginPage.css'
 
 const LoginPage = () => {
   const auth = useContext(AuthContext)
@@ -55,23 +55,36 @@ const LoginPage = () => {
   return (
     <>
       <Navbar />
+
+      <div className='register-box-container'>
+
       <div className="register-box">
+
         <h1>Log in</h1>
+
         <form onSubmit={onLogin}>
+
           <div className="user-box">
             <input type="text" required placeholder='Username' id="nick" onChange={onInputChange}></input>
           </div>
+
           <div className="user-box">
             <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
-          <button>
-              Log in
-          </button>
+
         </form>
-        <button className="signup-btn" onClick={onSignupClick}>
-          Sign up
+
+        <button className="login-btn" onClick={onLogin}>
+          Log in
         </button>
+        
+        <p>Don't have an account? <a href="#" onClick={onSignupClick}>Sign up</a></p>
+        
+
         {errorMessage.length > 0 ? errorMessage : null}
+
+      </div>
+
       </div>
     </>
   )
