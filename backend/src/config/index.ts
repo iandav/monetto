@@ -1,3 +1,3 @@
-module.exports = {
+export const authConfig = {
     secret: "monetto-secret-key"
 }

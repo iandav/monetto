@@ -1,7 +1,8 @@
-const {db} = require("../utils/database")
-const bcrypt = require("bcryptjs")
+import bcrypt from "bcryptjs";
+import {db} from "../utils/database";
+import {Request, Response} from "express";
 
-exports.userProfile = async (req, res) => {
+const userProfile = async (req: Request, res: Response) => {
     try {
         const user = await db.user.findFirst({
             where: {
@@ -26,7 +27,7 @@ exports.userProfile = async (req, res) => {
     }
 }
 
-exports.updateEmail = async (req, res) => {
+const updateEmail = async (req: Request, res: Response) => {
     try {
         const emailExists = await db.user.findFirst({
             where: {
@@ -64,7 +65,7 @@ exports.updateEmail = async (req, res) => {
     }
 }
 
-exports.updateUsername = async (req, res) => {
+const updateUsername = async (req: Request, res: Response) => {
     try {
         const usernameExists = await db.user.findFirst({
             where: {
@@ -103,7 +104,7 @@ exports.updateUsername = async (req, res) => {
     }
 }
 
-exports.updatePassword = async (req, res) => {
+const updatePassword = async (req: Request, res: Response) => {
     try {
         const user = await db.user.findFirst({
             where: {
@@ -137,7 +138,7 @@ exports.updatePassword = async (req, res) => {
     }
 }
 
-exports.deleteAccount = async (req, res) => {
+const deleteAccount = async (req: Request, res: Response) => {
     try {
         const user = await db.user.findFirst({
             where: {
@@ -165,4 +166,12 @@ exports.deleteAccount = async (req, res) => {
     } catch(error) {
         res.status(500).send({message: "Error while deleting the user"})
     }
+}
+
+export default {
+    userProfile,
+    updateEmail,
+    updateUsername,
+    updatePassword,
+    deleteAccount
 }

@@ -1,7 +1,9 @@
-const {db} = require("../utils/database")
-const {dayjs} = require("../utils")
+import {dayjs} from "../utils"
+import {db} from "../utils/database"
+import {Request, Response} from "express";
+import {ExpenseQuery} from "../types/expenses";
 
-exports.addExpense = async (req, res) => {
+const addExpense = async (req: Request, res: Response) => {
     try {
         
         const {description, date, value, accountId} = req.body;
@@ -32,7 +34,7 @@ exports.addExpense = async (req, res) => {
     }
 }
 
-exports.deleteExpense = async (req, res) => {
+const deleteExpense = async (req: Request, res: Response) => {
     try {
 
         const expense = await db.expense.findFirst({
@@ -59,20 +61,24 @@ exports.deleteExpense = async (req, res) => {
     }
 }
 
-exports.getAllExpensesForAccount = async (req, res) => {
+const getAllExpensesForAccount = async (req: Request, res: Response) => {
     try {
 
-        const {dateFrom, dateTo, description} = req.query;
+        const queryArgs: ExpenseQuery = {
+            dateFrom: req.query.dateFrom as string | undefined,
+            dateTo: req.query.dateTo as string | undefined,
+            description: req.query.description as string | undefined,
+        }
 
         const expenses = await db.expense.findMany({
             where: {
                 accountId: parseInt(req.params.accountId),
                 date: {
-                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate(): undefined
+                    gte: queryArgs.dateFrom ? dayjs.utc(queryArgs.dateFrom).startOf('day').toDate() : undefined,
+                    lte: queryArgs.dateTo ? dayjs.utc(queryArgs.dateTo).endOf('day').toDate(): undefined
                 },
                 description: {
-                    contains: description
+                    contains: queryArgs.description
                 }
             }
         })
@@ -84,10 +90,14 @@ exports.getAllExpensesForAccount = async (req, res) => {
     }
 }
 
-exports.getAllExpensesForUser = async (req, res) => {
+const getAllExpensesForUser = async (req: Request, res: Response) => {
     try {
 
-        const {dateFrom, dateTo, description} = req.query;
+        const queryArgs: ExpenseQuery = {
+            dateFrom: req.query.dateFrom as string | undefined,
+            dateTo: req.query.dateTo as string | undefined,
+            description: req.query.description as string | undefined,
+        }
 
         const expenses = await db.expense.findMany({
             where: {
@@ -97,11 +107,11 @@ exports.getAllExpensesForUser = async (req, res) => {
                     }
                 },
                 date: {
-                    gte: dateFrom ? dayjs.utc(dateFrom).startOf('day').toDate() : undefined,
-                    lte: dateTo ? dayjs.utc(dateTo).endOf('day').toDate() : undefined,
+                    gte: queryArgs.dateFrom ? dayjs.utc(queryArgs.dateFrom).startOf('day').toDate() : undefined,
+                    lte: queryArgs.dateTo ? dayjs.utc(queryArgs.dateTo).endOf('day').toDate() : undefined,
                 },
                 description: {
-                    contains: description
+                    contains: queryArgs.description
                 }
             }
         })
@@ -111,4 +121,11 @@ exports.getAllExpensesForUser = async (req, res) => {
     } catch (error) {
         return res.status(500).send({message: "Error while trying to get all expenses"});
     }
+}
+
+export default {
+    addExpense,
+    deleteExpense,
+    getAllExpensesForAccount,
+    getAllExpensesForUser
 }

@@ -1,8 +1,9 @@
-const {db} = require("../utils/database")
+import {db} from "../utils/database";
+import {Request, Response, NextFunction} from "express";
 
-checkDuplicateUsernameOrEmail = async (req, res, next) => {
+const checkDuplicateUsernameOrEmail = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        let user = await db.user.findFirst({
+        const user = await db.user.findFirst({
             where: {
                 nick: req.body.nick
             }
@@ -14,7 +15,7 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
             })
         }
 
-        let email = await db.user.findFirst({
+        const email = await db.user.findFirst({
             where: {
                 email: req.body.email
             }
@@ -34,8 +35,6 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
     }
 }
 
-const verifySignUp = {
+export const verifySignUp = {
     checkDuplicateUsernameOrEmail
 }
-
-module.exports = verifySignUp;

@@ -1,9 +1,10 @@
-const {db} = require("../utils/database")
-const config = require("../config/auth.config")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcryptjs")
+import {db} from "../utils/database";
+import {authConfig} from "../config";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import {Request, Response, NextFunction} from "express"
 
-exports.signup = async (req, res) => {
+const signup = async (req: Request, res: Response) => {
     try {
         const user = await db.user.create({
             data: {
@@ -22,7 +23,7 @@ exports.signup = async (req, res) => {
     }
 }
 
-exports.signin = async (req, res) => {
+const signin = async (req: Request, res: Response) => {
     try {
         const user = await db.user.findFirst({
             where: {
@@ -47,11 +48,13 @@ exports.signin = async (req, res) => {
             })
         }
 
-        const token = jwt.sign({id: user.id}, config.secret, {
+        const token = jwt.sign({id: user.id}, authConfig.secret, {
             expiresIn: 86400 // 24 hours
         })
 
-        req.session.token = token;
+        if (req.session) {
+            req.session.token = token;
+        }
 
         return res.status(200).send({
             nick: user.nick,
@@ -63,13 +66,19 @@ exports.signin = async (req, res) => {
     }
 }
 
-exports.signout = async (req, res) => {
+const signout = async (req: Request, res: Response, next: NextFunction) => {
     try {
         req.session = null;
         return res.status(200).send({
             message: "Signed out successfully"
         })
     } catch (error) {
-        this.next(err);
+        next(error);
     }
+}
+
+export default {
+    signout,
+    signin,
+    signup
 }

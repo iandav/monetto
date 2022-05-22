@@ -1,7 +1,9 @@
-const express = require("express")
-const cors = require("cors");
-const cookieSession = require("cookie-session");
-const {db} = require("./utils/database")
+/* eslint no-console: "off" */
+
+import express from "express";
+import cors from "cors";
+import cookieSession from "cookie-session";
+import mainRouter from "./routes"
 
 // Server configurations
 const app = express()
@@ -21,14 +23,7 @@ app.use(cookieSession({
     httpOnly: true
 }))
 
-
-// Routes
-require("./routes/auth.routes")(app);
-require("./routes/user.routes")(app);
-require("./routes/account.routes")(app);
-require("./routes/earning.routes")(app);
-require("./routes/expense.routes")(app);
-
+app.use("/api", mainRouter);
 
 app.listen(port, () => {
     console.log(`Monetto Backend listening on port ${port}`)
