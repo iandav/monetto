@@ -3,10 +3,12 @@ const {dayjs} = require("../utils")
 
 exports.addExpense = async (req, res) => {
     try {
+        
+        const {description, date, value, accountId} = req.body;
 
         const account = await db.account.findFirst({
             where: {
-                account_id: req.body.accountId
+                account_id: accountId
             }
         })
 
@@ -16,10 +18,10 @@ exports.addExpense = async (req, res) => {
 
         const expense = await db.expense.create({
             data: {
-                description: req.body.description,
-                date: req.body.date,
-                value: req.body.value,
-                accountId: req.body.accountId
+                description: description,
+                date: date ? new Date(date) : undefined,
+                value: value,
+                accountId: accountId
             }
         })
 

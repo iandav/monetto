@@ -5,9 +5,11 @@ const {dayjs} = require("../utils")
 exports.addEarning = async (req, res) => {
     try {
 
+        const {description, date, value, accountId} = req.body;
+
         const account = await db.account.findFirst({
             where: {
-                account_id: req.body.accountId
+                account_id: accountId
             }
         })
 
@@ -17,16 +19,17 @@ exports.addEarning = async (req, res) => {
 
         const earning = await db.earning.create({
             data: {
-                description: req.body.description,
-                date: req.body.date,
-                value: req.body.value,
-                accountId: req.body.accountId
+                description: description,
+                date: date ? new Date(date) : undefined,
+                value: value,
+                accountId: accountId
             }
         })
 
         return res.status(200).send(earning);
 
     } catch (error) {
+        console.error(error)
         return res.status(500).send({message: "Error while trying to add earning"});
     }
 }
