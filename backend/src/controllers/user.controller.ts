@@ -51,7 +51,7 @@ const updateEmail = async (req: Request, res: Response) => {
             return res.status(404).send({message: "User not found"});
         }
 
-        const updatedUser = await db.user.update({
+        await db.user.update({
             where: {
                 id: user.id
             },
@@ -89,7 +89,7 @@ const updateUsername = async (req: Request, res: Response) => {
             return res.status(404).send({message: "User not found"});
         }
 
-        const updatedUser = await db.user.update({
+        await db.user.update({
             where: {
                 id: user.id
             },
@@ -120,7 +120,7 @@ const updatePassword = async (req: Request, res: Response) => {
 
         if(!samePassword) {
 
-            const updatedUser = await db.user.update({
+            await db.user.update({
                 where: {
                     id: user.id
                 },
@@ -153,7 +153,7 @@ const deleteAccount = async (req: Request, res: Response) => {
         const samePassword = await bcrypt.compare(req.body.password, user.password)
 
         if(samePassword) {
-            const deletedUser = await db.user.delete({
+            await db.user.delete({
                 where: {
                   id: user.id
                 }
