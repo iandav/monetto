@@ -1,6 +1,7 @@
-const {db} = require("../utils/database")
+import {db} from "../utils/database";
+import {Request, Response} from "express";
 
-exports.createAccount = async (req, res) => {
+const createAccount = async (req: Request, res: Response) => {
     try {
 
         const user = await db.user.findFirst({
@@ -29,7 +30,7 @@ exports.createAccount = async (req, res) => {
     }
 }
 
-exports.getAccountsForUser = async (req, res) => {
+const getAccountsForUser = async (req: Request, res: Response) => {
     try {
 
         const accounts = await db.account.findMany({
@@ -52,7 +53,7 @@ exports.getAccountsForUser = async (req, res) => {
     }
 }
 
-exports.getAccount = async (req, res) => {
+const getAccount = async (req: Request, res: Response) => {
     try {
 
         const account = await db.account.findFirst({
@@ -72,7 +73,7 @@ exports.getAccount = async (req, res) => {
     }
 }
 
-exports.deleteAccount = async (req, res) => {
+const deleteAccount = async (req: Request, res: Response) => {
     try {
 
         const account = await db.account.findFirst({
@@ -96,4 +97,11 @@ exports.deleteAccount = async (req, res) => {
     } catch (error) {
         return res.status(500).send({message: "Error while trying to delete account"});
     }
+}
+
+export default {
+    createAccount,
+    getAccountsForUser,
+    getAccount,
+    deleteAccount
 }
