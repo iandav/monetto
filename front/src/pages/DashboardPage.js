@@ -22,7 +22,11 @@ function DashboardPage() {
           <DashboardCard title="Expenses" value="$-0.00" style="dashboardPageCard" icon="" />
         </div>
 
-        <GeneralChart />
+        <div className='dashboardGeneralChartContainer'>
+          <h2>Monthly income</h2>
+          <GeneralChart />
+        </div>
+        
 
       </div>
 

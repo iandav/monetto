@@ -1,7 +1,6 @@
 .dashboardContainer {
     display: flex;
     justify-content: flex-start;
-    height: 100%;
 }
 
 .dashboardContent {
@@ -15,4 +14,12 @@
     align-content: center;
     
     margin: 40px 30px 0 30px;
+}
+
+.dashboardGeneralChartContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2b2b;
+    width: 900px;
+    margin: 30px 30px 30px 30px;
 }

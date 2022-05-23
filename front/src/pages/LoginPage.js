@@ -72,15 +72,14 @@ const LoginPage = () => {
             <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
 
-        </form>
+          <button className="login-btn">
+            Log in
+          </button>
 
-        <button className="login-btn" onClick={onLogin}>
-          Log in
-        </button>
+        </form>
         
         <p>Don't have an account? <a href="#" onClick={onSignupClick}>Sign up</a></p>
         
-
         {errorMessage.length > 0 ? errorMessage : null}
 
       </div>

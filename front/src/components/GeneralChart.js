@@ -66,6 +66,10 @@ function GeneralChart() {
             <div className="generalChartContainer">
               <Chart
                 type="line"
+                style={{
+                  backgroundColor: "",
+
+                }}
                 data={{
                     labels: ["1", "2", "3", "4"],
                     datasets: [{
