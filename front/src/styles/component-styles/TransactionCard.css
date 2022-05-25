@@ -1,0 +1,27 @@
+.transactionCardContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    color: white;
+    font-size: 14px;
+    border-radius: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.transactionCardDescription {
+    margin-left: 32px;
+}
+
+.transactionCardValue {
+    margin-right: 32px;
+}
+
+.transactionCardValue.income {
+    color: #009379;
+}
+
+.transactionCardValue.expense {
+    color: #FF6250;
+}

@@ -4,6 +4,7 @@ import DashboardNavbar from '../components/DashboardNavbar'
 import DashboardHeader from '../components/DashboardHeader'
 import DashboardCard from '../components/DashboardCard'
 import GeneralChart from '../components/GeneralChart'
+import TransactionHistory from '../components/TransactionHistory'
 
 function DashboardPage() {
   
@@ -26,10 +27,13 @@ function DashboardPage() {
           <h2>Monthly income</h2>
           <GeneralChart />
         </div>
+
+        <div className='transactionHistory'>
+          <TransactionHistory />
+        </div>
         
 
       </div>
-
     </div>
   );
 }
