@@ -4,7 +4,10 @@
     height: 56px;
     justify-content: space-between;
     align-items: center;
+    /*
     margin: 20px 0 0 0;
+    */
+    margin: 20px 0;
 }
 
 .dashboardHeaderTitle {

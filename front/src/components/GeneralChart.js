@@ -63,36 +63,63 @@ ChartJS.register(
 function GeneralChart() {
     return (
         <>
-            <div className="generalChartContainer">
               <Chart
                 type="line"
                 style={{
+                  width: 686,
+                  height: 380,
+                  marginTop: 0,
+                  marginRight: 62,
+                  marginBottom: 32,
+                  marginLeft: 32,
                   backgroundColor: "",
-
                 }}
                 data={{
-                    labels: ["1", "2", "3", "4"],
                     datasets: [{
                         type: "line",
-                        label: 'Monthly Earnings',
-                        data: [10, 20, 30, 40],
+                        label: 'Earnings',
+                        data: [
+                          {x: "2022-03-01", y: 61000},
+                          {x: "2022-04-01", y: 118120},
+                          {x: "2022-05-01", y: 183312},
+                          {x: "2022-06-01", y: 202000},
+                          {x: "2022-07-01", y: 242000},
+                          {x: "2022-08-01", y: 293000},
+                        ],
                         borderColor: "#009379",
                         backgroundColor: "#009379",
                     },{
                         type: "line",
-                        label: 'Monthly Expenses',
-                        data: [20, 13, 10, 5],
+                        label: 'Expenses',
+                        data: [
+                          {x: "2022-03-01", y: 17200},
+                          {x: "2022-04-01", y: 32000},
+                          {x: "2022-05-01", y: 44820},
+                          {x: "2022-06-01", y: 44200},
+                          {x: "2022-07-01", y: 88400},
+                          {x: "2022-08-01", y: 44820},
+                        ],
                         borderColor: "#FF6250",
                         backgroundColor: "#FF6250"
                     }]
                 }}
                 options={{
                     responsive: true,
-                    
+                    scales: {
+                      x: {
+                        type: "time",
+                        time: {
+                          unit: "month"
+                        }
+                      }
+                    },
+                    plugins: {
+                      legend: {
+                        display: false
+                      }
+                    }
                 }}
-                
               />
-            </div>
         </>
     );
 }

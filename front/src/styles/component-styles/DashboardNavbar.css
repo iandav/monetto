@@ -1,10 +1,13 @@
 .dashboardNavbarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 255px;
     height: 100%;
 }
 
 .dashboardNavbarLogoContainer {
-    height: 56px;
     margin: 30px 0;
 }
 
@@ -19,7 +22,8 @@
 .dashboardNavbarElement {
     width: 245px;
     height: 56px;
-    border-left: 6px solid none;
+    border-left: 6px solid #2b2b2b;
+    transition-duration: 0.2s;
 }
 
 .dashboardNavbarElement a:hover {
@@ -28,7 +32,7 @@
 }
 
 .dashboardNavbarElement:hover {
-    border-left: 6px solid #3b3b3b;
+    border-left: 6px solid #A490E5;
 }
 
 .dashboardNavbarElement.active {
@@ -57,4 +61,5 @@
     text-decoration: none;
     color: white;
     opacity: 0.4;
+    transition-duration: 0.2s;
 }

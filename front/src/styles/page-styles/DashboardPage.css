@@ -8,22 +8,45 @@
     background-color: #3b3b3b;
 }
 
-.dashboardContentCards {
+.dashboardCardsContainer {
     display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    
-    margin: 40px 30px 0 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 0 15px 15px 0;
 }
 
 .dashboardGeneralChartContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 1200px;
+    height: 546px;
+    border-radius: 15px;
+    margin: 0 30px 30px 30px;
     background-color: #2b2b2b;
-    width: 900px;
-    margin: 30px 30px 30px 30px;
 }
 
+.dashboardGeneralChart h2 {
+    margin: 32px 0 78px 32px;
+}
+
+.dashboardTransactionsSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboardExpensesChartContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 546px;
+    height: 338px;
+    border-radius: 15px;
+    margin-left: 30px;
+    
+    background-color: #2B2B2B;
+}
 .transactionHistory {
     margin-left: 30px;
 }

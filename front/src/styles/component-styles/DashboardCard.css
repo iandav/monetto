@@ -3,33 +3,51 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 257px;
+    width: 260px;
     height: 133px;
     border-radius: 15px;
     background-color: #2B2B2B;
-    border: 1px solid #2B2B2B;
+    cursor: default;
 }
 
-.dashboardCardContainer:nth-child(1):hover {
-    border: 1px solid #2B2B2B;
+.dashboardCardContainer.balance {
     color: #E8BF59;
     transition-duration: 0.2s;
 }
 
-.dashboardCardContainer:nth-child(2):hover {
-    border: 1px solid #2B2B2B;
+.dashboardCardContainer.income {
     color: #009379;
     transition-duration: 0.2s;
 }
 
-.dashboardCardContainer:nth-child(3):hover {
-    border: 1px solid #2B2B2B;
+.dashboardCardContainer.expenses {
     color: #FF6250;
     transition-duration: 0.2s;
 }
 
+.dashboardCardContainer.balance h2, .dashboardCardContainer.income h2, .dashboardCardContainer.expenses h2 {
+    color: white;
+}
+
+.dashboardCardContainer.balance:hover {
+    border-color: #E8BF59;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.income:hover {
+    border-color: #009379;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.expenses:hover {
+    border-color: #FF6250;
+    transition-duration: 0.2s;
+}
+
 .dashboardCardContainer.dashboardPageCard {
-    margin-right: 30px;
+   margin: 8px 0;
+   background-color: #3b3b3b;
+   border: 2px solid #3b3b3b;
 }
 
 .dashboardCardTitle {
@@ -40,5 +58,4 @@
 .dashboardCardValue {
     font-size: 40px;
     margin: 0 32px 12px 24px;
-    opacity: 0.4;
 }

@@ -2,9 +2,9 @@ import React from "react";
 // Styles
 import "../styles/component-styles/DashboardCard.css"
 
-function DashboardCard({title, value, style}) {
+function DashboardCard({title, value, name}) {
     return (
-        <div className={`dashboardCardContainer ${style}`}>
+        <div className={`dashboardCardContainer ${name}`}>
             <h2 className="dashboardCardTitle">
                 {title}
             </h2>

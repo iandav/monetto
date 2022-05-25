@@ -5,6 +5,7 @@ import DashboardHeader from '../components/DashboardHeader'
 import DashboardCard from '../components/DashboardCard'
 import GeneralChart from '../components/GeneralChart'
 import TransactionHistory from '../components/TransactionHistory'
+import ExpensesChart from '../components/ExpensesChart'
 
 function DashboardPage() {
   
@@ -17,21 +18,28 @@ function DashboardPage() {
 
         <DashboardHeader title="Dashboard" />
 
-        <div className='dashboardContentCards'>
-          <DashboardCard title="Balance" value="$0.00" style="dashboardPageCard" icon="" />
-          <DashboardCard title="Income" value="$0.00" style="dashboardPageCard" icon="" />
-          <DashboardCard title="Expenses" value="$-0.00" style="dashboardPageCard" icon="" />
-        </div>
-
         <div className='dashboardGeneralChartContainer'>
-          <h2>Monthly income</h2>
-          <GeneralChart />
+          <div className='dashboardGeneralChart'>
+            <h2>Monthly income</h2>
+            <GeneralChart />
+          </div>
+
+          <div className='dashboardCardsContainer'>
+            <DashboardCard title="Balance" value="$302000" name="dashboardPageCard balance" icon="" />
+            <DashboardCard title="Income" value="$293000" name="dashboardPageCard income" icon="" />
+            <DashboardCard title="Expenses" value="$44820" name="dashboardPageCard expenses" icon="" />
+          </div>
         </div>
 
-        <div className='transactionHistory'>
-          <TransactionHistory />
+        <div className='dashboardTransactionsSection'>
+          <div className='dashboardExpensesChartContainer'>
+          <ExpensesChart />
+          </div>
+
+          <div className='transactionHistory'>
+            <TransactionHistory />
+          </div>
         </div>
-        
 
       </div>
     </div>
