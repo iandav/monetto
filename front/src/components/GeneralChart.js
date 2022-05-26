@@ -110,6 +110,30 @@ function GeneralChart() {
                         type: "time",
                         time: {
                           unit: "month"
+                        },
+                        grid: {
+                          color: "#3b3b3b",
+                          tickColor: "#2b2b2b",
+                        },
+                        ticks: {
+                          color: "rgba(255, 255, 255, 0.4)",
+                          font: {
+                            family: "Poppins",
+                            size: 13
+                          }
+                        }
+                      },
+                      y: {
+                        grid: {
+                          color: "#3b3b3b",
+                          tickColor: "#2b2b2b"
+                        },
+                        ticks: {
+                          color: "#E8BF59",
+                          font: {
+                            family: "Poppins",
+                            size: 13
+                          }
                         }
                       }
                     },
