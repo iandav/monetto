@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import Navbar  from '../components/Navbar'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { AuthContext } from '../lib/auth'
 import { signin } from '../api/auth'
 import '../styles/page-styles/LoginPage.css'
@@ -48,10 +48,6 @@ const LoginPage = () => {
     }
   }
 
-  const onSignupClick = (e) => {
-    navigate('/register')
-  }
-
   return (
     <>
       <Navbar />
@@ -77,8 +73,9 @@ const LoginPage = () => {
           </button>
 
         </form>
-        
-        <p>Don't have an account? <a href="#" onClick={onSignupClick}>Sign up</a></p>
+        <p>Don't have an account? 
+          <Link to="/register"> Sign up </Link>
+        </p>
         
         {errorMessage.length > 0 ? errorMessage : null}
 

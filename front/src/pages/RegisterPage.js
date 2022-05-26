@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { signup } from '../api/auth'
 import { AuthContext } from '../lib/auth'
@@ -21,12 +21,13 @@ const RegisterPage = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    console.log("BEFORE")
     const data = {
       nick,
       email,
       password
     }
-    
+    console.log(data)
     const result = await signup(data)
     if(result.success){
       auth.signin(data.nick, () => {
@@ -53,10 +54,6 @@ const RegisterPage = () => {
     }
   }
 
-  const onLogin = () => {
-    navigate('/login')
-  }
-
   return (
     <>
       <Navbar />
@@ -81,13 +78,14 @@ const RegisterPage = () => {
             <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
           </div>
 
+          <button className='signup-btn'>
+            Sign up
+          </button>
         </form>
 
-        <button className='signup-btn' onClick={signup}>
-          Sign up
-        </button>
-
-        <p>Already have an account? <a href="#" onClick={onLogin}>Login</a></p>
+        <p>Already have an account? 
+          <Link to="/login"> Login </Link>
+        </p>
 
         {errorMessage.length > 0 ? errorMessage : null}
 
