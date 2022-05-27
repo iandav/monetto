@@ -4,7 +4,7 @@
   "description": "Backend API for Monetto",
   "main": "dist/index.js",
   "dependencies": {
-    "@prisma/client": "^3.12.0",
+    "@prisma/client": "^3.13.0",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.16.0",
     "nodemon": "^2.0.15",
-    "prisma": "^3.12.0",
+    "prisma": "^3.13.0",
     "ts-node": "^10.8.0",
     "typescript": "^4.6.4"
   }
