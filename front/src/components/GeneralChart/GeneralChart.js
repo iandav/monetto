@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Styles
 import "./GeneralChart.css"
+// API calls
+import * as api from "../../api/services/index.js"
 // ChartJS dependencies
 import { Chart } from "react-chartjs-2"
 import {
@@ -61,6 +63,11 @@ ChartJS.register(
 
 
 function GeneralChart() {
+
+  useEffect(() => {
+    api.getEarnings()
+  })
+
     return (
         <>
               <Chart
