@@ -8,3 +8,4 @@ accountRouter.get("/user/:nick", [authJwt.verifyToken], controller.getAccountsFo
 accountRouter.get("/:id", [authJwt.verifyToken], controller.getAccount);
 accountRouter.post("/:nick", [authJwt.verifyToken], controller.createAccount);
 accountRouter.delete("/:id", [authJwt.verifyToken], controller.deleteAccount);
+accountRouter.put("/:id", [authJwt.verifyToken], controller.updateAccount);

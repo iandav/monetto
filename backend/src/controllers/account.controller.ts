@@ -34,6 +34,32 @@ const createAccount = async (req: Request, res: Response) => {
     }
 }
 
+const updateAccount = async (req: Request, res: Response) => {
+    try {
+        const {name, description} = req.body;
+        const {id} = req.params;
+
+        const account = await db.account.update({
+            where: {
+                account_id: parseInt(id)
+            },
+            data: {
+                name: name,
+                description: description
+            }
+        })
+
+        if (!account) {
+            res.status(400).send({message: "Account not found"})
+        }
+
+        return res.status(200).send(account)
+
+    } catch (error) {
+        return res.status(500).send({message: "Error while trying to update account"})
+    }
+}
+
 const getAccountsForUser = async (req: Request, res: Response) => {
     try {
 
@@ -109,5 +135,6 @@ export default {
     createAccount,
     getAccountsForUser,
     getAccount,
-    deleteAccount
+    deleteAccount,
+    updateAccount
 }
