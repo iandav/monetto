@@ -19,17 +19,17 @@
 
 |Method|Endpoint|Body|
 |------|--------|--------|
-|GET|/api/accounts/:nick||
+|GET|/api/account/user/:nick||
 |GET|/api/account/:id||
-|POST|/api/account/:nick||
+|POST|/api/account/:nick|{"name": str, "description": str}|
 |DELETE|/api/account/:id||
 
 ### Earnings
 
 |Method|Endpoint|Body|
 |------|--------|--------|
-|GET|/api/earnings/:accountId||
-|GET|/api/earnings/user/:nick||
+|GET|/api/earning/:accountId||
+|GET|/api/earning/user/:nick||
 |POST|/api/earning|{"description": str, "date": str, "value": float, "accountId": int}|
 |DELETE|/api/earning/:id||
 
@@ -37,7 +37,7 @@
 
 |Method|Endpoint|Body|
 |------|--------|--------|
-|GET|/api/expenses/:accountId||
-|GET|/api/expenses/user/:nick||
+|GET|/api/expense/:accountId||
+|GET|/api/expense/user/:nick||
 |POST|/api/expense|{"description": str, "date": str, "value": float, "accountId": int}|
 |DELETE|/api/expense/:id||
