@@ -1,0 +1,34 @@
+.dashboardHeaderContainer {
+    display: flex;
+    width: 100%;
+    height: 56px;
+    justify-content: space-between;
+    align-items: center;
+    /*
+    margin: 20px 0 0 0;
+    */
+    margin: 20px 0;
+}
+
+.dashboardHeaderTitle {
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+.dashboardheaderUsernameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboardHeaderUsername {
+    font-size: 14px;
+    margin-right: 14px;
+}
+
+.dashboardheaderImage {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-right: 33px;
+}

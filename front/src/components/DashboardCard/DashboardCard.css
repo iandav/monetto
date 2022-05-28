@@ -1,0 +1,61 @@
+.dashboardCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 133px;
+    border-radius: 15px;
+    background-color: #2B2B2B;
+    cursor: default;
+}
+
+.dashboardCardContainer.balance {
+    color: #E8BF59;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.income {
+    color: #009379;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.expenses {
+    color: #FF6250;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.balance h2, .dashboardCardContainer.income h2, .dashboardCardContainer.expenses h2 {
+    color: white;
+}
+
+.dashboardCardContainer.balance:hover {
+    border-color: #E8BF59;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.income:hover {
+    border-color: #009379;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.expenses:hover {
+    border-color: #FF6250;
+    transition-duration: 0.2s;
+}
+
+.dashboardCardContainer.dashboardPageCard {
+   margin: 8px 0;
+   background-color: #3b3b3b;
+   border: 2px solid #3b3b3b;
+}
+
+.dashboardCardTitle {
+    font-size: 19px;
+    margin: 24px 32px 12px 32px;
+}
+
+.dashboardCardValue {
+    font-size: 40px;
+    margin: 0 32px 12px 24px;
+}

@@ -1,6 +1,6 @@
 const BASE_AUTH_URL = 'http://localhost:3000/api/auth/'
 
-const signIn = async (data) => {
+const signin = async (data) => {
     const response = await fetch(BASE_AUTH_URL + 'signin', {
         method: 'POST',
         credentials: 'include',
@@ -16,7 +16,7 @@ const signIn = async (data) => {
     }
 }
 
-const signUp = async (data) => {
+const signup = async (data) => {
     const response = await fetch(BASE_AUTH_URL + 'signup', {
         method: 'POST',
         credentials: 'include',
@@ -27,13 +27,13 @@ const signUp = async (data) => {
     })
     
     if(response.ok) {
-        const result = await signIn({
+        const signinResponse = await signin({
             nick: data.nick,
             password: data.password
         })
         return {
-            success: result.success,
-            message: result.message
+            success: signinResponse.success,
+            message: signinResponse.message
         }
     }
     else {
@@ -45,7 +45,7 @@ const signUp = async (data) => {
     }
 }
 
-const signOut = async () => {
+const signout = async () => {
     const response = await fetch(BASE_AUTH_URL + 'signout', {
         method: 'POST',
         credentials: 'include',
@@ -59,7 +59,7 @@ const signOut = async () => {
 }
 
 export {
-    signIn,
-    signUp,
-    signOut
+    signin,
+    signup,
+    signout
 }

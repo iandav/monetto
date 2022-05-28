@@ -1,0 +1,65 @@
+.dashboardNavbarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 255px;
+    height: 100%;
+}
+
+.dashboardNavbarLogoContainer {
+    margin: 30px 0;
+}
+
+.dashboardNavbarContainer ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+}
+
+.dashboardNavbarElement {
+    width: 245px;
+    height: 56px;
+    border-left: 6px solid #2b2b2b;
+    transition-duration: 0.2s;
+}
+
+.dashboardNavbarElement a:hover {
+    opacity: 1;
+    background-color: #3b3b3b;
+}
+
+.dashboardNavbarElement:hover {
+    border-left: 6px solid #A490E5;
+}
+
+.dashboardNavbarElement.active {
+    width: 245px;
+    border-left: 6px solid #E8BF59;
+    background-color: #3b3b3b;
+}
+
+.dashboardNavbarElement.active a {
+    color: white;
+    opacity: 1;
+}
+
+.dashboardNavbarIcon {
+    width: 16px;
+    height: 16px;
+    color: white;
+    margin: 0 32px;
+}
+
+.dashboardNavbarElement a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    opacity: 0.4;
+    transition-duration: 0.2s;
+}

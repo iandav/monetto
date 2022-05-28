@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+}
+
+.monettoLogo {
+    margin-left: 55px;
+}
+
+.signupButton {
+    margin-right: 30px;
+}
+
+.loginButton {
+    margin-right: 50px;
+    transition-duration: 0.4s;
+}
+
+.loginButton:hover {
+    background-color: #E8BF59;
+    transition-duration: 0.4s;
+}

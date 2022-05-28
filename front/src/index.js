@@ -1,12 +1,12 @@
 import React from "react"
 import reactDOM from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
-import RegisterPage from "./pages/RegisterPage"
-import LoginPage from "./pages/LoginPage"
-import DashboardPage from "./pages/DashboardPage"
+import { Home } from "./pages"
+import { RegisterPage } from "./pages"
+import { LoginPage } from "./pages"
+import { DashboardPage } from "./pages"
 import { AuthProvider, RequireAuth } from "./lib/auth"
-import "./index.css"
+import "./global.css"
 
 const node = document.getElementById('root')
 const root = reactDOM.createRoot(node)
