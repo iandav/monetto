@@ -1,9 +1,9 @@
 import React from "react";
-import snapshot from "../images/snapshot-example.png"
+import snapshot from "../../images/snapshot-example.png"
 // Styles
-import "../styles/component-styles/HomepageHeader.css"
+import "./HomepageHeader.css"
 // Components
-import Button from "./Button";
+import Button from "../Button/Button";
 
 function HomepageHeader() {
     return (

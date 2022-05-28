@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/ExpensesChart.css"
+import "./ExpensesChart.css"
 // ChartJS dependencies
 import { Chart } from "react-chartjs-2"
 import {

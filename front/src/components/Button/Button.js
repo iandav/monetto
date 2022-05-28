@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import "../styles/component-styles/Button.css"
+import "./Button.css"
 
 function Button({target, text, color, name}) {
     return (

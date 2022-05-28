@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react'
-import Navbar  from '../components/Navbar'
+import { Navbar }  from '../../components'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { AuthContext } from '../lib/auth'
-import { signin } from '../api/auth'
-import '../styles/page-styles/LoginPage.css'
+import { AuthContext } from '../../lib/auth'
+import { signin } from '../../api/auth'
+import './LoginPage.css'
 
 const LoginPage = () => {
   const auth = useContext(AuthContext)

@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/TransactionCard.css"
+import "./TransactionCard.css"
 // Icons
 
 function TransactionCard({description, type, value}) {

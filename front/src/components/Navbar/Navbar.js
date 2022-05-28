@@ -1,9 +1,9 @@
 import React from 'react'
 // Styles
-import "../styles/component-styles/Navbar.css"
+import "./Navbar.css"
 // Components
-import MonettoLogo from './MonettoLogo.js'
-import Button from "./Button.js"
+import MonettoLogo from '../MonettoLogo/MonettoLogo.js'
+import Button from "../Button/Button.js"
 
 const Navbar = () => {
   return (

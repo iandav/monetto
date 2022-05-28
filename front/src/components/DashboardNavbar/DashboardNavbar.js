@@ -1,5 +1,6 @@
 import React from "react";
-import { icons } from "react-icons"
+// icons not used.
+// import { icons } from "react-icons"
 // React icons
 import { FaChartPie } from "react-icons/fa"
 import { BiLineChart } from "react-icons/bi"
@@ -10,9 +11,10 @@ import { FaPowerOff } from "react-icons/fa"
 
 
 // Styles
-import "../styles/component-styles/DashboardNavbar.css"
+import "./DashboardNavbar.css"
 // Components
-import MonettoLogo from "./MonettoLogo";
+import MonettoLogo from "../MonettoLogo/MonettoLogo";
+import { Link } from "react-router-dom";
 
 function DashboardNavbar() {
     return (
@@ -21,31 +23,31 @@ function DashboardNavbar() {
             <ul>
 
             <div className="dashboardNavbarLogoContainer">
-                <MonettoLogo style="dashboardNavbarLogo"/>
+                <MonettoLogo styles="dashboardNavbarLogo"/>
             </div>
 
                 <li className="dashboardNavbarElement active">
-                    <a href="#"><FaChartPie className="dashboardNavbarIcon" />Dashboard</a>
+                    <Link to=""><FaChartPie className="dashboardNavbarIcon" />Dashboard</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <a href="#"><BiLineChart className="dashboardNavbarIcon" />Earnings</a>
+                    <Link to=""><BiLineChart className="dashboardNavbarIcon" />Earnings</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <a href="#"><BiLineChartDown className="dashboardNavbarIcon" />Expenses</a>
+                    <Link to=""><BiLineChartDown className="dashboardNavbarIcon" />Expenses</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <a href="#"><BsCashStack className="dashboardNavbarIcon" />Investments</a>
+                    <Link to=""><BsCashStack className="dashboardNavbarIcon" />Investments</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <a href="#"><BsFillGearFill className="dashboardNavbarIcon" />Settings</a>
+                    <Link to=""><BsFillGearFill className="dashboardNavbarIcon" />Settings</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <a href="#"><FaPowerOff className="dashboardNavbarIcon" />Sign out</a>
+                    <Link to=""><FaPowerOff className="dashboardNavbarIcon" />Sign out</Link>
                 </li>
 
             </ul>
