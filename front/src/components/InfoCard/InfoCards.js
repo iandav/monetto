@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/InfoCards.css"
+import "./InfoCards.css"
 // Components
 import { AiOutlineAreaChart } from "react-icons/ai"
 import { GiWallet } from "react-icons/gi"

@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/DashboardCard.css"
+import "./DashboardCard.css"
 
 function DashboardCard({title, value, name}) {
     return (

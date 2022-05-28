@@ -1,11 +1,11 @@
 import React from 'react'
-import "../styles/page-styles/DashboardPage.css"
-import DashboardNavbar from '../components/DashboardNavbar'
-import DashboardHeader from '../components/DashboardHeader'
-import DashboardCard from '../components/DashboardCard'
-import GeneralChart from '../components/GeneralChart'
-import TransactionHistory from '../components/TransactionHistory'
-import ExpensesChart from '../components/ExpensesChart'
+import "./DashboardPage.css"
+import { DashboardNavbar } from '../../components'
+import { DashboardHeader } from '../../components'
+import { DashboardCard } from '../../components'
+import { GeneralChart } from '../../components'
+import { TransactionHistory } from '../../components'
+import { ExpensesChart } from '../../components'
 
 function DashboardPage() {
   

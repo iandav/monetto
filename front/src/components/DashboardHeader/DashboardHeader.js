@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/DashboardHeader.css"
+import "./DashboardHeader.css"
 
 function DashboardHeader({title}) {
     return (
@@ -11,7 +11,7 @@ function DashboardHeader({title}) {
 
         <div className="dashboardheaderUsernameContainer">
             <p className="dashboardHeaderUsername">Username</p>
-            <img src={require("../images/user.png")} alt="Image of the current user" className="dashboardheaderImage" />
+            <img src={require("../../images/user.png")} alt="Image of the current user" className="dashboardheaderImage" />
         </div>
         </header>
     );

@@ -1,9 +1,9 @@
 import React from "react";
 // Styles
-import "../styles/component-styles/TransactionHistory.css"
+import "./TransactionHistory.css"
 // icons
 import { IoMdAdd } from "react-icons/io"
-import TransactionCard from "./TransactionCard";
+import TransactionCard from "../TransactionCard/TransactionCard";
 // Components
 
 function TransactionHistory() {
