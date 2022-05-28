@@ -3,10 +3,12 @@ import {Request, Response} from "express";
 
 const createAccount = async (req: Request, res: Response) => {
     try {
-
+        const {nick} = req.params;
+        const {name, description} = req.body;
+        
         const user = await db.user.findFirst({
             where: {
-                nick: req.params.nick
+                nick: nick
             },
             select: {
                 id: true,
@@ -19,7 +21,9 @@ const createAccount = async (req: Request, res: Response) => {
 
         const account = await db.account.create({
             data: {
-                userId: user.id
+                userId: user.id,
+                name: name,
+                description: description
             }
         })
 
@@ -43,6 +47,8 @@ const getAccountsForUser = async (req: Request, res: Response) => {
                 earnings: true,
                 expenses: true,
                 account_id: true,
+                name: true,
+                description: true
             }
         })
 

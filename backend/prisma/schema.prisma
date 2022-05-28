@@ -26,6 +26,9 @@ model Account {
     
     earnings Earning[]
     expenses Expense[]
+
+    name String @default("")
+    description String?
 }
 
 model Earning {
