@@ -37,7 +37,7 @@ model Earning {
     date DateTime @default(now())
     value Decimal
 
-    account Account @relation(fields: [accountId], references: [account_id])
+    account Account @relation(fields: [accountId], references: [account_id], onDelete: Cascade)
     accountId Int
 }
 
@@ -47,7 +47,7 @@ model Expense {
     date DateTime @default(now())
     value Decimal
 
-    account Account @relation(fields: [accountId], references: [account_id])
+    account Account @relation(fields: [accountId], references: [account_id], onDelete: Cascade)
     accountId Int
 }
 
