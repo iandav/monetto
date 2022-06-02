@@ -20,11 +20,11 @@ function TransactionHistory() {
                 <IoMdAdd className="transactionNewIcon"/>
             </div>
 
-            <TransactionCard description="Job salary" type="income" value="43300.00"/>
+            <TransactionCard description="Job salary" type="income" value="43.300,00"/>
 
-            <TransactionCard description="Dinner at restaurant" type="expense" value="28.00" />
+            <TransactionCard description="Dinner at restaurant" type="expense" value="28,00" />
 
-            <TransactionCard description="Investments" type="income" value="3412.00" />
+            <TransactionCard description="Investments" type="income" value="3.412,00" />
 
         </div>
     );

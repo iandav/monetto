@@ -12,9 +12,7 @@ export const getEarnings = async () => {
         'Content-Type': 'application/json'
     },
 })
-.then(response => {
-    return response.json()
-})
+.then(response => response.json())
 .then(result => {
     console.log(result)
     return result

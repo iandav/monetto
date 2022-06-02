@@ -34,19 +34,23 @@
 .dashboardTransactionsSection {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 0 30px 30px 30px;
 }
 
 .dashboardExpensesChartContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: center;
     width: 546px;
-    height: 338px;
+    height: 380px;
     border-radius: 15px;
-    margin-left: 30px;
-    
     background-color: #2B2B2B;
 }
-.transactionHistory {
-    margin-left: 30px;
+
+.dashboardExpensesChartContainer h2 {
+    font-size: 19px;
+    margin: 32px 0 32px 32px;
 }

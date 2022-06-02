@@ -33,10 +33,11 @@ function DashboardPage() {
 
         <div className='dashboardTransactionsSection'>
           <div className='dashboardExpensesChartContainer'>
-          <ExpensesChart />
+            <h2>Expenses by category</h2>
+            <ExpensesChart />
           </div>
 
-          <div className='transactionHistory'>
+          <div className='dashboardTransactionHistoryContainer'>
             <TransactionHistory />
           </div>
         </div>

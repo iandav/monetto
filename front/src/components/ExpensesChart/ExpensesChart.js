@@ -32,6 +32,7 @@ import {
 } from 'chart.js';
 // ChartJS date adapter
 import "chartjs-adapter-date-fns"
+import { GiHeartInside } from "react-icons/gi";
 ChartJS.register(
   ArcElement,
   LineElement,
@@ -64,6 +65,7 @@ function ExpensesChart() {
         <div className="expensesChartContainer">
               <Chart
                 style={{
+                  
                     
                 }}
                 data={{
@@ -71,18 +73,23 @@ function ExpensesChart() {
                     datasets: [{
                         label: "% of Expenses",
                         type: "doughnut",
-                        data: [100, 320, 450],
+                        data: [4, 32, 50, 14],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
                             'rgb(255, 205, 86)',
-                        ]
+                        ],
+                        borderColor: "#2b2b2b"
                     }]
                 }}
                 options={{
                     responsive: true,
-                    radius: "110"
-                    
+                    radius: "110",
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                    }
                 }}
                 
               />

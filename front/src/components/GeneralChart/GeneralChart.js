@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // Styles
 import "./GeneralChart.css"
 // API calls
-import * as api from "../../api/services/index.js"
+
 // ChartJS dependencies
 import { Chart } from "react-chartjs-2"
 import {
@@ -61,12 +61,57 @@ ChartJS.register(
   SubTitle
 );
 
+const test = function() {
+  fetch("http://localhost:3000/api/earning/user/test", {
+      method: 'GET',
+      credentials: 'include',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+    })
+  }
+
+  console.log(test())
 
 function GeneralChart() {
 
+  let [earnings, setEarnings] = useState([])
+
+  // Store the username of the current user
+  const username = sessionStorage.getItem("user")
+
+  // Collect user earnings from the API to be displayed like this: {x: "date", y: int}
+  function collectEarnings(earnings) {
+    let result = [];
+    for (let i = 0; i < earnings.length; i++) {
+      result.push({x: earnings[i].date , y: earnings[i].value})
+    }
+    return result;
+  }
+
+  // Get user earnings
+  /*
+  const getEarnings = () => {
+    fetch(`http://localhost:3000/api/earning/user/${username}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => response.json())
+    .then(response => {
+      setEarnings(collectEarnings(response))
+      console.log(collectEarnings(response))
+    })
+  }
+
   useEffect(() => {
-    api.getEarnings()
-  })
+    getEarnings()
+  },[])
+
+  */
+
 
     return (
         <>
@@ -78,14 +123,19 @@ function GeneralChart() {
                   marginTop: 0,
                   marginRight: 62,
                   marginBottom: 32,
-                  marginLeft: 32,
-                  backgroundColor: "",
+                  marginLeft: 32
                 }}
                 data={{
                     datasets: [{
                         type: "line",
                         label: 'Earnings',
-                        data: [
+                        data: earnings,
+                        /*
+                        [
+                          {x: "2021-11-01", y: 12000},
+                          {x: "2021-12-01", y: 24500},
+                          {x: "2022-01-01", y: 29300},
+                          {x: "2022-02-01", y: 43120},
                           {x: "2022-03-01", y: 61000},
                           {x: "2022-04-01", y: 118120},
                           {x: "2022-05-01", y: 183312},
@@ -93,6 +143,7 @@ function GeneralChart() {
                           {x: "2022-07-01", y: 242000},
                           {x: "2022-08-01", y: 293000},
                         ],
+                        */
                         borderColor: "#009379",
                         backgroundColor: "#009379",
                     },{
