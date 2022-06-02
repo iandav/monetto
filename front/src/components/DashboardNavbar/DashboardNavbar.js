@@ -27,23 +27,23 @@ function DashboardNavbar() {
             </div>
 
                 <li className="dashboardNavbarElement active">
-                    <Link to=""><FaChartPie className="dashboardNavbarIcon" />Dashboard</Link>
+                    <Link to="/dashboard"><FaChartPie className="dashboardNavbarIcon" />Dashboard</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <Link to=""><BiLineChart className="dashboardNavbarIcon" />Earnings</Link>
+                    <Link to="/earnings"><BiLineChart className="dashboardNavbarIcon" />Earnings</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <Link to=""><BiLineChartDown className="dashboardNavbarIcon" />Expenses</Link>
+                    <Link to="/expenses"><BiLineChartDown className="dashboardNavbarIcon" />Expenses</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <Link to=""><BsCashStack className="dashboardNavbarIcon" />Investments</Link>
+                    <Link to="/investments"><BsCashStack className="dashboardNavbarIcon" />Investments</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">
-                    <Link to=""><BsFillGearFill className="dashboardNavbarIcon" />Settings</Link>
+                    <Link to="/settings"><BsFillGearFill className="dashboardNavbarIcon" />Settings</Link>
                 </li>
 
                 <li className="dashboardNavbarElement">

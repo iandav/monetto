@@ -1,0 +1,53 @@
+.dashboardContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dashboardContent {
+    width: 100%;
+    background-color: #3b3b3b;
+}
+
+.dashboardEarningsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 546px;
+    border-radius: 15px;
+    margin: 0 30px 30px 30px;
+    background-color: #2b2b2b;
+}
+
+.dashboardEarningsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.dashboardEarningsHeader h2 {
+    font-size: 19px;
+    margin: 32px 0 48px 32px
+}
+
+.dashboardEarningsIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.dashboardEarningsContainer p {
+    display: inline;
+    font-size: 14px;
+}
+
+.dashboardEarningsSort {
+    display: inline;
+    margin-right: 32px;
+}
+
+.dashboardEarningsFilter {
+    display: inline;
+    margin-right: 32px;
+}
+

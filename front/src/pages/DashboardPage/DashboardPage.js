@@ -25,9 +25,9 @@ function DashboardPage() {
           </div>
 
           <div className='dashboardCardsContainer'>
-            <DashboardCard title="Balance" value="$302000" name="dashboardPageCard balance" icon="" />
-            <DashboardCard title="Income" value="$293000" name="dashboardPageCard income" icon="" />
-            <DashboardCard title="Expenses" value="$44820" name="dashboardPageCard expenses" icon="" />
+            <DashboardCard title="Balance" value="$302.000" name="dashboardPageCard balance" icon="" />
+            <DashboardCard title="Income" value="$293.000" name="dashboardPageCard income" icon="" />
+            <DashboardCard title="Expenses" value="$44.820" name="dashboardPageCard expenses" icon="" />
           </div>
         </div>
 

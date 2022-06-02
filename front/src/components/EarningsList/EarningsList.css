@@ -1,0 +1,20 @@
+.earningsListContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.earningsListTitle {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    justify-content: space-between;
+    border-bottom: 2px solid white;
+}
+
+.earningDescription {
+    margin-left: 32px;
+}
+
+.earningEdit {
+    margin-right: 32px;
+}
