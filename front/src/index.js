@@ -5,6 +5,7 @@ import { Home } from "./pages"
 import { RegisterPage } from "./pages"
 import { LoginPage } from "./pages"
 import { DashboardPage } from "./pages"
+import SettingsPage from "./pages/SettingsPage/SettingsPage"
 import { AuthProvider, RequireAuth } from "./lib/auth"
 import "./global.css"
 import EarningsPage from "./pages/EarningsPage/EarningsPage"
@@ -28,6 +29,7 @@ root.render(
                         }
                     />
                     <Route path="/earnings" element={<EarningsPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

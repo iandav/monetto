@@ -1,0 +1,38 @@
+.settingsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: #2b2b2b;
+}
+
+label {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+}
+
+input:disabled {
+    font-size: 19px;
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+}
+
+.edit-btn {
+    width: 80px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    background-color: #3b3b3b;
+    color: white;
+    cursor: pointer;
+    font-family: Poppins;
+    transition-duration: 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #E8BF59;
+    color: #2b2b2b;
+    transition-duration: 0.2s;
+}

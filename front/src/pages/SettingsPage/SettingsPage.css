@@ -1,0 +1,12 @@
+.dashboardContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dashboardContent {
+    width: 100%;
+    background-color: #3b3b3b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

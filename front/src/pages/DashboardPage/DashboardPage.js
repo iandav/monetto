@@ -12,7 +12,7 @@ function DashboardPage() {
   return (
     <div className="dashboardContainer">
 
-      <DashboardNavbar />
+      <DashboardNavbar active={true} />
 
       <div className='dashboardContent'>
 

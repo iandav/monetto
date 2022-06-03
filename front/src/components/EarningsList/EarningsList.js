@@ -47,11 +47,11 @@ function EarningsList() {
           
         </div>
 
-          <div className="earningsListTitle">
-                <p className="earningDetails">Earning Details</p>
-                <p className="earningDate">Date</p>
-                <p className="earningEdit">Edit</p>
-          </div>
+        <div className="earningsListTitle">
+          <p className="earningDetails">Earning Details</p>
+          <p className="earningDate">Date</p>
+          <p className="earningEdit">Edit</p>
+        </div>
 
       </div>
     );
