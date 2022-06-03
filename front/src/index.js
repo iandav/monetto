@@ -13,7 +13,7 @@ const node = document.getElementById('root')
 const root = reactDOM.createRoot(node)
 
 root.render(
-    <React.StrictMode>
+    
         <BrowserRouter>
             <AuthProvider> 
                 <Routes>
@@ -31,5 +31,5 @@ root.render(
                 </Routes>
             </AuthProvider>
         </BrowserRouter>
-    </React.StrictMode>
+    
 )

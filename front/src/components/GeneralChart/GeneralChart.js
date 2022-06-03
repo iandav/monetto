@@ -61,6 +61,7 @@ ChartJS.register(
   SubTitle
 );
 
+/*
 const test = function() {
   fetch("http://localhost:3000/api/earning/user/test", {
       method: 'GET',
@@ -74,6 +75,8 @@ const test = function() {
   }
 
   console.log(test())
+
+*/
 
 function GeneralChart() {
 
