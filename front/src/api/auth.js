@@ -1,7 +1,7 @@
 const BASE_AUTH_URL = 'http://localhost:3000/api/auth/'
 
-const signin = async (data) => {
-    const response = await fetch(BASE_AUTH_URL + 'signin', {
+export const signin = async (data) => {
+    const response = await fetch(`${BASE_AUTH_URL}signin`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -16,8 +16,8 @@ const signin = async (data) => {
     }
 }
 
-const signup = async (data) => {
-    const response = await fetch(BASE_AUTH_URL + 'signup', {
+export const signup = async (data) => {
+    const response = await fetch(`${BASE_AUTH_URL}signup`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -45,8 +45,8 @@ const signup = async (data) => {
     }
 }
 
-const signout = async () => {
-    const response = await fetch(BASE_AUTH_URL + 'signout', {
+export const signout = async () => {
+    const response = await fetch(`${BASE_AUTH_URL}signout}`, {
         method: 'POST',
         credentials: 'include',
     })
@@ -56,10 +56,4 @@ const signout = async () => {
         success: response.ok,
         message: res.message
     }
-}
-
-export {
-    signin,
-    signup,
-    signout
 }
