@@ -2,7 +2,6 @@ const BASE_EXPENSES_URL = 'http://localhost:3000/api/expense/'
 const currentUser = sessionStorage.getItem("user")
 
 export const getExpensesFromUser = async (username = currentUser) => {
-
     const response = await fetch(`${BASE_EXPENSES_URL}user/${username}`, {
         method: 'GET',
         credentials: 'include'
@@ -12,7 +11,6 @@ export const getExpensesFromUser = async (username = currentUser) => {
 }
 
 export const getExpensesFromAccountId = async (accountId) => {
-
     const response = await fetch(`${BASE_EXPENSES_URL}${accountId}`, {
         method: 'GET',
         credentials: 'include',
@@ -22,7 +20,6 @@ export const getExpensesFromAccountId = async (accountId) => {
 }
 
 export const addExpenseToAccount = async (data) => {
-
     const response = await fetch(`${BASE_EXPENSES_URL}`, {
         method: 'POST',
         credentials: 'include',
@@ -36,7 +33,6 @@ export const addExpenseToAccount = async (data) => {
 }
 
 export const deleteExpenseFromAccount = async (accountId) => {
-
     const response = await fetch(`${BASE_EXPENSES_URL}${accountId}`, {
         method: 'DELETE',
         credentials: 'include'
