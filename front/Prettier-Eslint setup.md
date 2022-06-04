@@ -7,7 +7,7 @@ Enable **Format on save** in VScode preferences (*Format on paste is optional*)
 ## Commands run for setup from scratch: 
 
 - Installing Prettier + ESLint 
-    npm -i -D eslint prettier eslint-plugin-prettier eslint-config-prettier
+    ```npm -i -D eslint prettier eslint-plugin-prettier eslint-config-prettier```
 
 - Using airbnb Style guide
-    npx install-peerdeps --dev eslint-config-aribnb
+    ```npx install-peerdeps --dev eslint-config-aribnb```
