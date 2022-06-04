@@ -45,9 +45,4 @@ Custom script area with shipping security.
 
 8. Investment Chart
 
-## Contributors
-<a href="https://github.com/iandav/monetto/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=iandav/monetto" />
-</a>
-
 
