@@ -4,6 +4,7 @@
     align-items: center;
     width: 100vw;
     height: 100px;
+    grid-area: navbar;
 }
 
 .monettoLogo {

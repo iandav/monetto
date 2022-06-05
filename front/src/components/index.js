@@ -5,7 +5,7 @@ import DashboardNavbar from "./DashboardNavbar/DashboardNavbar"
 import ExpensesChart from "./ExpensesChart/ExpensesChart"
 import GeneralChart from "./GeneralChart/GeneralChart"
 import HomepageHeader from "./HomepageHeader/HomepageHeader"
-import InfoCards from "./InfoCard/InfoCards"
+import HomepageInfo from "./HomepageInfo/HomepageInfo"
 import MonettoLogo from "./MonettoLogo/MonettoLogo"
 import Navbar from "./Navbar/Navbar"
 import TransactionCard from "./TransactionCard/TransactionCard"
@@ -19,7 +19,7 @@ export {
   ExpensesChart,
   GeneralChart,
   HomepageHeader,
-  InfoCards,
+  HomepageInfo,
   MonettoLogo,
   Navbar,
   TransactionCard,

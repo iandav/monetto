@@ -1,10 +1,11 @@
-header {
+.header-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 600px;
     margin-left: 100px;
     margin-right: 100px;
+    grid-area: header;
 }
 
 .headerDescription {

@@ -5,7 +5,7 @@ import snapshot from "../../images/snapshot-example.png"
 
 function HomepageHeader() {
   return (
-    <header>
+    <header className="header-container">
       <div className="headerDescription">
         <h1>Monetto Personal Finance</h1>
         <p>A modern open-source solution to better manage your finances.</p>

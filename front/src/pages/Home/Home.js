@@ -1,17 +1,17 @@
 import React from "react"
-import "./Home.css"
-import { Navbar } from "../../components"
+import { HomepageInfo, Navbar } from "../../components"
 import { HomepageHeader } from "../../components"
-import { InfoCards } from "../../components"
+// Styles
+import "./Home.css"
 
 function Home() {
   return (
-    <>
+    <div className="landing-page-container">
       <Navbar />
       <HomepageHeader />
-      <InfoCards />
-    </>
+      <HomepageInfo />
+    </div>
   )
 }
 
-export default Home
+export default Home;
