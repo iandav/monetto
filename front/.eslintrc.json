@@ -16,9 +16,7 @@
 
         "indent": "warn",
         "no-mixed-spaces-and-tabs": "error",
-        "prettier/prettier": "warn",
-
-
+        "prettier/prettier": "warn"
     },
     "env": {
         "browser": true
