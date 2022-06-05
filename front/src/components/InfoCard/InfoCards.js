@@ -1,7 +1,5 @@
 import React from "react"
-// Styles
 import "./InfoCards.css"
-// Components
 import { AiOutlineAreaChart } from "react-icons/ai"
 import { GiWallet } from "react-icons/gi"
 import { FaCode } from "react-icons/fa"

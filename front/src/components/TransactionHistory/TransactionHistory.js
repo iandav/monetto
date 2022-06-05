@@ -1,10 +1,7 @@
 import React from "react"
-// Styles
 import "./TransactionHistory.css"
-// icons
 import { IoMdAdd } from "react-icons/io"
 import TransactionCard from "../TransactionCard/TransactionCard"
-// Components
 
 function TransactionHistory() {
   return (
@@ -15,24 +12,20 @@ function TransactionHistory() {
           View all
         </a>
       </div>
-
       <div className="transactionNewContainer">
         <p>Create new transaction</p>
         <IoMdAdd className="transactionNewIcon" />
       </div>
-
       <TransactionCard
         description="Job salary"
         type="income"
         value="43.300,00"
       />
-
       <TransactionCard
         description="Dinner at restaurant"
         type="expense"
         value="28,00"
       />
-
       <TransactionCard
         description="Investments"
         type="income"

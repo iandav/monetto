@@ -1,30 +1,8 @@
 import React from "react"
-import { useEffect } from "react"
-// Styles
 import "./EarningsList.css"
-// React icons
-import { FaSortAmountDownAlt } from "react-icons/fa"
-import { FaFilter } from "react-icons/fa"
+import { FaSortAmountDownAlt, FaFilter } from "react-icons/fa"
 
 function EarningsList() {
-  /*
-    const getEarnings = () => {
-        fetch(`http://localhost:3000/api/earning/user/test`, {
-          method: 'GET',
-          credentials: 'include',
-          headers: {'Content-Type': 'application/json'},
-        })
-        .then(response => response.json())
-        .then(response => {
-          console.log(response)
-        })
-      }
-    
-      useEffect(() => {
-        getEarnings()
-      },[])
-    */
-
   return (
     <div className="earningsListContainer">
       <div className="earningsListHeader">

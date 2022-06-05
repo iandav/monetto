@@ -1,9 +1,7 @@
 import React from "react"
-import snapshot from "../../images/snapshot-example.png"
-// Styles
 import "./HomepageHeader.css"
-// Components
 import Button from "../Button/Button"
+import snapshot from "../../images/snapshot-example.png"
 
 function HomepageHeader() {
   return (

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useMemo, useState } from "react"
 import { useLocation, Navigate } from "react-router-dom"
 
 const AuthContext = createContext(null)
@@ -18,14 +18,19 @@ function AuthProvider({ children }) {
     callback()
   }
 
-  /* eslint-disable */
   const value = {
     user,
     signin,
     signout,
   }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  const authProviderValue = useMemo(() => value, [value])
+
+  return (
+    <AuthContext.Provider value={authProviderValue}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 function RequireAuth({ children }) {

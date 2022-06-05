@@ -1,7 +1,5 @@
 import React from "react"
-// Styles
 import "./TransactionCard.css"
-// Icons
 
 function TransactionCard({ description, type, value }) {
   return (
