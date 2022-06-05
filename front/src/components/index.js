@@ -12,16 +12,16 @@ import TransactionCard from "./TransactionCard/TransactionCard"
 import TransactionHistory from "./TransactionHistory/TransactionHistory"
 
 export {
-    Button,
-    DashboardCard,
-    DashboardHeader,
-    DashboardNavbar,
-    ExpensesChart,
-    GeneralChart,
-    HomepageHeader,
-    InfoCards,
-    MonettoLogo,
-    Navbar,
-    TransactionCard,
-    TransactionHistory
+  Button,
+  DashboardCard,
+  DashboardHeader,
+  DashboardNavbar,
+  ExpensesChart,
+  GeneralChart,
+  HomepageHeader,
+  InfoCards,
+  MonettoLogo,
+  Navbar,
+  TransactionCard,
+  TransactionHistory,
 }

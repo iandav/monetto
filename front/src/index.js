@@ -10,28 +10,27 @@ import { AuthProvider, RequireAuth } from "./lib/auth"
 import "./global.css"
 import EarningsPage from "./pages/EarningsPage/EarningsPage"
 
-const node = document.getElementById('root')
+const node = document.getElementById("root")
 const root = reactDOM.createRoot(node)
 
 root.render(
-    
-        <BrowserRouter>
-            <AuthProvider> 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/dashboard" 
-                        element= {
-                            <RequireAuth>
-                                <DashboardPage />
-                            </RequireAuth>
-                        }
-                    />
-                    <Route path="/earnings" element={<EarningsPage />} />
-                    <Route path="/settings" element={<SettingsPage />} />
-                </Routes>
-            </AuthProvider>
-        </BrowserRouter>
-    
+  <BrowserRouter>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <DashboardPage />
+            </RequireAuth>
+          }
+        />
+        <Route path="/earnings" element={<EarningsPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+      </Routes>
+    </AuthProvider>
+  </BrowserRouter>
 )

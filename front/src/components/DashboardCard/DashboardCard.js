@@ -1,19 +1,15 @@
-import React from "react";
+import React from "react"
 // Styles
 import "./DashboardCard.css"
 
-function DashboardCard({title, value, name}) {
-    return (
-        <div className={`dashboardCardContainer ${name}`}>
-            <h2 className="dashboardCardTitle">
-                {title}
-            </h2>
+function DashboardCard({ title, value, name }) {
+  return (
+    <div className={`dashboardCardContainer ${name}`}>
+      <h2 className="dashboardCardTitle">{title}</h2>
 
-            <p className="dashboardCardValue">
-                {value}
-            </p>
-        </div>
-    );
+      <p className="dashboardCardValue">{value}</p>
+    </div>
+  )
 }
 
-export default DashboardCard;
+export default DashboardCard
