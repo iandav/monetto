@@ -1,41 +1,45 @@
-.landing-page-info-container {
+.home-info-container {
     display: flex;
     flex-direction: column;
-    height: 1048px;
+    align-items: center;
+    height: 898px;
     grid-area: info;
 }
 
-.landing-page-info-snapshot-container {
+.home-info-snapshot-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    height: 550px;
 }
 
-.future-snapshot {
+.home-info-snapshot-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 1080px;
     height: 500px;
     border-radius: 15px;
-    background-color: #E8BF59;
+    margin: 30px 100px;
+    background-color: rgb(254, 226, 175);
 }
 
-.divider {
-    height: 1px;
-    opacity: 20%;
-    color: white;
-    background-color: white;
-    margin: 0 100px;
+.home-info-snapshot {
+    width: 820px;
+    height: 400px;
     border-radius: 15px;
+    border: 12px solid #3b3b3b;
+    background-color: #3b3b3b;
 }
 
-.landing-page-info-cards-container {
+.home-info-cards-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 348px;
 }
 
-.landing-page-info-card {
+.home-info-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,19 +49,22 @@
     height: 248px;
 }
 
-.infoCardIcon {
+.home-info-card:nth-child(2) {
+    margin: 0 106px;
+}
+
+.home-info-card-icon {
     width: 60px;
     height: 60px;
     margin-bottom: 40px;
-    color: #E8BF59;
 }
 
-.infoCardTitle {
+.home-info-card-title {
     line-height: 32px;
     font-weight: 600;
 }
 
-.infoCardDescription {
+.home-info-card-description {
     line-height: 32px;
     opacity: 0.4;
 }

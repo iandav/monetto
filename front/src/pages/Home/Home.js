@@ -1,6 +1,5 @@
 import React from "react"
-import { HomepageInfo, Navbar } from "../../components"
-import { HomepageHeader } from "../../components"
+import { HomepageInfo, Navbar, HomepageHeader, HomepageTestimony, HomepageFooter } from "../../components"
 // Styles
 import "./Home.css"
 
@@ -10,6 +9,8 @@ function Home() {
       <Navbar />
       <HomepageHeader />
       <HomepageInfo />
+      <HomepageTestimony />
+      <HomepageFooter />
     </div>
   )
 }

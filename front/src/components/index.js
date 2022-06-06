@@ -10,6 +10,8 @@ import MonettoLogo from "./MonettoLogo/MonettoLogo"
 import Navbar from "./Navbar/Navbar"
 import TransactionCard from "./TransactionCard/TransactionCard"
 import TransactionHistory from "./TransactionHistory/TransactionHistory"
+import HomepageTestimony from "./HomepageTestimony/HomepageTestimony"
+import HomepageFooter from "./HomepageFooter/HomepageFooter"
 
 export {
   Button,
@@ -20,6 +22,8 @@ export {
   GeneralChart,
   HomepageHeader,
   HomepageInfo,
+  HomepageTestimony,
+  HomepageFooter,
   MonettoLogo,
   Navbar,
   TransactionCard,

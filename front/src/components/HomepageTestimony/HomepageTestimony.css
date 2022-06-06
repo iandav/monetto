@@ -1,0 +1,52 @@
+.home-testimony-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    grid-area: tsmny;
+}
+
+.home-testimony-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 1080px;
+    height: 460px;
+    border-radius: 15px;
+    background-color: #BFAFF2;
+}
+
+.home-testimony-text {
+    color: #2b2b2b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 83px 162px 50px 162px;
+}
+
+.home-testimony-profile {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.home-testimony-profile-container {
+    display: flex;
+    margin-left: 162px;
+}
+
+.home-testimony-profile-information {
+    margin-left: 20px;
+}
+
+.home-testimony-profile-name {
+    margin: 5px 0;
+    color: #2b2b2b;
+    font-size: 18px;
+}
+
+.home-testimony-rating {
+    width: 20px;
+    height: 20px;
+    filter: invert(14%) sepia(29%) saturate(6%) hue-rotate(9deg) brightness(97%) contrast(92%);
+}

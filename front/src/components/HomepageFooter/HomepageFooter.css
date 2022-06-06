@@ -1,0 +1,34 @@
+.home-footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 210px;
+    grid-area: footer;
+    margin-top: 100px;
+}
+
+.home-footer-separator {
+    color: rgba(255, 255, 255, 0.4);
+    width: 90vw;
+    margin: auto;
+}
+
+.home-footer-monetto {
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    margin-top: 55px;
+}
+
+.home-footer-links {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 50px 0;
+}
+
+.home-footer-link {
+    margin-right: 30px;
+}
