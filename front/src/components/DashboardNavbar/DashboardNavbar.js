@@ -3,15 +3,16 @@ import { Link } from "react-router-dom"
 import { FaChartPie, FaPowerOff } from "react-icons/fa"
 import { BiLineChart, BiLineChartDown } from "react-icons/bi"
 import { BsCashStack, BsFillGearFill } from "react-icons/bs"
-import MonettoLogo from "../MonettoLogo/MonettoLogo"
+// Styles
 import "./DashboardNavbar.css"
+import HomepageLogo from "../HomepageLogo/HomepageLogo"
 
 function DashboardNavbar() {
   return (
     <nav className="dashboardNavbarContainer">
       <ul>
         <div className="dashboardNavbarLogoContainer">
-          <MonettoLogo styles="dashboardNavbarLogo" />
+          <HomepageLogo styles="dashboardNavbarLogo" />
         </div>
         <li className="dashboardNavbarElement active">
           <Link to="/dashboard">

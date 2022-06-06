@@ -1,27 +1,26 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import "./Navbar.css"
-import MonettoLogo from "../MonettoLogo/MonettoLogo"
+import HomepageLogo from "../HomepageLogo/HomepageLogo"
 import Button from "../Button/Button"
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <MonettoLogo />
+    <nav className="home-navbar">
 
-      <div>
-        <Button
-          target="/register"
-          text="Sign Up"
-          color=""
-          name="signupButton"
-        />
+      <HomepageLogo />
+
+      <div className="home-navbar-buttons-container">
+        <Link to="/register" className="home-navbar-signup-btn">
+          Sign up
+        </Link>
         <Button
           target="/login"
-          text="Log in"
-          color="secondary"
-          name="loginButton"
+          text="Login"
+          styles="home-navbar-login-btn"
         />
       </div>
+
     </nav>
   )
 }

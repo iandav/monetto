@@ -1,5 +1,5 @@
 import React from "react";
-import MonettoLogo from "../MonettoLogo/MonettoLogo";
+
 // Styles
 import "./HomepageFooter.css"
 // Monetto logo
@@ -11,7 +11,7 @@ function HomepageFooter() {
 
             <hr className="home-footer-separator" />
 
-            <p className="home-footer-monetto">~ Monetto ~</p>
+            <p className="home-footer-title">Monetto</p>
 
             <img src={logo} alt="Monetto logo" className="home-footer-logo" />
 
