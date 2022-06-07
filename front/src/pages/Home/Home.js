@@ -5,7 +5,7 @@ import "./Home.css"
 
 function Home() {
   return (
-    <div className="landing-page-container">
+    <div className="home-page-container">
       <Navbar />
       <HomepageHeader />
       <HomepageInfo />

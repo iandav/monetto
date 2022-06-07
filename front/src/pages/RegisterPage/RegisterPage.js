@@ -49,57 +49,50 @@ function RegisterPage() {
   }
 
   return (
-    <>
+    <div className="register-page-container">
       <Navbar />
-      <div className="register-box-container">
+      <div className="register-container">
         <div className="register-box">
-          <h1>Register</h1>
-
-          <form onSubmit={onSubmit}>
-            <div className="user-box">
+          <h1 className="register-box-title">Register</h1>
+          <form onSubmit={onSubmit} className="register-form">
               <input
+                className="register-input"
                 type="email"
                 required
                 placeholder="Email"
                 id="email"
                 onChange={onInputChange}
               />
-            </div>
-
-            <div className="user-box">
               <input
+                className="register-input"
                 type="text"
                 required
                 placeholder="Username"
                 id="nick"
                 onChange={onInputChange}
               />
-            </div>
-
-            <div className="user-box">
               <input
+                className="register-input"
                 type="password"
                 required
                 placeholder="Password"
                 id="password"
                 onChange={onInputChange}
               />
-            </div>
-
             <button type="submit" className="signup-btn">
               Sign up
             </button>
           </form>
-
-          <p>
-            Already have an account?
-            <Link to="/login"> Login </Link>
-          </p>
-
-          {errorMessage.length > 0 ? errorMessage : null}
+          <div className="register-box-alert">
+            {errorMessage.length > 0 ? errorMessage : null}
+          </div>
+          <div className="register-box-footer">
+            <p>Already have an account? </p>
+            <Link to="/login">Login</Link>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

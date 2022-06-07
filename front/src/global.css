@@ -4,14 +4,12 @@
 }
 
 html {
-    height: 100vh;
     margin: 0;
     padding: 0;
-    
 }
   
 body {
+    font-family: Poppins;
     background-color: #2B2B2B;
     color: white;
-    font-family: Poppins;
 }

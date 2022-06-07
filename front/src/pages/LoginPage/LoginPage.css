@@ -1,79 +1,86 @@
-.register-box-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 30px 50px;
+.login-page-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "navbar navbar navbar"
+        "login  login  login";   
 }
 
-.register-box {
+.login-container {
+    grid-area: login;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 380px;
     height: 460px;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    margin-top: 55px;
     border-radius: 15px;
-    background-color: rgba(0,0,0,.5);
-    
-    /*position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
-    */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.register-box h1 {
-    
-    padding: 0;
-    color: #fff;
+.login-box-title {
+    margin-top: 30px;
 }
 
-.register-box .user-box input {
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.login-input {
     width: 300px;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: white;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
     outline: none;
     background: transparent;
+    transition-duration: 0.2s;
+}
+
+.login-input:focus {
+    color: white;
+    border-bottom-color: white;
+    transition-duration: 0.2s;
 }
 
 .login-btn{
     width: 300px;
     height: 50px;
     border: none;
-    background: #a490e5;
-    color: #2B2B2B;
+    border-radius: 15px;
     font-size: 18px;
     font-weight: 400;
-    border-radius: 15px;
+    background: #E8BF59;
+    color: #2B2B2B;
     box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
     cursor: pointer;
-    margin-bottom: 60px;
-    transition-duration: 0.4s;
 }
 
-.login-btn:hover {
-    color:#2B2B2B;
-    background-color: #E8BF59;
-    transition-duration: 0.4s;
-    
+.login-box-alert {
+    margin-bottom: 30px;
 }
 
-.register-box p {
+.login-box-footer {
+    margin-bottom: 30px;
+}
+
+.login-box-footer p {
+    display: inline;
     color: rgba(255, 255, 255, 0.4);
 }
 
-.register-box a {
+.login-box-footer a {
     text-decoration: none;
     color: white;
 }

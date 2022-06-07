@@ -46,47 +46,45 @@ function LoginPage() {
   }
 
   return (
-    <>
+    <div className="login-page-container">
+
       <Navbar />
 
-      <div className="register-box-container">
-        <div className="register-box">
-          <h1>Log in</h1>
-
-          <form onSubmit={onLogin}>
-            <div className="user-box">
-              <input
-                type="text"
-                required
-                placeholder="Username"
-                id="nick"
-                onChange={onInputChange}
-              />
-            </div>
-
-            <div className="user-box">
-              <input
-                type="password"
-                required
-                placeholder="Password"
-                id="password"
-                onChange={onInputChange}
-              />
-            </div>
-
+      <div className="login-container">
+        <div className="login-box">
+          <h1 className="login-box-title">Log in</h1>
+          <form onSubmit={onLogin} className="login-form">
+            <input
+              className="login-input"
+              type="text"
+              required
+              placeholder="Username"
+              id="nick"
+              onChange={onInputChange}
+            />
+            <input
+              className="login-input"
+              type="password"
+              required
+              placeholder="Password"
+              id="password"
+              onChange={onInputChange}
+            />
             <button type="submit" className="login-btn">
               Log in
             </button>
           </form>
-          <p>
-            Don&apos;t have an account?
-            <Link to="/register"> Sign up </Link>
-          </p>
-
-          {errorMessage.length > 0 ? errorMessage : null}
+          <div className="login-box-alert">
+            {errorMessage.length > 0 ? errorMessage : null}
+          </div>
+          <div className="login-box-footer">
+            <p>Don&apos;t have an account? </p>
+            <Link to="/register">Sign up</Link>
+          </div>
         </div>
       </div>
-    </>
+      
+    </div>
   )
 }
 

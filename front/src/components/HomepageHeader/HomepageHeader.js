@@ -9,7 +9,7 @@ function HomepageHeader() {
 
       <div className="home-header-info-container">
         <h1>Monetto Personal Finance</h1>
-        <p>A modern open-source solution to better manage and analyze your financial data.
+        <p>A modern open-source solution to better manage and analyze your finances.
         Learn more at monetto.com</p>
         <Button
           target="/login"
