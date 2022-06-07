@@ -1,34 +1,12 @@
-.dashboardHeaderContainer {
+.dashboard-header-container {
+    grid-area: header;
     display: flex;
-    width: 100%;
-    height: 56px;
-    justify-content: space-between;
     align-items: center;
-    /*
-    margin: 20px 0 0 0;
-    */
-    margin: 20px 0;
+    height: 56px;
+    margin: 10px 0;
 }
 
-.dashboardHeaderTitle {
+.dashboard-header-title {
     font-size: 24px;
     margin-left: 30px;
-}
-
-.dashboardheaderUsernameContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dashboardHeaderUsername {
-    font-size: 14px;
-    margin-right: 14px;
-}
-
-.dashboardheaderImage {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    margin-right: 36px;
 }

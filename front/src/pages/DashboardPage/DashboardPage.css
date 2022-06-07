@@ -1,14 +1,41 @@
-.dashboardContainer {
-    display: flex;
+.dashboard-page-container {
+    display: grid;
     justify-content: flex-start;
-}
-
-.dashboardContent {
-    width: 100%;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "navbar header"
+        "navbar general-chart"
+        "navbar transactions"
+        "navbar transactions";
     background-color: #3b3b3b;
 }
 
-.dashboardCardsContainer {
+.dashboard-general-chart-section {
+    grid-area: general-chart;
+    display:flex;
+    height: 606px;
+}
+
+.dashboard-general-chart-box {
+    display: flex;
+    width: 1200px;
+    height: 546px;
+    border-radius: 15px;
+    margin: 30px 30px;
+    background-color: #2b2b2b;
+}
+
+.dashboard-general-chart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-general-chart-container h2 {
+    margin: 32px 0 78px 32px;
+}
+
+.dashboard-cards-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,11 +54,8 @@
     background-color: #2b2b2b;
 }
 
-.dashboardGeneralChart h2 {
-    margin: 32px 0 78px 32px;
-}
-
-.dashboardTransactionsSection {
+.dashboard-transactions-section {
+    grid-area: transactions;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -39,7 +63,7 @@
     margin: 0 30px 30px 30px;
 }
 
-.dashboardExpensesChartContainer {
+.dashboard-expenses-chart-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -50,7 +74,7 @@
     background-color: #2B2B2B;
 }
 
-.dashboardExpensesChartContainer h2 {
+.dashboard-expenses-chart-container h2 {
     font-size: 19px;
     margin: 32px 0 32px 32px;
 }

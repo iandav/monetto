@@ -2,6 +2,7 @@ import Button from "./Button/Button"
 import DashboardCard from "./DashboardCard/DashboardCard"
 import DashboardHeader from "./DashboardHeader/DashboardHeader"
 import DashboardNavbar from "./DashboardNavbar/DashboardNavbar"
+import DashboardLogo from "./DashboardLogo/DashboardLogo"
 import ExpensesChart from "./ExpensesChart/ExpensesChart"
 import GeneralChart from "./GeneralChart/GeneralChart"
 import HomepageHeader from "./HomepageHeader/HomepageHeader"
@@ -18,6 +19,7 @@ export {
   DashboardCard,
   DashboardHeader,
   DashboardNavbar,
+  DashboardLogo,
   ExpensesChart,
   GeneralChart,
   HomepageHeader,

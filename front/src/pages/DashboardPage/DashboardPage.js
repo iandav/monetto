@@ -1,6 +1,6 @@
 import React from "react"
 import "./DashboardPage.css"
-import { DashboardNavbar } from "../../components"
+import { DashboardLogo, DashboardNavbar } from "../../components"
 import { DashboardHeader } from "../../components"
 import { DashboardCard } from "../../components"
 import { GeneralChart } from "../../components"
@@ -9,19 +9,19 @@ import { ExpensesChart } from "../../components"
 
 function DashboardPage() {
   return (
-    <div className="dashboardContainer">
+    <div className="dashboard-page-container">
+
       <DashboardNavbar />
 
-      <div className="dashboardContent">
-        <DashboardHeader title="Dashboard" />
+      <DashboardHeader title="Dashboard" />
 
-        <div className="dashboardGeneralChartContainer">
-          <div className="dashboardGeneralChart">
-            <h2>Monthly income</h2>
-            <GeneralChart />
+      <section className="dashboard-general-chart-section">
+        <div className="dashboard-general-chart-box">
+          <div className="dashboard-general-chart-container">
+              <h2>Monthly income</h2>
+              <GeneralChart />
           </div>
-
-          <div className="dashboardCardsContainer">
+          <div className="dashboard-cards-container">
             <DashboardCard
               title="Balance"
               value="$302.000"
@@ -42,18 +42,18 @@ function DashboardPage() {
             />
           </div>
         </div>
+      </section>
 
-        <div className="dashboardTransactionsSection">
-          <div className="dashboardExpensesChartContainer">
+      <section className="dashboard-transactions-section">
+        <div className="dashboard-expenses-chart-container">
             <h2>Expenses by category</h2>
             <ExpensesChart />
-          </div>
-
-          <div className="dashboardTransactionHistoryContainer">
-            <TransactionHistory />
-          </div>
         </div>
-      </div>
+        <div className="dashboard-transactions-container">
+          <TransactionHistory />
+        </div>
+      </section>
+        
     </div>
   )
 }

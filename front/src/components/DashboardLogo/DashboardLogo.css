@@ -1,0 +1,17 @@
+.dashboard-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.dashboard-logo-image {
+    width: 65px;
+    height: 40px;
+}

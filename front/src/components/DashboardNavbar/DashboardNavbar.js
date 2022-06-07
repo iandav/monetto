@@ -5,52 +5,60 @@ import { BiLineChart, BiLineChartDown } from "react-icons/bi"
 import { BsCashStack, BsFillGearFill } from "react-icons/bs"
 // Styles
 import "./DashboardNavbar.css"
-import HomepageLogo from "../HomepageLogo/HomepageLogo"
+import DashboardLogo from "../DashboardLogo/DashboardLogo"
 
 function DashboardNavbar() {
   return (
-    <nav className="dashboardNavbarContainer">
-      <ul>
-        <div className="dashboardNavbarLogoContainer">
-          <HomepageLogo styles="dashboardNavbarLogo" />
-        </div>
-        <li className="dashboardNavbarElement active">
+    <nav className="dashboard-navbar-container">
+
+      <DashboardLogo />
+
+      <ul className="dashboard-navbar-list-container">
+
+        <li className="dashboard-navbar-element active">
           <Link to="/dashboard">
-            <FaChartPie className="dashboardNavbarIcon" />
+            <FaChartPie className="dashboard-navbar-icon active" />
             Dashboard
           </Link>
         </li>
-        <li className="dashboardNavbarElement">
+
+        <li className="dashboard-navbar-element">
           <Link to="/earnings">
-            <BiLineChart className="dashboardNavbarIcon" />
+            <BiLineChart className="dashboard-navbar-icon" />
             Earnings
           </Link>
         </li>
-        <li className="dashboardNavbarElement">
+
+        <li className="dashboard-navbar-element">
           <Link to="/expenses">
-            <BiLineChartDown className="dashboardNavbarIcon" />
+            <BiLineChartDown className="dashboard-navbar-icon" />
             Expenses
           </Link>
         </li>
-        <li className="dashboardNavbarElement">
+
+        <li className="dashboard-navbar-element">
           <Link to="/investments">
-            <BsCashStack className="dashboardNavbarIcon" />
+            <BsCashStack className="dashboard-navbar-icon" />
             Investments
           </Link>
         </li>
-        <li className="dashboardNavbarElement">
+
+        <li className="dashboard-navbar-element">
           <Link to="/settings">
-            <BsFillGearFill className="dashboardNavbarIcon" />
+            <BsFillGearFill className="dashboard-navbar-icon" />
             Settings
           </Link>
         </li>
-        <li className="dashboardNavbarElement">
+
+        <li className="dashboard-navbar-element">
           <Link to="/signout">
-            <FaPowerOff className="dashboardNavbarIcon" />
+            <FaPowerOff className="dashboard-navbar-icon" />
             Sign out
           </Link>
         </li>
+
       </ul>
+
     </nav>
   )
 }
