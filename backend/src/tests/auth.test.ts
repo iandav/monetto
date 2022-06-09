@@ -85,7 +85,7 @@ describe('auth test suite', ()=>{
                 return x==y
             })
 
-            const res = await request(app)
+            await request(app)
             .post('/api/auth/signin')
             .send({nick, password})
             .expect('Content-Type', /json/)
@@ -96,7 +96,7 @@ describe('auth test suite', ()=>{
         })
 
         it('should return error 400 when user is not found', async () =>{
-            const {nick, password, email, role} = userData
+            const {nick, password} = userData
             db.user.findFirst = jest.fn().mockReturnValue(null)
 
             const res = await request(app)
