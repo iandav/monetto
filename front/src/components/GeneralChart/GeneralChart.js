@@ -61,12 +61,13 @@ ChartJS.register(
 function GeneralChart() {
   const [earnings, setEarnings] = useState([])
 
-  // useEffect(() => {
-  //   ;(async () => {
-  //     const data = await getEarningsFromUser()
-  //     setEarnings(data)
-  //   })()
-  // }, [])
+  useEffect(() => {
+    ;(async () => {
+      const data = await getEarningsFromUser()
+      setEarnings(data)
+    })()
+  }, [])
+
 
   return (
     <Chart
