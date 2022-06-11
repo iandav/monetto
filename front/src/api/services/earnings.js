@@ -1,7 +1,6 @@
 const BASE_EARNINGS_URL = "http://localhost:3000/api/earning/"
-const username = sessionStorage.getItem("user")
 
-export const getEarningsFromUser = async () => {
+export const getEarningsFromUser = async (username) => {
   const response = await fetch(`${BASE_EARNINGS_URL}user/${username}`, {
     method: "GET",
     credentials: "include",

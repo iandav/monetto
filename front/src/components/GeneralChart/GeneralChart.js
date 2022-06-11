@@ -68,6 +68,7 @@ function GeneralChart() {
     })()
   }, [])
 
+
   return (
     <Chart
       type="line"

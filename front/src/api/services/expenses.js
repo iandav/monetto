@@ -1,7 +1,6 @@
 const BASE_EXPENSES_URL = "http://localhost:3000/api/expense/"
-const currentUser = sessionStorage.getItem("user")
 
-export const getExpensesFromUser = async (username = currentUser) => {
+export const getExpensesFromUser = async (username) => {
   const response = await fetch(`${BASE_EXPENSES_URL}user/${username}`, {
     method: "GET",
     credentials: "include",
