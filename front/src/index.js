@@ -1,36 +1,36 @@
 import React from "react"
 import reactDOM from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Home } from "./pages"
-import { RegisterPage } from "./pages"
-import { LoginPage } from "./pages"
-import { DashboardPage } from "./pages"
-import SettingsPage from "./pages/SettingsPage/SettingsPage"
-import { AuthProvider, RequireAuth } from "./lib/auth"
+import {
+  Home,
+  RegisterPage,
+  LoginPage,
+  DashboardPage,
+  SettingsPage,
+  EarningsPage,
+} from "./pages"
+import RequireAuth from "./lib/hoc/RequireAuth"
 import "./global.css"
-import EarningsPage from "./pages/EarningsPage/EarningsPage"
 
 const node = document.getElementById("root")
 const root = reactDOM.createRoot(node)
 
 root.render(
   <BrowserRouter>
-    <AuthProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <DashboardPage />
-            </RequireAuth>
-          }
-        />
-        <Route path="/earnings" element={<EarningsPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-      </Routes>
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <DashboardPage />
+          </RequireAuth>
+        }
+      />
+      <Route path="/earnings" element={<EarningsPage />} />
+      <Route path="/settings" element={<SettingsPage />} />
+    </Routes>
   </BrowserRouter>
 )

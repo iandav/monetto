@@ -10,7 +10,6 @@ import { ExpensesChart } from "../../components"
 function DashboardPage() {
   return (
     <div className="dashboard-page-container">
-
       <DashboardNavbar />
 
       <DashboardHeader title="Dashboard" />
@@ -18,8 +17,8 @@ function DashboardPage() {
       <section className="dashboard-general-chart-section">
         <div className="dashboard-general-chart-box">
           <div className="dashboard-general-chart-container">
-              <h2>Monthly income</h2>
-              <GeneralChart />
+            <h2>Monthly income</h2>
+            <GeneralChart />
           </div>
           <div className="dashboard-cards-container">
             <DashboardCard
@@ -46,14 +45,13 @@ function DashboardPage() {
 
       <section className="dashboard-transactions-section">
         <div className="dashboard-expenses-chart-container">
-            <h2>Expenses by category</h2>
-            <ExpensesChart />
+          <h2>Expenses by category</h2>
+          <ExpensesChart />
         </div>
         <div className="dashboard-transactions-container">
           <TransactionHistory />
         </div>
       </section>
-        
     </div>
   )
 }

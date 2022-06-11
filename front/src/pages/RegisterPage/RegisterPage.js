@@ -1,50 +1,28 @@
-import React, { useContext, useState } from "react"
-import { useNavigate, useLocation, Link } from "react-router-dom"
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 import { Navbar } from "../../components"
+import useAuth from "../../lib/hooks/useAuth"
+import useForm from "../../lib/hooks/useForm"
 import { signup } from "../../api/auth"
-import { AuthContext } from "../../lib/auth"
+
 import "./RegisterPage.css"
 
 function RegisterPage() {
-  const auth = useContext(AuthContext)
-
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const [email, setEmail] = useState("")
-  const [nick, setNick] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [user, login] = useAuth()
   const [errorMessage, setErrorMessage] = useState("")
-
-  const navigateTo = location.state?.from?.pathname || "/dashboard"
+  const [formData, onInputChange] = useForm({
+    email: "",
+    nick: "",
+    password: "",
+  })
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    const data = {
-      nick,
-      email,
-      password,
-    }
-    const result = await signup(data)
+    const result = await signup(formData)
     if (result.success) {
-      auth.signin(data.nick, () => {
-        navigate(navigateTo, { replace: true })
-      })
+      login(formData.nick)
     } else {
       setErrorMessage(result.message)
-    }
-  }
-
-  const onInputChange = (e) => {
-    const { id, value } = e.target
-
-    if (id === "email") {
-      setEmail(value)
-    } else if (id === "nick") {
-      setNick(value)
-    } else {
-      setPassword(value)
     }
   }
 
@@ -55,30 +33,30 @@ function RegisterPage() {
         <div className="register-box">
           <h1 className="register-box-title">Register</h1>
           <form onSubmit={onSubmit} className="register-form">
-              <input
-                className="register-input"
-                type="email"
-                required
-                placeholder="Email"
-                id="email"
-                onChange={onInputChange}
-              />
-              <input
-                className="register-input"
-                type="text"
-                required
-                placeholder="Username"
-                id="nick"
-                onChange={onInputChange}
-              />
-              <input
-                className="register-input"
-                type="password"
-                required
-                placeholder="Password"
-                id="password"
-                onChange={onInputChange}
-              />
+            <input
+              className="register-input"
+              type="email"
+              required
+              placeholder="Email"
+              id="email"
+              onChange={onInputChange}
+            />
+            <input
+              className="register-input"
+              type="text"
+              required
+              placeholder="Username"
+              id="nick"
+              onChange={onInputChange}
+            />
+            <input
+              className="register-input"
+              type="password"
+              required
+              placeholder="Password"
+              id="password"
+              onChange={onInputChange}
+            />
             <button type="submit" className="signup-btn">
               Sign up
             </button>

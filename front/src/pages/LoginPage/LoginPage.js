@@ -1,59 +1,37 @@
-import React, { useContext, useState } from "react"
-import { useNavigate, useLocation, Link } from "react-router-dom"
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 import { Navbar } from "../../components"
-import { AuthContext } from "../../lib/auth"
+import useAuth from "../../lib/hooks/useAuth"
+import useForm from "../../lib/hooks/useForm"
 import { signin } from "../../api/auth"
+
 import "./LoginPage.css"
 
 function LoginPage() {
-  const auth = useContext(AuthContext)
-
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const [nick, setNick] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [user, login] = useAuth()
   const [errorMessage, setErrorMessage] = useState("")
+  const [formData, onInputChange] = useForm({
+    nick: "",
+    password: "",
+  })
 
-  const navigateTo = location.state?.from?.pathname || "/dashboard"
-
-  const onLogin = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-
-    const data = {
-      nick,
-      password,
-    }
-
-    const result = await signin(data)
+    const result = await signin(formData)
     if (result.success) {
-      auth.signin(data.nick, () => {
-        navigate(navigateTo, { replace: true })
-      })
+      login(formData.nick)
     } else {
       setErrorMessage(result.message)
     }
   }
 
-  const onInputChange = (e) => {
-    const { id, value } = e.target
-    if (id === "nick") {
-      setNick(value)
-    } else {
-      setPassword(value)
-    }
-  }
-
   return (
     <div className="login-page-container">
-
       <Navbar />
-
       <div className="login-container">
         <div className="login-box">
           <h1 className="login-box-title">Log in</h1>
-          <form onSubmit={onLogin} className="login-form">
+          <form onSubmit={onSubmit} className="login-form">
             <input
               className="login-input"
               type="text"
@@ -83,7 +61,6 @@ function LoginPage() {
           </div>
         </div>
       </div>
-      
     </div>
   )
 }
