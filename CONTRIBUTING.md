@@ -1,37 +1,118 @@
-# Contributing to Monetto
-**You can view an overview document of the requirements for the application [here](https://docs.google.com/document/d/1gslsLzcZIjquAiEcln2ucH5LtYGZAMqjYLXrIa7pNEI/edit)**
-
-We use 3 different tools to organize and contribute to the project:
-- Trello (for assigning and keeping track of tasks related to the project)
-- Google Docs (for documentation on this project and more)
-- Git/GitHub
-
-## Trello Setup
-
-*You need an account to take on tasks and participate on trello, you can do so at https://trello.com*
-
-The dashboard we use for the Monetto application can be found [here](https://trello.com/invite/b/QN5UUj43/41dfe97752cf488397bee3faae717f36/tactical-devs).
-
-In this dashboard there are different "buckets" representing the state of the tasks inside of them, you can drag them and assign them accordingly.
-
-|Bucket name|Purpouse|
-|---|----|
-|Backlog|Tasks that still hasn't been assigned to anyone and can be worked on|
-|New Features|Tasks that have been selected from the Backlog to work on in the current version|
-|Running Tasks|Tasks in progress, actively being worked on by someone|
-|Phase 1 Testing|Tasks that are being tested for development stage|
-|Phase 2 Testing|Tasks that are being tested for production stage|
-|Ready|Tasks that have been tested and are ready for production|
-|Done and Deployed|Tasks that have been tested and are running in Production Environment|
-
-## Git setup
+# Project set up / Git & Github Workflow
 You can request access to the repository in our [discord](https://discord.gg/XPKwtr4Zrn)
 
-Once you have access you can start contributing by cloning the repository running this command in a terminal: `git clone https://github.com/iandav/monetto`
+Once you have access you can start contributing.
 
-The workflow would be (the commands can also be simplified by using a GUI for Git):
-1. `git fetch origin && git pull` before starting to work on a feature, so you have the latest version of the remote.
-2. `git checkout -b myFeatureName` where myFeatureName is the number/name of the specific feature you are going to work on.
-3. `git add . && git commit -m "A simple yet useful comment about the changes made"` to stage the changes and commit them locally.
-4. `git push origin myFeatureName` to push the changes commited in the feature branch to the remote for review.
-5. `git checkout main && git pull` to return to the main branch and get the latest version fo the remote.
+## Project Setup
+
+First, clone the repository to your machine
+<br>
+
+### Now, we need to setup the server with the database
+
+To setup the database locally we will be using Docker, so make sure first you have it installed on your machine.
+
+Let's install the database, run :
+```bash
+docker run --name monettodb -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:latest
+```
+Don't forget to replace password with your password
+
+Now we are gonna install a database management tool called adminer, run :
+```bash
+docker run -d --name adminer --link monettodb:db -p 8080:8080 adminer
+```
+
+After installing them you'll need to start the database and adminer either from the GUI or the terminal.
+
+If you are using the terminal, you can run :
+```bash
+docker start monettodb
+```
+```bash
+docker start adminer
+```
+
+To make sure they are running, you can run : 
+```bash
+docker ps
+```
+
+Now let's go back to our backend setup.
+
+First go into the `/backend` and install the dependencies :
+```bash
+npm i
+```
+
+Also before we continue you need to create a .env file inside the /backend with the follow variable :
+```bash
+DATABASE_URL="mysql://root:password@localhost:3306/monetto"
+```
+Don't forget to replace the password with your password.
+
+Now, run :
+```bash
+npx prisma migrate dev
+```
+```bash
+npx prisma generate
+```
+
+And the backend is ready!<br>
+To start the development server just run : 
+```bash
+npm run start:dev
+```
+
+### Let's setup the frontend now
+
+Move into the `/front` and install the dependencies :
+
+```bash
+npm i
+```
+
+Create a .env file with the following variable which is the port that it'll be running the frontend for the development.
+
+```bash
+PORT=4000
+```
+
+And done! You can start the frontend by running : 
+```bash
+npm run start
+```
+
+---
+## Git & Github Workflow
+
+Here is a reference image on how we are working on the project :
+
+[Workflow](https://cdn.discordapp.com/attachments/962136918383018035/984923946749157447/unknown.png)
+
+- First thing you need to do is to fork the repository.
+
+From there clone the project to your machine, with
+
+```bash
+git clone your-forked-repository
+```
+
+Then create a new branch :
+```bash
+git branch your-branch-name
+```
+Now switch to your newly created branch : 
+```bash
+git checkout your-branch-name
+```
+
+Now you can start developing!
+
+To push changes on your repository to the specific branch you are working :
+```bash
+git push origin your-branch-name
+```
+
+When your branch is ready, you need to open a Pull Request to the original repository. The PR should be at the `dev` branch and not on the `main` directly.
