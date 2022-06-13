@@ -29,8 +29,9 @@ import {
   SubTitle,
 } from "chart.js"
 import "chartjs-adapter-date-fns"
+import getDaysInMonth from 'date-fns/getDaysInMonth'
 import { getEarningsFromUser } from "../../api/services/earnings"
-
+import { getExpensesFromUser } from "../../api/services/expenses"
 ChartJS.register(
   ArcElement,
   LineElement,
@@ -58,31 +59,43 @@ ChartJS.register(
   SubTitle
 )
 
+
 function GeneralChart() {
 
   const now = new Date()
 
+  // Years
   const fromYear = now.getFullYear()
+  const toYear = now.getFullYear() + 1
+  // Months
   const fromMonth = `0${now.getMonth() + 1}`
-  
-  const toYear = now.getFullYear()
   const toMonth = fromMonth
-  const toDay = new Date(now.getFullYear(), now.getMonth + 1, 0).getMonth()
-  
+  // Last day
+  const toDay = getDaysInMonth(now)
+
   // YYYY-MM-DD
-  const dateFromDefault = `${fromYear}-${fromMonth}-01`
-  const dateToDefault = `${toYear}-${toMonth}-31`
+  const fromCurrentYear = `${fromYear}-01-01`
+  const toCurrentYear = `${toYear}-01-01`
+
+  const fromCurrentMonth = `${fromYear}-${fromMonth}-01`
+  const toCurrentMonth = `${fromYear}-${toMonth + 1}-01`
 
   const [earnings, setEarnings] = useState([])
+  const [expenses, setExpenses] = useState([])
 
   useEffect(() => {
     ;(async () => {
-      const data = await getEarningsFromUser(dateFromDefault, dateToDefault)
-      const filterData = data.map(index => ({x: index.date, y: index.value}))
-      setEarnings(filterData)
+      // Fetch user earnings of the current year
+      const userEarnings = await getEarningsFromUser(dateFromDefault, dateToDefault)
+      const filterEarnings = userEarnings.map(index => ({x: index.date, y: index.value}))
+      setEarnings(filterEarnings)
+
+       // Fetch user expenses of the current year
+       const userExpenses = await getExpensesFromUser(dateFromDefault, dateToDefault)
+       const filterExpenses = userExpenses.map(index => ({x: index.date, y: index.value}))
+       setExpenses(filterExpenses)
     })()
   }, [])
-
 
   return (
     <Chart
@@ -117,20 +130,25 @@ function GeneralChart() {
               */
             borderColor: "#009379",
             backgroundColor: "#009379",
+            tension: 0.4
           },
           {
             type: "line",
             label: "Expenses",
-            data: [
+            data: expenses,
+            /*
+            [
               { x: "2022-03-01", y: 17200 },
               { x: "2022-04-01", y: 32000 },
               { x: "2022-05-01", y: 44820 },
               { x: "2022-06-01", y: 44200 },
               { x: "2022-07-01", y: 88400 },
               { x: "2022-08-01", y: 44820 },
-            ],
+            ]
+            */
             borderColor: "#FF6250",
             backgroundColor: "#FF6250",
+            tension: 0.4
           },
         ],
       }}
