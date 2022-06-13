@@ -1,0 +1,33 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": { "presets": ["@babel/preset-react"] }
+  },
+
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "react"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts"] }
+    ],
+    "react/prop-types": [0],
+
+    "import/no-duplicates": [1],
+
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-var": "warn",
+    "no-empty": "error",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+
+    "indent": "warn",
+    "no-mixed-spaces-and-tabs": "error",
+    "prettier/prettier": "warn"
+  },
+  "env": {
+    "browser": true
+  }
+}
