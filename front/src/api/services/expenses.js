@@ -1,12 +1,13 @@
 const BASE_EXPENSES_URL = "http://localhost:3000/api/expense/"
 
-export const getExpensesFromUser = async (username) => {
-  const response = await fetch(`${BASE_EXPENSES_URL}user/${username}`, {
+export const getExpensesFromUser = async (dateFrom, dateTo) => {
+  const response = await fetch(`${BASE_EXPENSES_URL}user/test?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
     method: "GET",
     credentials: "include",
   })
 
   const data = await response.json()
+  console.log(data)
   return data
 }
 

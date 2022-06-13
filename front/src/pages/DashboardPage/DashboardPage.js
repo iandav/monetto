@@ -1,5 +1,6 @@
 import React from "react"
 import "./DashboardPage.css"
+import {IoMdArrowDropdownCircle} from "react-icons/io"
 import { DashboardLogo, DashboardNavbar } from "../../components"
 import { DashboardHeader } from "../../components"
 import { DashboardCard } from "../../components"
@@ -17,7 +18,10 @@ function DashboardPage() {
       <section className="dashboard-general-chart-section">
         <div className="dashboard-general-chart-box">
           <div className="dashboard-general-chart-container">
-            <h2>Monthly income</h2>
+            <div className="dashboard-general-chart-title-container">
+              <h2>Yearly income</h2>
+              <IoMdArrowDropdownCircle className="dashboard-general-chart-button" />
+            </div>
             <GeneralChart />
           </div>
           <div className="dashboard-cards-container">
@@ -29,7 +33,7 @@ function DashboardPage() {
             />
             <DashboardCard
               title="Income"
-              value="$293.000"
+              value="312312"
               name="dashboardPageCard income"
               icon=""
             />

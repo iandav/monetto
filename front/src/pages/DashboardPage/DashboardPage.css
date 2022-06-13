@@ -31,10 +31,31 @@
     flex-direction: column;
 }
 
-.dashboard-general-chart-container h2 {
+.dashboard-general-chart-title-container {
+    display: flex;
+    align-items: center;
     margin: 32px 0 78px 32px;
+    position: relative;
 }
 
+.dashboard-general-chart-title-container h2 {
+    display: inline;
+    margin-right: 15px;
+}
+
+.dashboard-general-chart-button {
+    width: 20px;
+    height: 20px;
+}
+
+.dashboard-general-chart-title-container ul {
+    position: absolute;
+    list-style: none;
+    left: 0;
+    bottom: -55px;
+    background-color: #3b3b3b;
+    width: 220px;
+}
 .dashboard-cards-container {
     display: flex;
     flex-direction: column;
