@@ -18,6 +18,10 @@ function DashboardPage() {
         <div className="dashboard-general-chart-box">
           <div className="dashboard-general-chart-container">
             <h2>Monthly income</h2>
+            <div>
+              <input type="date" />
+              <input type="date" />
+            </div>
             <GeneralChart />
           </div>
           <div className="dashboard-cards-container">

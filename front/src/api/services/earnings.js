@@ -1,7 +1,19 @@
 const BASE_EARNINGS_URL = "http://localhost:3000/api/earning/"
 
+/*
 export const getEarningsFromUser = async (username) => {
   const response = await fetch(`${BASE_EARNINGS_URL}user/${username}`, {
+    method: "GET",
+    credentials: "include",
+  })
+  const data = await response.json()
+  console.log(data)
+  return data
+}
+*/
+
+export const getEarningsFromUser = async (dateFrom, dateTo) => {
+  const response = await fetch(`${BASE_EARNINGS_URL}user/test?dateFrom=${dateFrom}&dateTo=${dateTo}`, {
     method: "GET",
     credentials: "include",
   })

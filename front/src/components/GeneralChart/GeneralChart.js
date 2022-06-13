@@ -59,12 +59,27 @@ ChartJS.register(
 )
 
 function GeneralChart() {
+
+  const now = new Date()
+
+  const fromYear = now.getFullYear()
+  const fromMonth = `0${now.getMonth() + 1}`
+  
+  const toYear = now.getFullYear()
+  const toMonth = fromMonth
+  const toDay = new Date(now.getFullYear(), now.getMonth + 1, 0).getMonth()
+  
+  // YYYY-MM-DD
+  const dateFromDefault = `${fromYear}-${fromMonth}-01`
+  const dateToDefault = `${toYear}-${toMonth}-31`
+
   const [earnings, setEarnings] = useState([])
 
   useEffect(() => {
     ;(async () => {
-      const data = await getEarningsFromUser()
-      setEarnings(data)
+      const data = await getEarningsFromUser(dateFromDefault, dateToDefault)
+      const filterData = data.map(index => ({x: index.date, y: index.value}))
+      setEarnings(filterData)
     })()
   }, [])
 
