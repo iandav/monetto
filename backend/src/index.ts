@@ -7,8 +7,8 @@ import morgan from "morgan";
 import mainRouter from "./routes"
 
 // Server configurations
-const app = express()
-const port = 3000
+export const app = express()
+export const port = 3000
 app.use(cors(
     {
         origin: ["http://localhost:4000","http://localhost:3001"], // Set enabled frontend origins here
@@ -27,6 +27,3 @@ app.use(morgan('combined'));
 
 app.use("/api", mainRouter);
 
-app.listen(port, () => {
-    console.log(`Monetto Backend listening on port ${port}`)
-})

@@ -1,15 +1,18 @@
-import React from 'react'
+import React from "react"
+import { HomepageInfo, Navbar, HomepageHeader, HomepageTestimony, HomepageFooter } from "../../components"
+// Styles
 import "./Home.css"
-import { Navbar } from '../../components/'
-import { HomepageHeader } from '../../components/'
-import { InfoCards } from '../../components/'
 
-const Home = () => (
-  <>
-    <Navbar />
-    <HomepageHeader />
-    <InfoCards />
-  </>
-)
+function Home() {
+  return (
+    <div className="home-page-container">
+      <Navbar />
+      <HomepageHeader />
+      <HomepageInfo />
+      <HomepageTestimony />
+      <HomepageFooter />
+    </div>
+  )
+}
 
-export default Home
+export default Home;

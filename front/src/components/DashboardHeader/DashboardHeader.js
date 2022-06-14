@@ -1,21 +1,12 @@
-import React from "react";
-// Styles
+import React from "react"
 import "./DashboardHeader.css"
 
-function DashboardHeader({title}) {
-    return (
-        <header className="dashboardHeaderContainer">
-            <h1 className="dashboardHeaderTitle">
-                {title}
-            </h1>
-
-        <div className="dashboardheaderUsernameContainer">
-            <p className="dashboardHeaderUsername">Username</p>
-            <img src={require("../../images/user.png")} alt="Image of the current user" className="dashboardheaderImage" />
-        </div>
-        </header>
-    );
+function DashboardHeader({ title }) {
+  return (
+    <header className="dashboard-header-container">
+      <h1 className="dashboard-header-title">{title}</h1>
+    </header>
+  )
 }
 
-export default DashboardHeader;
-
+export default DashboardHeader

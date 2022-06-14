@@ -1,5 +1,5 @@
 .button {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 175px;
@@ -8,15 +8,20 @@
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
-    color: white;
+    color: #2b2b2b;
 }
 
-.primary {
-    color: #333333;
-    background-color: #E8BF59;
-}
-
-.secondary {
-    color: #333333;
+.button.home-navbar-login-btn {
     background-color: #A490E5;
+    transition-duration: 0.4s;
+    margin-right: 50px;
+}
+
+.button:hover.home-navbar-login-btn:hover {
+    background-color: #E8BF59;
+    transition-duration: 0.4s;
+}
+
+.button.button.home-header-btn {
+    background-color: #E8BF59;
 }

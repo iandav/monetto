@@ -1,25 +1,28 @@
-.navbar {
+.home-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
     height: 100px;
+    grid-area: navbar;
 }
 
-.monettoLogo {
-    margin-left: 55px;
+.home-navbar-buttons-container {
+    display: flex;
 }
 
-.signupButton {
+.home-navbar-signup-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
     margin-right: 30px;
+    text-decoration: none;
+    color: white;
 }
 
-.loginButton {
-    margin-right: 50px;
-    transition-duration: 0.4s;
-}
-
-.loginButton:hover {
+.home-login-btn:hover {
     background-color: #E8BF59;
     transition-duration: 0.4s;
 }

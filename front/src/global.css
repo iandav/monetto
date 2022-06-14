@@ -1,17 +1,16 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    
+  margin: 0;
+  padding: 0;
 }
-  
+
 body {
-    background-color: #2B2B2B;
-    color: white;
-    font-family: Poppins;
+  font-family: Poppins;
+  background-color: #2b2b2b;
+  color: white;
 }

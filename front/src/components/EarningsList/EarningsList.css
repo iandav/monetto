@@ -1,20 +1,60 @@
 .earningsListContainer {
     display: flex;
     flex-direction: column;
+    width: 1200px;
+    
+    border-radius: 15px;
+    margin: 0 30px 30px 30px;
+    background-color: #2b2b2b;
+}
+
+.earningsListContainer p {
+    font-size: 14px;
 }
 
 .earningsListTitle {
     display: flex;
     flex-direction: row;
-    height: 30px;
     justify-content: space-between;
+    align-items: center;
+    height: 30px;
     border-bottom: 2px solid white;
 }
 
-.earningDescription {
-    margin-left: 32px;
+.earningsListHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.earningsListHeader h2 {
+    font-size: 19px;
+    margin: 32px 0 48px 32px
+}
+
+.earningsListSort {
+    display: inline-flex;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.earningsListFilter {
+    display: inline-flex;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.earningsListIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.earningDetails {
+    margin: 0 32px;
 }
 
 .earningEdit {
-    margin-right: 32px;
+   margin: 0 32px;
 }

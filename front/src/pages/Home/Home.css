@@ -1,0 +1,11 @@
+.home-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: 
+    "navbar navbar navbar"
+    "header header header"
+    "info   info   info"
+    "tsmny  tsmny  tsmny"
+    "footer footer footer";
+}

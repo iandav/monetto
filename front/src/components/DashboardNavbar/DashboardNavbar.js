@@ -1,59 +1,66 @@
-import React from "react";
-// icons not used.
-// import { icons } from "react-icons"
-// React icons
-import { FaChartPie } from "react-icons/fa"
-import { BiLineChart } from "react-icons/bi"
-import { BiLineChartDown } from "react-icons/bi"
-import { BsCashStack } from "react-icons/bs"
-import { BsFillGearFill } from "react-icons/bs"
-import { FaPowerOff } from "react-icons/fa"
-
-
+import React from "react"
+import { Link } from "react-router-dom"
+import { FaChartPie, FaPowerOff } from "react-icons/fa"
+import { BiLineChart, BiLineChartDown } from "react-icons/bi"
+import { BsCashStack, BsFillGearFill } from "react-icons/bs"
 // Styles
 import "./DashboardNavbar.css"
-// Components
-import MonettoLogo from "../MonettoLogo/MonettoLogo";
-import { Link } from "react-router-dom";
+import DashboardLogo from "../DashboardLogo/DashboardLogo"
 
 function DashboardNavbar() {
-    return (
-        <nav className="dashboardNavbarContainer">
+  return (
+    <nav className="dashboard-navbar-container">
 
-            <ul>
+      <DashboardLogo />
 
-            <div className="dashboardNavbarLogoContainer">
-                <MonettoLogo styles="dashboardNavbarLogo"/>
-            </div>
+      <ul className="dashboard-navbar-list-container">
 
-                <li className="dashboardNavbarElement active">
-                    <Link to="/dashboard"><FaChartPie className="dashboardNavbarIcon" />Dashboard</Link>
-                </li>
+        <li className="dashboard-navbar-element active">
+          <Link to="/dashboard">
+            <FaChartPie className="dashboard-navbar-icon active" />
+            Dashboard
+          </Link>
+        </li>
 
-                <li className="dashboardNavbarElement">
-                    <Link to="/earnings"><BiLineChart className="dashboardNavbarIcon" />Earnings</Link>
-                </li>
+        <li className="dashboard-navbar-element">
+          <Link to="/earnings">
+            <BiLineChart className="dashboard-navbar-icon" />
+            Earnings
+          </Link>
+        </li>
 
-                <li className="dashboardNavbarElement">
-                    <Link to="/expenses"><BiLineChartDown className="dashboardNavbarIcon" />Expenses</Link>
-                </li>
+        <li className="dashboard-navbar-element">
+          <Link to="/expenses">
+            <BiLineChartDown className="dashboard-navbar-icon" />
+            Expenses
+          </Link>
+        </li>
 
-                <li className="dashboardNavbarElement">
-                    <Link to="/investments"><BsCashStack className="dashboardNavbarIcon" />Investments</Link>
-                </li>
+        <li className="dashboard-navbar-element">
+          <Link to="/investments">
+            <BsCashStack className="dashboard-navbar-icon" />
+            Investments
+          </Link>
+        </li>
 
-                <li className="dashboardNavbarElement">
-                    <Link to="/settings"><BsFillGearFill className="dashboardNavbarIcon" />Settings</Link>
-                </li>
+        <li className="dashboard-navbar-element">
+          <Link to="/settings">
+            <BsFillGearFill className="dashboard-navbar-icon" />
+            Settings
+          </Link>
+        </li>
 
-                <li className="dashboardNavbarElement">
-                    <Link to=""><FaPowerOff className="dashboardNavbarIcon" />Sign out</Link>
-                </li>
+        <li className="dashboard-navbar-element">
+          <Link to="/signout">
+            <FaPowerOff className="dashboard-navbar-icon" />
+            Sign out
+          </Link>
+        </li>
 
-            </ul>
+      </ul>
 
-        </nav>
-    );
+    </nav>
+  )
 }
 
-export default DashboardNavbar;
+export default DashboardNavbar

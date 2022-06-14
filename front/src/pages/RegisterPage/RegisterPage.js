@@ -1,98 +1,76 @@
-import { useContext, useState } from 'react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { Navbar } from '../../components'
-import { signup } from '../../api/auth'
-import { AuthContext } from '../../lib/auth'
-import './RegisterPage.css'
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import { Navbar } from "../../components"
+import useAuth from "../../lib/hooks/useAuth"
+import useForm from "../../lib/hooks/useForm"
+import { signup } from "../../api/auth"
 
-const RegisterPage = () => {
-  const auth = useContext(AuthContext)
+import "./RegisterPage.css"
 
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const [email, setEmail] = useState('')
-  const [nick, setNick] = useState('')
-  const [password, setPassword] = useState('')
-
-  const [errorMessage, setErrorMessage] = useState('')
-
-  const navigateTo = location.state?.from?.pathname || '/dashboard'
+function RegisterPage() {
+  const [user, login] = useAuth()
+  const [errorMessage, setErrorMessage] = useState("")
+  const [formData, onInputChange] = useForm({
+    email: "",
+    nick: "",
+    password: "",
+  })
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    console.log("BEFORE")
-    const data = {
-      nick,
-      email,
-      password
-    }
-    console.log(data)
-    const result = await signup(data)
-    if(result.success){
-      auth.signin(data.nick, () => {
-        navigate(navigateTo, { replace: true })
-      })
-    }
-    else {
+    const result = await signup(formData)
+    if (result.success) {
+      login(formData.nick)
+    } else {
       setErrorMessage(result.message)
-    }
-  }
-  
-
-  const onInputChange = (e) => {
-    const { id, value } = e.target
-
-    if(id === 'email') {
-      setEmail(value)
-    }
-    else if(id === 'nick') {
-      setNick(value)
-    }
-    else {
-      setPassword(value)
     }
   }
 
   return (
-    <>
+    <div className="register-page-container">
       <Navbar />
-
-      <div className='register-box-container'>
-
-      <div className="register-box">
-
-        <h1>Register</h1>
-
-        <form onSubmit={onSubmit}>
-
-          <div className="user-box">
-            <input type="email" required placeholder='Email' id="email" onChange={onInputChange}></input>
+      <div className="register-container">
+        <div className="register-box">
+          <h1 className="register-box-title">Register</h1>
+          <form onSubmit={onSubmit} className="register-form">
+            <input
+              className="register-input"
+              type="email"
+              required
+              placeholder="Email"
+              id="email"
+              onChange={onInputChange}
+            />
+            <input
+              className="register-input"
+              type="text"
+              required
+              placeholder="Username"
+              id="nick"
+              onChange={onInputChange}
+            />
+            <input
+              className="register-input"
+              type="password"
+              required
+              placeholder="Password"
+              id="password"
+              onChange={onInputChange}
+            />
+            <button type="submit" className="signup-btn">
+              Sign up
+            </button>
+          </form>
+          <div className="register-box-alert">
+            {errorMessage.length > 0 ? errorMessage : null}
           </div>
-
-          <div className="user-box">
-            <input type="text" required placeholder='Username' id="nick" onChange={onInputChange}></input>
+          <div className="register-box-footer">
+            <p>Already have an account? </p>
+            <Link to="/login">Login</Link>
           </div>
-
-          <div className="user-box">
-            <input type="password" required placeholder='Password' id="password" onChange={onInputChange}></input>
-          </div>
-
-          <button className='signup-btn'>
-            Sign up
-          </button>
-        </form>
-
-        <p>Already have an account? 
-          <Link to="/login"> Login </Link>
-        </p>
-
-        {errorMessage.length > 0 ? errorMessage : null}
-
+        </div>
       </div>
-      
-      </div>
-    </>
+    </div>
   )
 }
 
