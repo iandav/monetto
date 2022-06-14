@@ -29,9 +29,23 @@ import {
   SubTitle,
 } from "chart.js"
 import "chartjs-adapter-date-fns"
-import getDaysInMonth from 'date-fns/getDaysInMonth'
 import { getEarningsFromUser } from "../../api/services/earnings"
 import { getExpensesFromUser } from "../../api/services/expenses"
+import {
+  fromYear,
+  toYear,
+  fromMonth,
+  toMonth,
+  toDay,
+  fromCurrentYear,
+  toCurrentYear,
+  fromCurrentMonth,
+  toCurrentMonth,
+  dateFromDefault,
+  dateToDefault,
+} from "../../lib/utils"
+import useLocalStorage from "../../lib/hooks/useLocalStorage"
+
 ChartJS.register(
   ArcElement,
   LineElement,
@@ -59,41 +73,37 @@ ChartJS.register(
   SubTitle
 )
 
-
 function GeneralChart() {
-
-  const now = new Date()
-
-  // Years
-  const fromYear = now.getFullYear()
-  const toYear = now.getFullYear() + 1
-  // Months
-  const fromMonth = `0${now.getMonth() + 1}`
-  const toMonth = fromMonth
-  // Last day
-  const toDay = getDaysInMonth(now)
-
-  // YYYY-MM-DD
-  const fromCurrentYear = `${fromYear}-01-01`
-  const toCurrentYear = `${toYear}-01-01`
-
-  const fromCurrentMonth = `${fromYear}-${fromMonth}-01`
-  const toCurrentMonth = `${fromYear}-${toMonth + 1}-01`
-
+  const [user, setUser] = useLocalStorage()
   const [earnings, setEarnings] = useState([])
   const [expenses, setExpenses] = useState([])
 
   useEffect(() => {
     ;(async () => {
       // Fetch user earnings of the current year
-      const userEarnings = await getEarningsFromUser(dateFromDefault, dateToDefault)
-      const filterEarnings = userEarnings.map(index => ({x: index.date, y: index.value}))
+      const userEarnings = await getEarningsFromUser(
+        user,
+        dateFromDefault,
+        dateToDefault
+      )
+      const filterEarnings = userEarnings.map((earning) => ({
+        x: earning.date,
+        y: earning.value,
+      }))
+
       setEarnings(filterEarnings)
 
-       // Fetch user expenses of the current year
-       const userExpenses = await getExpensesFromUser(dateFromDefault, dateToDefault)
-       const filterExpenses = userExpenses.map(index => ({x: index.date, y: index.value}))
-       setExpenses(filterExpenses)
+      // Fetch user expenses of the current year
+      const userExpenses = await getExpensesFromUser(
+        user,
+        dateFromDefault,
+        dateToDefault
+      )
+      const filterExpenses = userExpenses.map((earning) => ({
+        x: earning.date,
+        y: earning.value,
+      }))
+      setExpenses(filterExpenses)
     })()
   }, [])
 
@@ -130,7 +140,7 @@ function GeneralChart() {
               */
             borderColor: "#009379",
             backgroundColor: "#009379",
-            tension: 0.4
+            tension: 0.4,
           },
           {
             type: "line",
@@ -148,7 +158,7 @@ function GeneralChart() {
             */
             borderColor: "#FF6250",
             backgroundColor: "#FF6250",
-            tension: 0.4
+            tension: 0.4,
           },
         ],
       }}
