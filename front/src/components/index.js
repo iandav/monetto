@@ -13,6 +13,7 @@ import TransactionCard from "./TransactionCard/TransactionCard"
 import TransactionHistory from "./TransactionHistory/TransactionHistory"
 import HomepageTestimony from "./HomepageTestimony/HomepageTestimony"
 import HomepageFooter from "./HomepageFooter/HomepageFooter"
+import Settings from "./Settings/Settings"
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   Navbar,
   TransactionCard,
   TransactionHistory,
+  Settings,
 }
