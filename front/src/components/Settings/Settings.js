@@ -1,45 +1,40 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
+import useLocalStorage from "../../lib/hooks/useLocalStorage"
+
+import TextSetting from "./TextSetting"
+import PasswordSetting from "./PasswordSetting"
+import SettingError from "./SettingError"
 import "./Settings.css"
 
-function Settings() {
+async function fetchUsernameChange(newNick, currentNick) {
+  const url = "http://localhost:3000/api/user/update/username"
+  const res = await fetch(url, {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify({ nick: currentNick, newNick: newNick }),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+  const data = await res.json()
+
+  if (!res.ok) {
+    throw new SettingError(data.message)
+  }
+
+  return newNick
+}
+
+export default function Settings() {
   return (
-    <div className="settingsContainer">
-      <label htmlFor="username">
-        Username
-        <div>
-          <input type="text" name="username" value="John Wick" disabled />
-          <button type="button" className="edit-btn">
-            Edit
-          </button>
-        </div>
-      </label>
-
-      <label htmlFor="email">
-        Email
-        <div>
-          <input
-            type="email"
-            name="email"
-            value="johnwick@gmail.com"
-            disabled
-          />
-          <button type="button" className="edit-btn">
-            Edit
-          </button>
-        </div>
-      </label>
-
-      <label htmlFor="password">
-        Password
-        <div>
-          <input type="password" name="password" value="password" disabled />
-          <button type="button" className="edit-btn">
-            Change
-          </button>
-        </div>
-      </label>
+    <div className="settings-container">
+      <TextSetting
+        label="Username"
+        storageKey="user"
+        callback={fetchUsernameChange}
+      />
+      <PasswordSetting />
     </div>
   )
 }
-
-export default Settings

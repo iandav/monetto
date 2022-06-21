@@ -1,7 +1,6 @@
 import React from "react"
 import DashboardNavbar from "../../components/DashboardNavbar/DashboardNavbar"
-import { DashboardHeader } from "../../components"
-import Settings from "../../components/Settings/Settings"
+import { DashboardHeader, Settings } from "../../components"
 import "./SettingsPage.css"
 
 function SettingsPage() {
