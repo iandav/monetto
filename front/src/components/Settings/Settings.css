@@ -30,6 +30,7 @@
   margin-top: 5px;
   padding: 4px 0 4px 0;
   outline: none;
+  margin-right: 20px;
 }
 
 .setting__input:enabled {
@@ -76,4 +77,25 @@
   font-size: 12px;
   grid-area: 2 / 1 / 3 / 2;
   height: 12px;
+}
+
+.password-setting {
+  grid-template: 1fr 1fr 12px / 1fr 80px 80px;
+}
+
+.password-setting__label--primary {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.password-setting__label--secondary {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.password-setting__btn--edit {
+  grid-area: 1 / 2 / 2 / 4;
+  width: 100%;
+}
+
+.password-setting__error {
+  grid-area: 3 / 1 / 4 / 2;
 }

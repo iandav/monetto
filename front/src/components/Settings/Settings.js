@@ -34,6 +34,7 @@ export default function Settings() {
         storageKey="user"
         callback={fetchUsernameChange}
       />
+      <PasswordSetting />
     </div>
   )
 }
